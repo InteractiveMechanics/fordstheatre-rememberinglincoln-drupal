@@ -1,0 +1,420 @@
+<html>
+<head>
+	<title>Remembering Lincoln</title>
+
+
+	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
+
+	<style type="text/css">
+.post img {
+    width: 100%;
+}
+ 
+.post{
+  z-index: 999;
+  position: relative;
+}
+
+.post .save-icon {
+	position: absolute;
+	top:20;
+	right: 20;
+	cursor: pointer;
+}
+
+.post p {
+	margin:6px 0;
+}
+
+.post p.date {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.post p.title {
+	font-size: 16px;
+}
+
+/*
+   Spezific styling for salvattore
+   Feel free to edit it as you like
+   More info at http://salvattore.com
+ */
+ 
+/* Salvattore Base Styles */
+.column {
+    float: left;
+}
+.size-1of4 {
+    width: 25%;
+}
+.size-1of3 {
+    width: 33.333%;
+}
+.size-1of2 {
+    width: 50%;
+}
+ 
+/* Configurate salvattore with media queries */
+@media screen and (max-width: 450px) {
+    #posts[data-columns]::before {
+        content: '2 .column.size-1of1';
+    }
+    .post{
+    	padding: 17px;
+    }
+}
+ 
+@media screen and (min-width: 451px) and (max-width: 850px) {
+    #posts[data-columns]::before {
+        content: '3 .column.size-1of2';
+    }
+    .post{
+    	padding: 14px;
+    }
+}
+ 
+@media screen and (min-width: 851px) {
+    #posts[data-columns]::before {
+        content: '4 .column.size-1of4';
+    }
+    .post{
+    	padding: 12px;
+    }
+    
+}
+	</style>
+</head>
+<body>
+
+	<div class="site-wrapper">
+
+
+		<div class="hero-unit no-hero-unit">
+
+			<div class="header">
+		    	<nav class="navbar navbar-inverse" role="navigation">
+		    		<div class="container">
+		            	<div class="navbar-header">
+					        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+						    <span class="sr-only">Toggle navigation</span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+					        </button>
+					        <a href="./index.html" class="navbar-brand scroll-top">Remembering Lincoln</a>
+		            	</div>
+		            	<!--/.navbar-header-->
+					    <div id="main-nav" class="collapse navbar-collapse">
+					        <ul class="nav navbar-nav pull-right">
+				            	<li>
+				            		<a href="./index.html" class="scroll-link" data-id="mission">
+				            			Explore the Exhibit
+				            		</a>
+				            	</li>
+
+						    	<li>
+						    		<a href="./browse.html" class="scroll-link" data-id="products">
+						    			Browse Responses
+						    		</a>
+						    	</li>
+
+						    	<li>
+						    		<a href="./connect.html" class="scroll-link" data-id="team">
+						    			For Teachers
+						    		</a>
+						    	</li>
+
+						    	<li class="divider-vertical"></li>
+
+						    	<li class="collection-list">
+						    		<ul>
+						    			<li style="margin-right:12px;" class="collection-number">
+						    				<p>0</p>
+						    			</li>
+						    			<li class="collection-text">
+						    				My <br />
+						    				Collection
+						    			</li>
+						    		</ul>
+						    	</li>
+					        </ul>
+					    </div>
+			    		<!--/#main-nav.navbar-collapse-->
+					</div>
+				</nav>
+		        <!--/.navbar-->
+			</div>
+			<!--/.header-->
+		</div> <!-- .hero-unit-->
+
+
+		<div class="partner-page-header">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-12">
+						<a href="" class="back-link">&laquo; Return to Partners List</a>
+						<br />
+						<img src="./images/washington.jpg" class="img-responsive" alt="Partner" />
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="partner-page">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-9">
+						<p class="information">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+
+						<p class="information">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+						</p>
+					</div>
+
+					<div class="col-md-3">
+						<ul>
+							<li>
+								<p class="header">
+									Website
+								</p>
+								<br />
+								<p class="detail">
+									<a href="http://dchistory.org">http://dchistory.org</a>
+								</p>
+							</li>
+
+							<li>
+								<p class="header">
+									Contact Information
+								</p>
+								<p class="detail">
+									
+									John Smith <br /> 
+									jsmith@dchistory.org <br />
+									(123) 456-7890
+									
+								</p>
+							</li>
+
+							<li>
+								<p class="header">
+									Address
+								</p>
+								<p class="detail">
+									<address>
+										801 K Street NW <br /> 
+										Washington D.C., 20001
+									</address>
+								</p>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="browse-items partner-items">
+			
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div id="posts" data-columns>
+							<div class="post">
+								<img src="http://placehold.it/480x500" />
+								<p class="title">
+									Letters signed Ellen Kean, New York, to Sol Smith, May 4, 1865, part 7
+								</p>
+								<p class="date">
+									Flyer from Jan. 1, 1860
+								</p>
+								<div class="save-icon hidden-xs">
+									<img style="width:20px; height:20px;" src="./images/save-icon.png" alt="Save Icon" />
+								</div>
+							</div>
+							<div class="post">
+								<img src="http://placehold.it/380x300" />
+								<p class="title">
+									Letters signed Ellen Kean
+								</p>
+								<p class="date">
+									Flyer from Jan. 1, 1860
+								</p>
+								<div class="save-icon hidden-xs ">
+									<img style="width:20px; height:20px;" src="./images/save-icon.png" alt="Save Icon" />
+								</div>
+							</div>
+							<div class="post">
+								<img src="http://placehold.it/480x500" />
+								<p class="title">
+									New York, to Sol Smith, May 4, 1865, part 7
+								</p>
+								<p class="date">
+									Flyer from Jan. 1, 1860
+								</p>
+								<div class="save-icon hidden-xs ">
+									<img style="width:20px; height:20px;" src="./images/save-icon.png" alt="Save Icon" />
+								</div>
+							</div>
+							<div class="post">
+								<img src="http://placehold.it/280x400" />
+								<p class="title">
+									Letters signed Ellen Kean, New York, to Sol Smith, May 4, 1865, part 7
+								</p>
+								<p class="date">
+									Flyer from Jan. 1, 1860
+								</p>
+								<div class="save-icon hidden-xs ">
+									<img style="width:20px; height:20px;" src="./images/save-icon.png" alt="Save Icon" />
+								</div>
+							</div>
+							
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="footer">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-5">
+
+						<ul class="info-list no-style">
+							<li>
+								<img src="./images/logo.jpg" alt="Logo" />
+							</li>
+
+							<li>
+								<ul>
+									<li class="title">Remembering Lincoln</li>
+									<li>
+										<address>
+											Ford's Theatre       <br />
+											511 Tenth St, NW     <br />
+											Washington, DC 20004 
+										</address>
+									</li>
+									<li class="small">
+										Copyright 2014 <a href="javascript:void(0);">Ford's Theatre</a>
+										<br />
+										All Objects and images copyright their respective <br />
+										instutitions.
+									</li>
+									<br />
+									<li class="small">
+										This project was made possible in part by the <br />
+										Institute of Museum and Library Services <br />
+										grant number MA-10-13-0274-13
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="col-md-7 hidden-sm hidden-xs">
+
+						<ul class="footer-links">
+							<li>
+								<ul>
+									<li class="title">Exhibit</li>
+									<li><a href="javascript:void(0);">Introduction</a></li>
+									<li><a href="javascript:void(0);">Events</a></li>
+									<li><a href="javascript:void(0);">Places</a></li>
+									<li><a href="javascript:void(0);">People</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<ul>
+									<li class="title">Responses</li>
+									<li><a href="javascript:void(0);">Browse all items</a></li>
+									<li><a href="javascript:void(0);">View collections</a></li>
+									<li><a href="javascript:void(0);">Submit an item</a></li>
+									<br />
+									<li class="title">For Teacher</li>
+									<li><a href="javascript:void(0);">Teaching modules</a></li>
+									<li><a href="javascript:void(0);">Submit a module</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<ul>
+									<li class="title">About this project</li>
+									<li><a href="javascript:void(0);">Resources</a></li>
+									<li><a href="javascript:void(0);">Partners</a></li>
+									<li><a href="javascript:void(0);">Documentation</a></li>
+									<li><a href="javascript:void(0);">Terms of Use</a></li>
+									<li><a href="javascript:void(0);">Ford's Theatre blog</a></li>
+									<li><a href="javascript:void(0);">Contact Us</a></li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div> <!-- ./container -->
+
+		</div>
+
+	</div>
+
+	<script src="./js/salvattore.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function({
+
+			$('.save-icon').click(function(){
+
+				var collection_items = localStorage.getItem("collections-items");
+
+				if(collection_items) {
+					var collection_item = 'sdf';//$(this).data('collection-item-id');
+
+					var collection_array = JSON.parse(collection_items);
+					collection_array.push(collection_item);
+
+					localStorage.getItem("collections-items");
+					localStorage.setItem("collections-items", JSON.stringify(collection_array));
+
+					var item_count = collection_array.length;
+				}
+
+			});
+
+		}));
+	</script>
+
+</body>
+</html>
