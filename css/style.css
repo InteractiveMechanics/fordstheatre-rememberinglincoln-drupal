@@ -3,16 +3,83 @@ body {
     padding: 0px;
 }
 
+h1 {
+	font-family: "minion pro";
+	font-weight: 400;
+	font-size: 48px;
+}
+
+h2 {
+	font-family: "minion pro";
+	font-size:36px;
+}
+
+h3 {
+	font-family: "minion pro";
+	font-size:24px;
+}
+
+h4 {
+    text-transform: uppercase;
+    color:#BFB9B6;
+    font-size: .9em;
+    font-family: "myriad pro";
+    font-weight: 600;
+}
+
+p {
+	font-family: "myriad pro";
+	color:#808080;
+	font-size: 27px;
+	line-height: 48px;
+	font-weight: 300;
+}
+
+p.lead {
+	font-family: "myriad pro";
+	color:#808080;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 300;	
+}
+
+a {
+	font-family: "myriad pro";
+}
+
 .navbar-inverse {
     border-radius: 0px;
     background: rgba(0, 0, 0, .8);
 
 }
 
+a.navbar-brand {
+	font-weight: 700;
+	font-size: 21px;
+	text-transform: uppercase;
+	color:white;
+}
+
+.navbar-nav>li>a {
+	padding-top: 18px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color:whitesmoke;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+	color:#eeeeee;
+}
+
+.collection-list {
+	padding-top: 5px;
+}
+
 .collection-list ul {
     margin: 0px;
     color:#9e9b98;
-    padding: 0px 12px;
+    padding: 0px 12px 0;
 }
 
 .collection-list ul li{
@@ -53,6 +120,7 @@ body {
     float: none;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
 }
 
 .gray-area {
@@ -63,23 +131,18 @@ body {
 
 .btn-outline {
     background: none;
-    border: 2px solid #007fc6;
-    font-weight: 700;
-    font-size: 15px;
+    border: 2px solid #b00f3b;
+    font-weight: 600;
+    font-size: 20px;
     font-style: italic;
     border-radius: 99px;
-    padding: 12px 22px 14px;
-    color: #007fc6;
+    padding: 14px 22px 12px;
+    color: #b00f3b;
 }
 
 .btn-outline:hover {
-    background: #007fc6;
-    border: 2px solid #007fc6;
-    font-weight: 700;
-    font-size: 15px;
-    font-style: italic;
-    border-radius: 99px;
-    padding: 12px 22px 14px;
+    background: #b00f3b;
+    border: 2px solid #b00f3b;
     color: white;
 }
 
@@ -111,25 +174,13 @@ body {
     text-align: left;
 }
 
-.homepage-blog-section .recent-blog-item  p.date {
-    font-weight: bold;
-    color:#ccc;
-    font-size:14px;
-    text-transform: uppercase;
-}
-
-.homepage-blog-section .recent-blog-item  h3 {
-    margin: 5px 0;
-    font-size: 24px;
-}
-
-.homepage-blog-section .recent-blog-item  h3 a {
-    color:434343;
+.homepage-blog-section .recent-blog-item  p.lead a {
+    color:black;
     font-style: normal;
 }
 
 .homepage-blog-section .recent-blog-item  a {
-    color: #cc003f;
+    color: #b00f3b;
     font-style: italic;
 }
 
@@ -149,13 +200,13 @@ body {
 }
 
 .menu-detail-area .header-row h1 {
-    font-size: 36px;
+    font-size: 48px;
+    font-family: "myriad pro";
     margin: 0px;
 }
 
 .menu-detail-area .information-row p {
-    line-height: 35px;
-    font-size: 18px;
+	font-size: 21px;
 }
 
 .menu-detail-area .information-row .menu ul {
@@ -180,11 +231,11 @@ body {
 
 .menu-detail-area .information-row .menu ul li a:hover {
     text-decoration: none;
-    color:#0088cc;
+    color:#b00f3b;
 }
 
 .menu-detail-area .information-row .menu ul li.active a {
-    color:#0088cc;
+    color:#b00f3b;
 }
 
 .introduction-info {
@@ -206,14 +257,14 @@ body {
 }
 
 .people-sub-section .people-sub-info p {
-    line-height: 35px;
-    font-size: 18px;
+    line-height: 40px;
+    font-size: 21px;
 }
 
 .people-sub-section .social-card {
     max-width: 480px;
     background-color: #8b0029;
-    padding: 80px 35px 35px;
+    padding: 40px 35px 35px;
     margin-top: 10px;
 }
 
@@ -224,25 +275,30 @@ body {
 
 .people-sub-section .social-card p.hashtag {
     font-weight: bold;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .people-sub-section .social-card p.message {
     font-size: 20px;
-    margin:15px 0;
+    margin:5px 0;
+    line-height: 30px;
 }
 
 .introduction-sub-section .sub-section-item h2 {
-    margin:15px 0;
+    font-size: 36px;
+    margin: 0px;
+    margin: 30px 0 10px;
 }
 
 .introduction-sub-section .sub-section-item p {
-    font-size: 13px;   
+    font-size: 18px;   
     margin: 0px;
+    line-height: 30px;
 }
 
 .introduction-sub-section .sub-section-item h2 a {
     color:black;
+    font-family: "minion pro";
 }
 
 .introduction-sub-section ul li a {
@@ -300,26 +356,26 @@ body {
 }
 
 .view-people-area .person .related-info ul li {
-    color:#b2003a;
+    color:#b00f3b;
     font-style: italic;
     font-weight: bold;
 }
 
 .view-people-area .person .related-info ul li a {
-    color:#b2003a;
+    color:#b00f3b;
 }
 
 .browse-header {
     margin-bottom: 35px;
 }
 
-.browse-header p, h1{
+.browse-header p, h2{
     margin: 0px;
     padding: 0px;
 }
 
 .browse-header h1 {
-    font-weight:normal;
+	margin: 0px;
 }
 
 .browse-header p {
@@ -393,12 +449,12 @@ ul.partner-list li {
 
 .next-section-area {
     background-color: #f1f1f1;
-    padding: 35px 0;
+    padding: 20px 0;
     margin-top: 30px;
 }
 
 .next-section-area h2 {
-    font-size:21px;
+    font-size:25px;
 }
 
 .next-section-area h2, p{
@@ -407,7 +463,9 @@ ul.partner-list li {
 }
 
 .next-section-area h2 a{
-    color:#c9003d;
+    color:#b00f3b;
+    font-family: "minion pro";
+    font-style: italic;
 }
 
 .next-section-area h2 a:hover{
@@ -450,13 +508,15 @@ ul.partner-list li {
 }
 
 .footer ul.footer-links li.title {
-    color:#eeeeee;
+    color:#000;
     font-weight: bold;
+    font-family: "minion pro";
+    font-size: 16px;
 }
 
 .footer ul.footer-links li a {
-    color:#bababa;
-    font-size: 13px;
+    color:#424242;
+    font-size: 14px;
 }
 
 .footer ul.no-style {
@@ -492,9 +552,25 @@ ul.partner-list li {
     font-weight: bold;
 }
 
+.footer .logo-image {
+	margin:0 0 15px 0;
+}
+
 .footer ul.info-list li a {
     color:#bababa;
     font-weight: bold;
+}
+
+.footer .left-footer-col p {
+	line-height: 20px;
+	color:#4f4f4f;
+	margin: 15px 0 0;
+}
+
+.footer .left-footer-col p a {
+	color:#000;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 .full-row > .col-md-6 {
@@ -517,10 +593,13 @@ ul.partner-list li {
 .gray-gradient ul li p {
     margin: 0px;
     padding: 0px;
+    font-size: 13px;
+	line-height: 20px;
+	color: black;
 }
 
-.gray-gradient ul li p.title {
-    margin-bottom: 10px;
+.gray-gradient ul li h4.title {
+    font-weight: 600;
 }
 
 .gray-gradient ul li ul.tags li {
@@ -531,9 +610,12 @@ ul.partner-list li {
     margin-bottom: 7px;
 }
 
+.gray-gradient ul li ul.tags li h5 {
+    margin: 1px;
+    font-size: 12px;
+}
+
 .gray-gradient ul li ul li a {
-    font-size:12px;
-    font-weight: bold;
     color:white;
 }
 
@@ -584,10 +666,9 @@ ul.partner-list li {
     margin-bottom: 25px;
 }
 
-.related-content .related-item p, h3 {
-    margin: 0px;
-    padding: 0px;
-    margin-bottom: 6px;
+.related-content .related-item p {
+    line-height: 20px;
+	font-size: 18px;
 }
 
 .related-content .related-item p.title {
@@ -598,7 +679,7 @@ ul.partner-list li {
 
 
 .related-content .related-item h3{
-    font-weight: normal;
+    margin-top:10px;
 }
 
 
@@ -651,13 +732,14 @@ ul.partner-list li {
     text-decoration: underline;
     font-weight: bold;
     font-size: 15px;
+    color:#b00f3b;
     font-style: italic;
 }
 
 .curated-content .curated-row-item h2 {
     font-size: 25px;
     font-weight: normal;
-    margin: 7px 0 0;
+    margin: 15px 0 0;
 }
 
 .curated-content .curated-row-item p {
@@ -678,7 +760,8 @@ ul.partner-list li {
 }
 
 .curated-collection-list .curated-info h3 a {
-    color:#222;
+    color:#000;
+    font-family: "minion pro";
 }
 
 .curated-collection-list .curated-info p.author {
@@ -688,8 +771,9 @@ ul.partner-list li {
 }
 
 .curated-collection-list .curated-info p.description {
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 30px;
+    
 }
 
 .curated-collection-list .curated-row-item {
@@ -701,8 +785,11 @@ ul.partner-list li {
 }
 
 .partner-page-header a {
-    font-size: 13px;
-    font-weight: bold;
+    text-transform: uppercase;
+    color:#BFB9B6;
+    font-size: .9em;
+    font-family: "myriad pro";
+    font-weight: 600;
 }
 
 .partner-page-header img {
@@ -716,8 +803,8 @@ ul.partner-list li {
 }
 
 .partner-page p.information {
-    line-height: 29px;
-    font-size: 15px;
+    line-height: 30px;
+    font-size: 16px;
     margin-bottom: 20px;
 }
 
@@ -739,7 +826,9 @@ ul.partner-list li {
 
 .partner-page ul li p.detail {
     font-size: 15px;
-    margin: 2px 0;
+	line-height: 20px;
+	color: black;
+	margin: 2px 0;
 }
 
 .partner-page ul li p.detail a {
@@ -791,13 +880,16 @@ ul.partner-list li {
 }
 
 .module-page-header {
-    margin-bottom: 32px;
+    margin-bottom: 10px;
 }
 
 
 .module-page-header a {
-    font-size: 13px;
-    font-weight: bold;
+    text-transform: uppercase;
+    color:#BFB9B6;
+    font-size: .9em;
+    font-family: "myriad pro";
+    font-weight: 600;
 }
 
 .module-page {
@@ -807,13 +899,13 @@ ul.partner-list li {
 }
 
 .module-page h3 {
-    margin: 25px 0 15px;
+    margin-top: 10px;
 }
 
 .module-page p.information {
-    line-height: 29px;
-    font-size: 15px;
-    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .module-page ul.details {
@@ -826,6 +918,10 @@ ul.partner-list li {
     list-style: none;
 }
 
+.module-page ul.details li h4 {
+    margin: 7px 0 10px;
+}
+
 .module-page ul.details li p.header {
     font-size: 13px;
     margin: 4px 0;
@@ -834,6 +930,8 @@ ul.partner-list li {
 
 .module-page ul.details li p.detail {
     font-size: 15px;
+    line-height: 20px;
+    color:black;
     margin: 2px 0;
 }
 
@@ -847,6 +945,7 @@ ul.partner-list li {
 
 .module-page ul.downloads li p {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .module-page ul.downloads li a {
@@ -873,12 +972,12 @@ ul.partner-list li {
 
 .module-items .module-item  h3.title {
     font-weight: normal;
-    margin-bottom: 15px;
+    margin: 10px 0;
 }
 
 .module-items .module-item  p.description {
-    font-size: 14px;
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 30px;
 }
 
 .dark-gray {
@@ -896,22 +995,32 @@ ul.partner-list li {
     margin: 30px 0;
 }
 
-
+.about-info {
+	margin-bottom: 80px;
+}
 
 .about-info .center-content p:first-letter {
-    font-weight: normal;
+    font-weight: bold;
     float: left;
     display: block;
-    margin: .08em .05em -.4em 0;
-    color: #e60000;
+    margin: .08em .25em 0 0;
+    color: #000;
     font-style: normal;
-    font-size: 5em;
+    font-size: 4.5em;
     line-height: 1;
-    /* color: #ff5a00; */
-    background: -webkit-gradient(linear,left top,left bottom,from(#ff5a00),to(#e60000));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
 }
+
+.about-info p {
+    line-height: 50px;
+    font-family: "minion pro";
+    font-size: 20px;
+    color:black;
+}
+
+
+
 @media (max-width: 767px) {
 
     .browse-details .browse-photo .photo {
@@ -942,4 +1051,158 @@ ul.partner-list li {
     .navbar-collapse .nav > .divider-vertical {
         display: none;
       }
+}
+
+.post img {
+    width: 100%;
+}
+ 
+.post{
+  z-index: 999;
+  position: relative;
+}
+
+.post .save-icon {
+	position: absolute;
+	top:20;
+	right: 20;
+	cursor: pointer;
+}
+
+.post p {
+	margin:6px 0;
+	line-height: 20px;
+	color:black;
+}
+
+.post p.date {
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.post p.title {
+	font-size: 16px;
+	
+}
+
+/*
+   Spezific styling for salvattore
+   Feel free to edit it as you like
+   More info at http://salvattore.com
+ */
+ 
+/* Salvattore Base Styles */
+.column {
+    float: left;
+}
+.size-1of4 {
+    width: 25%;
+}
+.size-1of3 {
+    width: 33.333%;
+}
+.size-1of2 {
+    width: 50%;
+}
+
+
+ 
+/* Configurate salvattore with media queries */
+@media screen and (max-width: 450px) {
+    #posts[data-columns]::before {
+        content: '2 .column.size-1of1';
+    }
+    .post{
+    	padding: 17px;
+    }
+}
+ 
+@media screen and (min-width: 451px) and (max-width: 850px) {
+    #posts[data-columns]::before {
+        content: '3 .column.size-1of2';
+    }
+    .post{
+    	padding: 14px;
+    }
+}
+ 
+@media screen and (min-width: 851px) {
+    #posts[data-columns]::before {
+        content: '4 .column.size-1of4';
+    }
+    .post{
+    	padding: 12px;
+    }
+    
+}
+
+
+/** Mobile Navigation **/
+
+.site-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.site-canvas {
+	width: 100%;
+	position: relative;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	-webkit-transition: .3s ease all;
+	transition: .3s ease all;
+}
+
+.mobile-menu-area {
+	width: 88%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: -88%;
+	background: rgba(0, 0, 0, .8);
+	font-family: "myriad pro";
+}
+
+.mobile-menu-area ul {
+	margin: 0px; 
+	padding: 0px;
+}
+
+.mobile-menu-area ul li{
+	list-style: none;
+	padding: 10px 40px;
+	border-bottom: 1px solid #777;
+	color:white;
+	font-weight: bold;
+}
+
+.mobile-menu-area ul li.title{
+	padding: 15px 20px 11px;
+	border-width: 3px;
+	font-weight: normal;
+	font-size: 16px;
+	
+}
+
+.mobile-menu-area ul li a{
+	color:white;
+}
+
+
+.site-wrapper.show-nav .site-canvas {
+	-webkit-transform: translateX(88%);
+	transform: translateX(88%);
+}
+
+
+.mobile-navbar {
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+	padding: 12px 20px;
+}
+
+.mobile-navbar .toggle-nav {
+	cursor: pointer;
 }

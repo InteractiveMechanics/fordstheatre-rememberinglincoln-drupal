@@ -5,319 +5,422 @@
 
 	<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<script src="http://use.typekit.net/zey0etx.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+	
+	
+	<style type="text/css" media="screen">
+		.site-wrapper {
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+		}
+		
+		.site-canvas {
+			width: 100%;
+			position: relative;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+			-webkit-transition: .3s ease all;
+			transition: .3s ease all;
+		}
+		
+		.mobile-menu-area {
+			width: 88%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: -88%;
+			background: rgba(0, 0, 0, .8);
+			font-family: "myriad pro";
+		}
+		
+		.mobile-menu-area ul {
+			margin: 0px; 
+			padding: 0px;
+		}
+		
+		.mobile-menu-area ul li{
+			list-style: none;
+			padding: 10px 40px;
+			border-bottom: 1px solid #777;
+			color:white;
+			font-weight: bold;
+		}
+		
+		.mobile-menu-area ul li.title{
+			padding: 15px 20px 11px;
+			border-width: 3px;
+			font-weight: normal;
+			font-size: 16px;
+			
+		}
+		
+		.mobile-menu-area ul li a{
+			color:white;
+		}
+		
+		
+		.site-wrapper.show-nav .site-canvas {
+			-webkit-transform: translateX(88%);
+			transform: translateX(88%);
+		}
+
+
+		.mobile-navbar {
+			border-bottom: 1px solid #ccc;
+			height: 50px;
+			padding: 12px 20px;
+		}
+		
+		.mobile-navbar .toggle-nav {
+			cursor: pointer;
+		}
+	</style>
+
+	<script type="text/javascript">
+		$(function() {
+			$('.toggle-nav').click(function() {
+				toggleNav();
+			});
+		});
+
+		function toggleNav() {
+			if ($('.site-wrapper').hasClass('show-nav')) {
+				// Do things on Nav Close
+				$('.site-wrapper').removeClass('show-nav');
+			} else {
+				// Do things on Nav Open
+				$('.site-wrapper').addClass('show-nav');
+			}
+		}
+	</script>
 </head>
 <body>
 
 	<div class="site-wrapper">
+		<div class="site-canvas">
+			
+			<div class="hero-unit">
+	
+				<div class="header">
+					
+					<div class="visible-sm visible-xs">
+						<div class="mobile-navbar">
+							<span class="glyphicon glyphicon-align-justify toggle-nav" aria-hidden="true"></span><h3 style="margin: 0px 0 0 15px; display:inline; font-size:20px;">Remembering Lincoln</h3>
+						</div>
+						
+						<div class="mobile-menu-area">
+							<ul class="mobile-menu-list">
+								<li class="title">Exhibit</li>
+								<li><a href="javascript:void(0);">Introduction</a></li>
+								<li><a href="javascript:void(0);">Events</a></li>
+								<li><a href="javascript:void(0);">Places</a></li>
+								<li><a href="javascript:void(0);">People</a></li>
+	
+								<li class="title">Browse All Responses</li>
+								<li class="title">Curated Collection</li>
+	
+								<li class="title">About This Project</li>
+								<li><a href="javascript:void(0);">Resources</a></li>
+								<li><a href="javascript:void(0);">Partners</a></li>
+								<li><a href="javascript:void(0);">Documentation</a></li>
+								<li><a href="javascript:void(0);">Terms of Use</a></li>
+								<li><a href="javascript:void(0);">Ford's Theatre blog</a></li>
+								<li><a href="javascript:void(0);">Contact Us</a></li>
+							</ul>
+						</div>
 
-
-		<div class="hero-unit">
-
-			<div class="header">
-		    	<nav class="navbar navbar-inverse" role="navigation">
-		    		<div class="container">
-		            	<div class="navbar-header">
-					        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-						    <span class="sr-only">Toggle navigation</span>
-						    <span class="icon-bar"></span>
-						    <span class="icon-bar"></span>
-						    <span class="icon-bar"></span>
-					        </button>
-					        <a href="./index.html" class="navbar-brand scroll-top">Remembering Lincoln</a>
-		            	</div>
-		            	<!--/.navbar-header-->
-					    <div id="main-nav" class="collapse navbar-collapse">
-					        <ul class="nav navbar-nav pull-right">
-				            	<li>
-				            		<a href="./index.html" class="scroll-link" data-id="mission">
-				            			Explore the Exhibit
-				            		</a>
-				            	</li>
-
-						    	<li>
-						    		<a href="./browse.html" class="scroll-link" data-id="products">
-						    			Browse Responses
-						    		</a>
-						    	</li>
-
-						    	<li>
-						    		<a href="./connect.html" class="scroll-link" data-id="team">
-						    			For Teachers
-						    		</a>
-						    	</li>
-
-						    	<li class="divider-vertical"></li>
-
-						    	<li class="collection-list">
-						    		<ul>
-						    			<li style="margin-right:12px;" class="collection-number">
-						    				<p>0</p>
-						    			</li>
-						    			<li class="collection-text">
-						    				My <br />
-						    				Collection
-						    			</li>
-						    		</ul>
-						    	</li>
-					        </ul>
-					    </div>
-			    		<!--/#main-nav.navbar-collapse-->
 					</div>
-				</nav>
-		        <!--/.navbar-->
+									
+			    	<nav class="navbar navbar-inverse hidden-xs hidden-sm" role="navigation">
+			    		<div class="container">
+			            	<div class="navbar-header">
+						        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+							    <span class="sr-only">Toggle navigation</span>
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+						        </button>
+						        <a href="./index.html" class="navbar-brand scroll-top">Remembering Lincoln</a>
+			            	</div>
+			            	<!--/.navbar-header-->
+						    <div id="main-nav" class="collapse navbar-collapse">
+						        <ul class="nav navbar-nav pull-right">
+					            	<li>
+					            		<a href="./index.html" class="scroll-link" data-id="mission">
+					            			Explore the Exhibit
+					            		</a>
+					            	</li>
+	
+							    	<li>
+							    		<a href="./browse.html" class="scroll-link" data-id="products">
+							    			Browse Responses
+							    		</a>
+							    	</li>
+	
+							    	<li>
+							    		<a href="./connect.html" class="scroll-link" data-id="team">
+							    			For Teachers
+							    		</a>
+							    	</li>
+	
+							    	<li class="divider-vertical"></li>
+	
+							    	<li class="collection-list">
+							    		<ul>
+							    			<li style="margin-right:12px;" class="collection-number">
+							    				<p>0</p>
+							    			</li>
+							    			<li class="collection-text">
+							    				My <br />
+							    				Collection
+							    			</li>
+							    		</ul>
+							    	</li>
+						        </ul>
+						    </div>
+				    		<!--/#main-nav.navbar-collapse-->
+						</div>
+					</nav>
+			        <!--/.navbar-->
+				</div>
+				<!--/.header-->
+	
+				<div class="hero-unit-message">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 pull-right">
+								<h1>
+									Exploring the <em>life</em>, <em>legacy</em>, and <em>memory</em> of Abraham Lincoln.
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+			</div> <!-- .hero-unit-->
+	
+			<div class="about-info">
+	
+				<div class="center-content col-md-5">
+					<p>
+						W<strong>hen President Lincoln was assassinated</strong>, public reaction varied from grief, to confusion, to celebration. 150 years later, how can the memories and reflections of everydat citizens help us understand what this event meant for the reunited nation and our future in the wake of the Civil War?
+					</p>
+				</div>
+	
+				<div class="text-center">
+					<a href="" class="btn btn-outline">Explore the Exhibit &#8594;</a>
+				</div>
 			</div>
-			<!--/.header-->
-
-			<div class="hero-unit-message">
+	
+			<div class="checkered-view">
+	
+			</div>
+	
+	
+			<div class="homepage-blog-section">
+	
 				<div class="container">
+					
 					<div class="row">
-						<div class="col-md-6 pull-right">
-							<h1>
-								Exploring the <em>life</em>, <em>legacy</em>, and <em>memory</em> of Abraham Lincoln.
-							</h1>
+						<div class="col-md-12">
+							<h2>
+								From the Blog
+							</h2>
+						</div>
+					</div>
+	
+					<div class="row">
+						<div class="col-md-4">
+							
+							<div class="recent-blog-item">
+								<h4 class="date">
+									December 30, 2014
+								</h4>
+	
+								<p class="lead">
+									<a href="javascript: void(0);">
+										Remembering Lincoln: Detroit Mourns President Lincoln
+									</a>
+								</p>
+	
+								<a href="javascript: void(0)">
+									<strong>Read article &raquo;</strong>
+								</a>
+							</div>
+	
+						</div>
+	
+						<div class="col-md-4 hidden-xs">
+							
+							<div class="recent-blog-item">
+								<h4 class="date">
+									December 30, 2014
+								</h4>
+	
+								<p class="lead">
+									<a href="javascript: void(0);">
+										Remembering Lincoln: Detroit Mourns President Lincoln
+									</a>
+								</p>
+	
+								<a href="javascript: void(0)">
+									<strong>Read article &raquo;</strong>
+								</a>
+							</div>
+	
+						</div>
+	
+						<div class="col-md-4 hidden-xs">
+							
+							<div class="recent-blog-item">
+								<h4 class="date">
+									December 30, 2014
+								</h4>
+	
+								<p class="lead">
+									<a href="javascript: void(0);">
+										Remembering Lincoln: Detroit Mourns President Lincoln
+									</a>
+								</p>
+	
+								<a href="javascript: void(0)">
+									<strong>Read article &raquo;</strong>
+								</a>
+							</div>
+	
+						</div>
+					</div>
+	
+				</div>
+	
+			</div>
+	
+	
+			<div class="gray-area hidden-xs">
+				<div class="container">
+	
+					<div class="row">
+						<div class="col-md-12">
+							<h2>
+								Institutional Partners
+							</h2>
+						</div>
+					</div>
+	
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="list-inline text-center partner-list">
+	
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);">
+										<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
+									</a>
+								</li>
+	
+							</ul>
 						</div>
 					</div>
 				</div>
-			</div>
-
-		</div> <!-- .hero-unit-->
-
-		<div class="about-info">
-
-			<div class="center-content col-md-5">
-				<p>
-					Worem ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-
-			<div class="text-center">
-				<a href="" class="btn btn-outline">Explore the Exhibit &#8594;</a>
-			</div>
-		</div>
-
-		<div class="checkered-view">
-
-		</div>
-
-
-		<div class="homepage-blog-section">
-
-			<div class="container">
-				
-				<div class="row">
-					<div class="col-md-12">
-						<h1>
-							From the Blog
-						</h1>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-4">
-						
-						<div class="recent-blog-item">
-							<p class="date">
-								December 30, 2014
+			</div> <!-- ./gray-area -->
+	
+	
+			<div class="footer">
+				<div class="container">
+	
+					<div class="row">
+						<div class="col-md-4 col-xs-12 left-footer-col">
+							<div class="logo-image">
+								<img src="./images/logo.png" alt="Logo" class="img-responsive"/>
+							</div>
+							<p class="small">
+								Copyright 2014 <a href="javascript:void(0);">Ford's Theatre</a>
+								<br />
+								All Objects and images copyright their respective instutitions.
 							</p>
-
-							<h3 class="lead">
-								<a href="javascript: void(0);">
-									Remembering Lincoln: Detroit Mourns President Lincoln
-								</a>
-							</h3>
-
-							<a href="javascript: void(0)">
-								Read article &raquo;
-							</a>
-						</div>
-
-					</div>
-
-					<div class="col-md-4 hidden-xs">
-						
-						<div class="recent-blog-item">
-							<p class="date">
-								December 30, 2014
+							
+							<p class="small">
+								This project was made possible in part by the 
+								<a href="javascript: void(0);">Institute of Museum and <br /> Library Services</a>,
+								grant number MA-10-13-0274-13
 							</p>
-
-							<h3 class="lead">
-								<a href="javascript: void(0);">
-									Remembering Lincoln: Detroit Mourns President Lincoln
-								</a>
-							</h3>
-
-							<a href="javascript: void(0)">
-								Read article &raquo;
-							</a>
 						</div>
-
-					</div>
-
-					<div class="col-md-4 hidden-xs">
-						
-						<div class="recent-blog-item">
-							<p class="date">
-								December 30, 2014
-							</p>
-
-							<h3 class="lead">
-								<a href="javascript: void(0);">
-									Remembering Lincoln: Detroit Mourns President Lincoln
-								</a>
-							</h3>
-
-							<a href="javascript: void(0)">
-								Read article &raquo;
-							</a>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-
-		<div class="gray-area hidden-xs">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-md-12">
-						<h1>
-							Institutional Partners
-						</h1>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12">
-						<ul class="list-inline text-center partner-list">
-
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">
-									<img src="./images/partner.jpg" class="img-responsive" alt="Partner" />
-								</a>
-							</li>
-
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div> <!-- ./gray-area -->
-
-
-		<div class="footer">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-md-4 col-xs-12">
-
-						<ul class="info-list no-style">
-							<li>
-								<img src="./images/logo.jpg" alt="Logo" class="img-responsive"/>
-							</li>
-
-							<li>
-								<ul>
-									<li class="title">Remembering Lincoln</li>
-									<li>
-										<address>
-											Ford's Theatre       <br />
-											511 Tenth St, NW     <br />
-											Washington, DC 20004 
-										</address>
-									</li>
-									<li class="small">
-										Copyright 2014 <a href="javascript:void(0);">Ford's Theatre</a>
+	
+						<div class="col-md-8 hidden-sm hidden-xs">
+	
+							<ul class="footer-links">
+								<li>
+									<ul>
+										<li class="title">Exhibit</li>
+										<li><a href="javascript:void(0);">Introduction</a></li>
+										<li><a href="javascript:void(0);">Events</a></li>
+										<li><a href="javascript:void(0);">Places</a></li>
+										<li><a href="javascript:void(0);">People</a></li>
+									</ul>
+								</li>
+	
+								<li>
+									<ul>
+										<li class="title">Responses</li>
+										<li><a href="javascript:void(0);">Browse all items</a></li>
+										<li><a href="javascript:void(0);">View collections</a></li>
+										<li><a href="javascript:void(0);">Submit an item</a></li>
 										<br />
-										All Objects and images copyright their respective <br />
-										instutitions.
-									</li>
-									<br />
-									<li class="small">
-										This project was made possible in part by the <br />
-										Institute of Museum and Library Services <br />
-										grant number MA-10-13-0274-13
-									</li>
-								</ul>
-							</li>
-						</ul>
-
+										<li class="title">For Teacher</li>
+										<li><a href="javascript:void(0);">Teaching modules</a></li>
+										<li><a href="javascript:void(0);">Submit a module</a></li>
+									</ul>
+								</li>
+	
+								<li>
+									<ul>
+										<li class="title">About this project</li>
+										<li><a href="javascript:void(0);">Resources</a></li>
+										<li><a href="javascript:void(0);">Partners</a></li>
+										<li><a href="javascript:void(0);">Documentation</a></li>
+										<li><a href="javascript:void(0);">Terms of Use</a></li>
+										<li><a href="javascript:void(0);">Ford's Theatre blog</a></li>
+										<li><a href="javascript:void(0);">Contact Us</a></li>
+									</ul>
+								</li>
+							</ul>
+	
+						</div>
+	
 					</div>
-
-					<div class="col-md-8 hidden-sm hidden-xs">
-
-						<ul class="footer-links">
-							<li>
-								<ul>
-									<li class="title">Exhibit</li>
-									<li><a href="javascript:void(0);">Introduction</a></li>
-									<li><a href="javascript:void(0);">Events</a></li>
-									<li><a href="javascript:void(0);">Places</a></li>
-									<li><a href="javascript:void(0);">People</a></li>
-								</ul>
-							</li>
-
-							<li>
-								<ul>
-									<li class="title">Responses</li>
-									<li><a href="javascript:void(0);">Browse all items</a></li>
-									<li><a href="javascript:void(0);">View collections</a></li>
-									<li><a href="javascript:void(0);">Submit an item</a></li>
-									<br />
-									<li class="title">For Teacher</li>
-									<li><a href="javascript:void(0);">Teaching modules</a></li>
-									<li><a href="javascript:void(0);">Submit a module</a></li>
-								</ul>
-							</li>
-
-							<li>
-								<ul>
-									<li class="title">About this project</li>
-									<li><a href="javascript:void(0);">Resources</a></li>
-									<li><a href="javascript:void(0);">Partners</a></li>
-									<li><a href="javascript:void(0);">Documentation</a></li>
-									<li><a href="javascript:void(0);">Terms of Use</a></li>
-									<li><a href="javascript:void(0);">Ford's Theatre blog</a></li>
-									<li><a href="javascript:void(0);">Contact Us</a></li>
-								</ul>
-							</li>
-						</ul>
-
-					</div>
-
-				</div>
-
-			</div> <!-- ./container -->
-
+	
+				</div> <!-- ./container -->
+	
+			</div> <!-- ./footer -->
+	
 		</div>
-
 	</div>
 
 
