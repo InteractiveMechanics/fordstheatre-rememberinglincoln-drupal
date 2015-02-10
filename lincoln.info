@@ -1,0 +1,24 @@
+name        = Lincoln
+description = The theme for the remembering lincoln site for Fords Theater by Interactive Mechanics
+screenshot  = zen-internals/screenshot.png
+
+core        = 7.x
+engine      = phptemplate
+
+stylesheets[all][] = /assets/bootstrap/css/bootstrap.min.css
+stylesheets[all][] = /assets/css/style.css
+stylesheets[print][] = /assets/css/print.css
+
+regions[header]         = Header
+regions[navigation]     = Navigation bar
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[content]        = Content
+regions[sidebar_first]  = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer]         = Footer
+regions[bottom]         = Page bottom
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom
+
+
