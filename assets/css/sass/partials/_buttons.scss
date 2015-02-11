@@ -1,28 +1,74 @@
 .btn-outline {
-    background: none;
-    border: 2px solid #b00f3b;
+    background: white;
+    border: 2px solid $fts-red;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     font-style: italic;
     border-radius: 99px;
-    padding: 14px 22px 12px;
-    color: #b00f3b;
+    padding: 12px 30px 14px;
+    color: $fts-red;
+    transition: $fast-trans;
+
+    &:hover {
+        background: $fts-red;
+        border: 2px solid $fts-red;
+        color: white;
+    }
+
+
+    &.btn-gray {
+        border: 2px solid $midgray;
+        color: $midgray;
+        background-color: white;
+    
+        &:hover {
+            border: 2px solid $midgray;
+            background-color: $midgray;
+            color: white;
+        }
+    }
+
+    span {
+        font-style: normal;
+        font-family: Arial;
+        font-size: 21px;
+        line-height: 10px;
+        margin-left: 8px;
+    }
 }
 
-.btn-outline:hover {
-    background: #b00f3b;
-    border: 2px solid #b00f3b;
+.btn-reset {
+    background: none;
+    border: 2px solid $midgray;
+    color: $midgray;
+    font-style: italic;
+    border-radius: 99px;
+    font-size: 12px;
+    transition: $fast-trans;
+
+    &:hover {
+        border: 2px solid $midgray;
+        background: $midgray;
+        color: white;
+    }
+}
+
+.save-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 400;
     color: white;
-}
+    cursor: pointer;
+    transition: $fast-trans;
+    z-index: 99;
+    text-shadow: 0 0 10px rgba(0,0,0,0.45);
 
-.btn-gray {
-    border:2px solid #b2b2b2;
-    color:#b2b2b2;
-    background-color: white;
-}
-
-.btn-gray:hover {
-    border:2px solid #b2b2b2;
-    background-color:#b2b2b2;
-    color:white;
+    &.object-added {
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
 }

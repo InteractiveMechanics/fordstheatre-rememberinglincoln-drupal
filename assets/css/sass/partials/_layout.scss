@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    font-family: "myriad-pro";
 }
 
 .site-wrapper {
@@ -19,11 +20,6 @@ body {
     	transform: translateX(88%);
     }
 }
-.header {
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
 
 .print-view {
 	display: none;
@@ -33,19 +29,10 @@ body {
 .hero-unit {
     background: #f5f5f5;
     width: 100%;
-    height: 500px;
-    margin-bottom:85px;
+    height: 700px;
+    margin-bottom: 85px;
+    border-bottom: 6px solid $warmgray;
 }
-.no-hero-unit {
-    height: auto;
-    background: none;
-}
-.browse-hero-unit {
-    background: #f5f5f5;
-    padding: 0 0 0 0;
-    margin-bottom: 50px;
-}
-
 .center-content {
     float: none;
     margin-left: auto;
@@ -53,146 +40,18 @@ body {
     margin-bottom: 30px;
 }
 
-.gray-area {
-    margin: 30px 0 0;
-    padding: 45px 0 55px;
-    background: #f1f1f1;
-}
 
-.full-row > .col-md-6 {
-  min-height: 1px;
-  padding-left: 0px;
-  padding-right: 0px;
-  position: relative;
-}
-
-.gray-gradient ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-.gray-gradient ul li {
-    list-style: none;
-    margin-bottom: 25px;
-}
-
-.gray-gradient ul li p {
-    margin: 0px;
-    padding: 0px;
-    font-size: 13px;
-	line-height: 20px;
-	color: black;
-}
-
-.gray-gradient ul li h4.title {
-    font-weight: 600;
-}
-
-.gray-gradient ul li ul.tags li {
-    background-color:#415761;
-    border-radius: 6px;
-    padding: 5px 10px;
-    margin-right: 5px;
-    margin-bottom: 7px;
-}
-
-.gray-gradient ul li ul.tags li h5 {
-    margin: 1px;
-    font-size: 12px;
-}
-
-.gray-gradient ul li ul li a {
-    color:white;
-}
-
-.gray-gradient ul li ul li a:hover {
-    text-decoration: none;
-}
-
-.gray-gradient ul li p.title {
-    font-weight: bold;
-    font-size:12px;
-    text-transform: uppercase;
-}
-
-.gray-gradient ul li div.options {
-    margin-top: 35px;
-}
-
-.gray-gradient ul li div.options p {
-    margin-bottom: 8px;
-    font-style: italic;
-    display: block;
-}
-
-.gray-gradient ul li div.options p a {
-    color:#c3003f;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 767px) {
-
-    .browse-details .browse-photo .photo {
-        width: 340px;
+.full-row {
+    > .col-md-5,
+    > .col-md-6,
+    > .col-md-7 {
+        min-height: 1px;
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
     }
-    .footer ul.info-list {
-        margin: 0 auto;
-        width: 480px;
-
-    }
-
-    .footer ul.info-list img {
-        width: 90px;
-    }
-
-    .footer ul.info-list ul {
-        padding-left: 20px;
-    }
-
-    .footer ul.info-list ul li  {
-        font-size: 10px;
-    }
-
-    .footer ul.info-list ul li.small {
-        font-size: 8.5px;
-    }
-
-    .navbar-collapse .nav > .divider-vertical {
-        display: none;
-      }
 }
 
-
-/*
-   Spezific styling for salvattore
-   Feel free to edit it as you like
-   More info at http://salvattore.com
- */
  
 /* Salvattore Base Styles */
 .column {
@@ -210,7 +69,7 @@ body {
 
 
  
-/* Configurate salvattore with media queries */
+/* Configure Salvattore with Media Queries */
 @media screen and (max-width: 450px) {
     #posts[data-columns]::before {
         content: '2 .column.size-1of1';
@@ -236,5 +95,4 @@ body {
     .post{
     	padding: 12px;
     }
-    
 }

@@ -6,6 +6,7 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728208
  */
+ global $base_path;
 ?><!DOCTYPE html>
 <!--[if IEMobile 7]><html class="iem7" <?php print $html_attributes; ?>><![endif]-->
 <!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7" <?php print $html_attributes; ?>><![endif]-->
@@ -14,47 +15,37 @@
 <!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html <?php print $html_attributes . $rdf_namespaces; ?>><!--<![endif]-->
 
 <head>
-  <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
-
-  <?php if ($default_mobile_metatags): ?>
+    <?php print $head; ?>
+    <title><?php print $head_title; ?></title>
+    
     <meta name="MobileOptimized" content="width">
     <meta name="HandheldFriendly" content="true">
-    <meta name="viewport" content="width=device-width,initial-zoom=1,maximum-zoom=1">
-  <?php endif; ?>
-  <meta http-equiv="cleartype" content="on">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="cleartype" content="on">
+    
+    <?php print $styles; ?>
+    <?php print $scripts; ?>
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script src="//use.typekit.net/zey0etx.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
-  
- 
-  <?php if ($add_html5_shim and !$add_respond_js): ?>
-    <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5.js"></script>
-    <![endif]-->
-  <?php elseif ($add_html5_shim and $add_respond_js): ?>
-    <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/html5-respond.js"></script>
-    <![endif]-->
-  <?php elseif ($add_respond_js): ?>
-    <!--[if lt IE 9]>
-    <script src="<?php print $base_path . $path_to_zen; ?>/js/respond.js"></script>
-    <![endif]-->
-  <?php endif; ?>
-  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
-  <?php if ($skip_link_text && $skip_link_anchor): ?>
+    <?php if ($skip_link_text && $skip_link_anchor): ?>
     <p id="skip-link">
-      <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
+        <a href="#<?php print $skip_link_anchor; ?>" class="element-invisible element-focusable"><?php print $skip_link_text; ?></a>
     </p>
-  <?php endif; ?>
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $page_bottom; ?>
+    <?php endif; ?>
+    <?php print $page_top; ?>
+    <?php print $page; ?>
+    <?php print $page_bottom; ?>
   
-   <script src="http://staging.interactivemechanics.com/frontendcode/rememberinglincoln/js/salvattore.js"></script>
-   <script type="text/javascript">
+    <script src="<?php global $base_path; print $base_path; ?>themes/lincoln/assets/js/salvattore.js"></script>
+    <script src="<?php global $base_path; print $base_path; ?>themes/lincoln/assets/js/jquery.elevatezoom.js"></script>
+    <script type="text/javascript">
 		$(function() {
 			$('.toggle-nav').click(function() {
 				toggleNav();
@@ -68,8 +59,9 @@
 		
 		$(document).ready(function(){
 		
-			$('div.post .save-icon').click(function(){
+			$('.save-icon').click(function(){
 				var type = $(this).data('nodeid');
+                $(this).toggleClass('object-added');
 				console.log(type);
 	
 				addToStorage(type);
@@ -80,6 +72,17 @@
 				
 				if(url){ window.location.href = url; }
 			});
+            
+			$('div.callout').click(function(){
+				var url = $(this).data('url');
+				
+				window.open(url,'_blank');
+			});
+
+            $(".img-zoomable").elevateZoom({ 
+                zoomType: "inner", 
+                cursor: "crosshair"
+            });
 			
 		});
 
@@ -117,7 +120,6 @@
 		        localStorage.setItem('remembering_lincoln', JSON.stringify(arr));
 		        updateCollectionHTML(arr);
 		    }
-	
 		}
 	
 		function removeFromStorage(node_id) {
@@ -134,11 +136,8 @@
 						console.log(arr);
 			            localStorage.setItem('remembering_lincoln', JSON.stringify(arr));
 		        	}
-	
-		        	
 		        }
 		    }
-		
 		}
 		
 		function updateCollectionHTML(arr) {
@@ -159,7 +158,7 @@
 			var ids = arr.join(",")
 			
 			if(arr.length > 0) {
-				var url = "http://staging.interactivemechanics.com/rememberinglincoln/?q=my-collection&ids=" + ids;
+				var url = "<?php print $base_path; ?>my-collection?ids=" + ids;
 		
 				$('.collection-has-items').attr("data-url", url);
 				$('.my-collection-footer-link').attr('href', url);

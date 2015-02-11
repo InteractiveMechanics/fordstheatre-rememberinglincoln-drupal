@@ -8,8 +8,9 @@
 @import "partials/header";
 @import "partials/footer";
 @import "partials/buttons";
+@import "partials/blocks";
+@import "partials/callouts";
 @import "partials/mycollection";
-@import "partials/relatedcontent";
 
 // Pages
 @import "pages/homepage";
@@ -17,5 +18,6 @@
 @import "pages/browse";
 @import "pages/curatedcollections";
 @import "pages/post";
+@import "pages/people";
 @import "pages/partners";
 @import "pages/teachingmodules";

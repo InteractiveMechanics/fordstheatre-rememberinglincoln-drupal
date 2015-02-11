@@ -703,3 +703,22 @@ function zen_mark($variables) {
 function zen_panels_default_style_render_region($variables) {
   return implode('', $variables['panes']);
 }
+
+
+function lincoln_get_random_node_count($content_type) {
+     $query = "SELECT COUNT(*) amount FROM {node} n ".
+              "WHERE n.type = :type";
+     $result = db_query($query, array(':type' => $content_type))->fetch();
+     return $result->amount;
+}
+
+function lincoln_get_random_node_type($content_type) {
+	
+	$query=db_query('SELECT nid, RAND() as _random FROM {node} WHERE status = 1 AND n.type = :type ORDER BY _random ASC LIMIT 1');
+	$result=db_fetch_object($query);
+    $result = db_query($query, array(':type' => $content_type))->fetch();
+   
+    $n = node_load($result->nid);
+    
+    return $n;
+}

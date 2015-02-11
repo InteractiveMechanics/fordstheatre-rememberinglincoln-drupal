@@ -3,15 +3,20 @@ $screen-xs			    : "(max-width: 767px)";
 $screen-sm			    : "(min-width: 768px) and (max-width: 991px)";
 $screen-md			    : "(min-width: 992px) and (max-width: 1199px)";
 $screen-lg			    : "(min-width: 1200px)";
+$screen-xl              : "(min-width: 1440px)";
 
 // Fonts
-$primary-font-face 	    : serif;
-$secondary-font-face    : sans-serif;
+$primary-font-face 	    : 'minion-pro', serif;
+$secondary-font-face    : 'myriad-pro', sans-serif;
 
 // Colors
 $fts-red                : #B00F3B;
 $fts-darkred            : #800426;
 
+$fts-gold               : #FCA532;
+
+$lightgray              : #f1f2f2;
+$midgray                : #b2b2b2;
 $warmgray               : #BFB9B6;
 $darkgray               : #333333;
 

@@ -6,6 +6,7 @@
  * Complete documentation for this file is available online.
  * @see https://drupal.org/node/1728140
  */
+ global $base_path;
 ?>
 <?php if ($content): ?>
 	<div class="footer">
@@ -35,22 +36,22 @@
 						<li>
 							<ul>
 								<li class="title">Exhibit</li>
-								<li><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/366">Introduction</a></li>
-								<li><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/367">Events</a></li>
-								<li><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/369">Places</a></li>
-								<li><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/368">People</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/introduction">Introduction</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/events">Events</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/places">Places</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/people">People</a></li>
 							</ul>
 						</li>
 
 						<li>
 							<ul>
 								<li class="title">Responses</li>
-								<li><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=browse">Browse all items</a></li>
+								<li><a href="<?php print $base_path; ?>browse">Browse all items</a></li>
 								<li><a class="my-collection-footer-link" href="javascript:void(0);">View collections</a></li>
 								<li><a href="javascript:void(0);">Submit an item</a></li>
 								<br />
 								<li class="title">For teachers</li>
-								<li><a href="javascript:void(0);">Teaching modules</a></li>
+								<li><a href="<?php print $base_path; ?>teaching-modules">Teaching modules</a></li>
 								<li><a href="javascript:void(0);">Submit a module</a></li>
 							</ul>
 						</li>
@@ -59,7 +60,7 @@
 							<ul>
 								<li class="title">About the project</li>
 								<li><a href="javascript:void(0);">Resources</a></li>
-								<li><a href="javascript:void(0);">Partners</a></li>
+								<li><a href="<?php print $base_path; ?>partners">Partners</a></li>
 								<li><a href="javascript:void(0);">Documentation</a></li>
 								<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
 								<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>

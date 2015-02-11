@@ -1,30 +1,23 @@
 <?php
-
+ global $base_path;
 ?>
-<div class="hero">
-
+<div class="hero-unit exhibit">
 	<div class="jumbotron">
-
 		<div class="hero-unit-message">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 pull-right">
-						<h1>
-							Exploring the <em>life</em>, <em>legacy</em>, and <em>memory</em> of Abraham Lincoln.
-						</h1>
+					<div class="col-md-6">
+                        <h4>Explore the Exhibit</h4>
+						<h1><?php print $node->title;?></h1>
 					</div>
 				</div>
 			</div>
 		</div> <!--./herp-unit-message-->
-		
 	</div><!--./jumbotron-->
-	
 </div> <!--./hero-->
 
 <div class="introduction-info">
-
 	<div class="container">
-		
 		<div class="row">
 
 			<div class="col-md-6">
@@ -34,104 +27,59 @@
 			</div>
 
 			<div class="col-md-6">
-				<blockquote>
-					<?php print $node->field_exhibit_intro_quote['und'][0]['value'];?>
-				</blockquote>
+				<blockquote><?php print $node->field_exhibit_intro_quote['und'][0]['value'];?></blockquote>
 			</div>
 
 		</div>
-
 	</div>
-
 </div>
 
 <div class="introduction-sub-section">
-
 	<div class="container">
-		
-		<div class="row text-center">
-			<div class="col-md-4 text-left">
-				
-				<div class="sub-section-item">
-					
+		<div class="row">
+
+			<div class="col-md-4">
+				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/events">
 					<div class="sub-section-image">
-						<img src="<?php print file_create_url($node->field_exhibit_intro_event_image['und'][0]['uri']); ?>" alt="Intro Image" />
+						<img src="<?php print file_create_url($node->field_exhibit_intro_event_image['und'][0]['uri']); ?>" alt="Events" />
 					</div>
-
-					<h2 class="lead">
-						<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/367">
-							Events
-						</a>
-					</h2>
-
-					<p>
-						<?php print $node->field_exhibit_intro_event_body['und'][0]['value'];?>
-					</p>
-				</div>
-
+					<h2>Events</h2>
+					<p><?php print $node->field_exhibit_intro_event_body['und'][0]['value'];?></p>
+				</a>
 			</div>
 
-			<div class="col-md-4 text-left">
-				
-				<div class="sub-section-item">
-					
+			<div class="col-md-4">
+				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/places">
 					<div class="sub-section-image">
-						<img src="<?php print file_create_url($node->field_exhibit_intro_place_image['und'][0]['uri']); ?>" alt="Places Image" />
+						<img src="<?php print file_create_url($node->field_exhibit_intro_place_image['und'][0]['uri']); ?>" alt="Places" />
 					</div>
-
-					<h2 class="lead">
-						<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/369">
-							Places
-						</a>
-					</h2>
-
-					<p>
-						<?php print $node->field_exhibit_intro_place_body['und'][0]['value'];?>
-					</p>
-				</div>
-				
+					<h2>Places</h2>
+					<p><?php print $node->field_exhibit_intro_place_body['und'][0]['value'];?></p>
+				</a>
 			</div>
 
-			<div class="col-md-4 text-left">
-				
-				<div class="sub-section-item">
-					
+			<div class="col-md-4">
+				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/people">
 					<div class="sub-section-image">
-						<img src="<?php print file_create_url($node->field_exhibit_intro_people_image['und'][0]['uri']); ?>" alt="People Image" />
+						<img src="<?php print file_create_url($node->field_exhibit_intro_people_image['und'][0]['uri']); ?>" alt="People" />
 					</div>
-
-					<h2 class="lead">
-						<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/368">
-							People
-						</a>
-					</h2>
-
-					<p>
-						<?php print $node->field_exhibit_intro_people_body['und'][0]['value'];?>
-					</p>
-				</div>
-				
+					<h2>People</h2>
+					<p><?php print $node->field_exhibit_intro_people_body['und'][0]['value'];?></p>
+				</a>
 			</div>
+
 		</div>
-
 	</div>
-
 </div>
 
 <div class="next-section-area">
-
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="pull-right">
-					<h4 class="right">
-						NEXT
-					</h4>
-					<h2><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=node/367">Events &#8594;</a></h2>
-				</div>
-			</div>
+		<div class="pull-right">
+			<h4 class="text-right">
+				NEXT
+			</h4>
+			<h2><a href="<?php print $base_path; ?>exhibit/events">Events <span>&#8594;</span></a></h2>
 		</div>
 	</div>
-
 </div>
 

@@ -1,63 +1,52 @@
-.curated-content .curated-header {
-    margin-bottom: 25px;
-}
-
-.curated-content .curated-header h1,p{
-    display: inline-block;
-}
-
-.curated-content .curated-header p{
-    margin-left:30px;
-}
-
-.curated-content .curated-header p a{
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 15px;
-    color:#b00f3b;
-    font-style: italic;
-}
-
-.curated-content .curated-row-item h2 {
-    font-size: 25px;
-    font-weight: normal;
-    margin: 15px 0 0;
-}
-
-.curated-content .curated-row-item p {
-    font-size: 13px;
-    margin: 4px 0;
-    font-weight: bold;
+.curated-content {
+    .curated-header {
+        margin-bottom: 20px;
+    }
+    .curated-row-item {
+        h2 {
+            font-size: 24px;
+            font-weight: normal;
+            margin: 15px 0 0;
+        }
+        h4 {
+            margin: 8px 0 0;
+        }
+        img {
+            max-width: 100%;
+        }
+    }
 }
 
 .curated-collection-list {
-
+    .curated-info {
+        h3 {
+            margin: 6px 0;
+            font-size: 21px;
+            font-weight: bold;
+            
+            a {
+                color: black;
+                font-family: "minion-pro";
+            }
+        }
+        p {
+            &.author {
+                font-size: 13px;
+                margin: 4px 0;
+                font-weight: bold;
+            }
+            &.description {
+                font-size: 16px;
+                line-height: 30px;
+            }
+        }
+    }
+    .curated-row-item {
+        margin: 10px 0 30px;
+    }
 }
 
-
-.curated-collection-list .curated-info h3 {
-    margin: 6px 0;
-    font-size: 21px;
-    font-weight: bold;
-}
-
-.curated-collection-list .curated-info h3 a {
-    color:#000;
-    font-family: "minion pro";
-}
-
-.curated-collection-list .curated-info p.author {
-    font-size: 13px;
-    margin: 4px 0;
-    font-weight: bold;
-}
-
-.curated-collection-list .curated-info p.description {
-    font-size: 16px;
-    line-height: 30px;
-    
-}
-
-.curated-collection-list .curated-row-item {
-    margin: 10px 0 30px;
+.gray-area {
+    padding: 60px 0 80px;
+    background: $lightgray;
 }

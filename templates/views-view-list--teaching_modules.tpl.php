@@ -2,17 +2,23 @@
 	//
 ?>
 
-
+<div class="browse-header">
+	<div class="browse-search-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Browse Teaching Modules</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="module-items">
-			
 	<div class="container">
-
 		<div class="row">
-
 			
 			<?php foreach ($view->result as $delta => $item): ?>
 				<div class="col-md-6">
-	
 					<div class="module-item">
 	
 						<h4 class="for">
@@ -33,12 +39,9 @@
 						</p>
 	
 					</div>
-	
 				</div>
 			<?php endforeach; ?>
 
 		</div>
-
 	</div>
-
 </div>

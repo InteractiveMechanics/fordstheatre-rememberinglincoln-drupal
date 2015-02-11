@@ -90,13 +90,9 @@
 
 <div class="browse-items">
 	<div class="light-gray-gradients">
-
 		<div class="container">
-
 			<div class="row">
-
 				<div class="col-md-12">
-
 					<div id="posts" data-columns>
 					
 						<?php foreach ($view->result as $delta => $item): ?>
@@ -104,16 +100,8 @@
 								<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
 									
 									<?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'])): ?>
-										<!--<img 
-											src="<?php print file_create_url($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri']); ?>" 
-				            				alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title;?>" 
-				            				width="331" 
-				            				class="img-responsive" 
-				            				alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title;?>"
-										/>-->
-										<img src="http://placehold.it/380x300" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title;?>" />
-									<?php else: ?>
-										<img src="http://placehold.it/380x300" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title;?>" />
+										<img src="<?php print image_style_url('large', file_create_url($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'])); ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />
+                                        
 									<?php endif; ?>
 								</a>
 								
@@ -126,18 +114,14 @@
 									from
 									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
 								</p>
-								<div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
-									<img style="width:20px; height:20px;" src="/rememberinglincoln/themes/lincoln/assets/images/save-icon.png" alt="Save Icon" />
+                                <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
 								</div>
 							</div>
 						<?php endforeach; ?>
 					
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
 	</div>
 
@@ -147,83 +131,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-
-	/*function addToStorage(node_id) {
-
-	    if ("localStorage" in window) {
-	    	var json = localStorage.getItem('remembering_lincoln');
-	    	var arr = [];
-	    	
-	    	if(json) {
-	    		arr = JSON.parse(json);
-	    		arr.push(node_id);
-	    	} else {
-	    		var arr = new Array();
-	    		arr.push(node_id);
-	    	}
-
-	        localStorage.setItem('remembering_lincoln', JSON.stringify(arr));
-	        updateCollectionHTML(arr);
-	    }
-
-	}
-
-	function removeFromStorage(node_id) {
-	    
-	    if ("localStorage" in window) {
-	        if (localStorage.length > 0) {
-	        	var json = localStorage.getItem('remembering_lincoln');
-	        	
-	        	if(json) {
-	        		var arr = new Array();
-	        		
-	        		arr = JSON.parse(json);
-	        		arr.pop(node_id);
-
-		            localStorage.setItem('remembering_lincoln', JSON.stringify(arr));
-	        	}
-
-	        	
-	        }
-	    }
-	
-	}
-	
-	function updateCollectionHTML(arr) {
-		var collection_count = arr.length;
-		
-		if(collection_count > 0){
-			$('.collection-number').html("<p>" + collection_count + "</p>");
-			$('.collection-list').addClass('collection-has-items');
-		}
-		
-		updateLinks();
-	}
-	
-	function updateLinks(arr) {
-		var ids = arr.join(",")
-		var url = "http://staging.interactivemechanics.com/rememberinglincoln/?q=my-collection&id=" + ids;
-		
-		$('.collection-has-items').attr("data-url", url);
-	}
-
-	$(document).ready(function(){
-		
-		$('div.post .save-icon').click(function(){
-			var type = $(this).data('nodeid');
-			console.log(type);
-
-			addToStorage(type);
-		});
-		
-		$('collection-has-items').click(function(){
-			var url = $(this).data(url);
-			window.location.href = url;
-		});
-		
-	});*/
-	
-</script>
-

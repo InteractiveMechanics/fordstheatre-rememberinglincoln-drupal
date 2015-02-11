@@ -1,0 +1,82 @@
+.view-people {
+    border-top: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 80px;
+    padding: 40px 0;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+        background: -moz-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(24%, transparent), color-stop(100%, rgba(0, 0, 0, 0.1)));
+        background: -webkit-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
+        background: -o-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
+        background: -ms-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
+        background: linear-gradient(to bottom, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33000000',GradientType=0 );
+    }
+
+    .person {
+        background-color: $lightgray;
+        padding: 0 50px 50px;
+        margin: 40px 20px;
+
+        .photo  {
+            width: 150px;
+            height: 150px;
+            border: 5px solid white;
+            border-radius: 999px;
+            margin: 0 auto -20px;
+            position: relative;
+            top: -40px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .about {
+            p {
+                text-align: left;
+                font-size: 16px;
+                line-height: 24px;
+                color: black;
+            }
+            h2 {
+                font-size: 32px;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        .related-info {
+            ul {
+                padding: 0 15px;
+                margin: 0 0 0 2px;
+
+                li {      
+                    color: $fts-red;
+                    margin-bottom: 5px;
+              
+                    a {
+                        color: $fts-red;
+                        font-style: italic;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: $fts-darkred;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

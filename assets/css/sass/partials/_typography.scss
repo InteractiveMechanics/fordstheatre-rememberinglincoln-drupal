@@ -1,16 +1,16 @@
 h1 {
-	font-family: "minion pro";
+	font-family: "minion-pro";
 	font-weight: 400;
 	font-size: 48px;
 }
 
 h2 {
-	font-family: "minion pro";
+	font-family: "minion-pro";
 	font-size:36px;
 }
 
 h3 {
-	font-family: "minion pro";
+	font-family: "minion-pro";
 	font-size:24px;
 }
 
@@ -18,19 +18,19 @@ h4 {
     text-transform: uppercase;
     color:#BFB9B6;
     font-size: .9em;
-    font-family: "myriad pro";
+    font-family: "myriad-pro";
     font-weight: 600;
 }
 
 p {
-	font-family: "myriad pro";
+	font-family: "myriad-pro";
 	color:#808080;
 	font-size: 27px;
 	line-height: 48px;
 	font-weight: 300;
 
     &.lead {
-    	font-family: "myriad pro";
+    	font-family: "myriad-pro";
     	color:#808080;
     	font-size: 18px;
     	line-height: 30px;
@@ -39,5 +39,30 @@ p {
 }
 
 a {
-	font-family: "myriad pro";
+	font-family: "myriad-pro";
+
+    &.view-all {
+        font-style: italic;
+        font-size: 18px;
+        font-weight: 700;
+        margin-left: 8px;
+        color: $fts-red;
+
+        &:hover {
+            text-decoration: none;
+            color: $fts-darkred;
+        }
+    }
+}
+
+blockquote {
+    font-family: "minion-pro";
+    line-height: 46px;
+    font-size: 27px;
+    font-style: italic;
+    max-width: 500px;
+    color: darken($midgray, 15%);
+    border-left: 8px solid #eee;
+    margin-left: 20px;
+    padding: 6px 0 6px 20px;
 }

@@ -7,97 +7,68 @@
 ?>
 
 <div class="my-collection-header">
-
 	<div class="container">
 
-		<div class="row">
+		<div class="pull-left">
+			<h1>My Collection</h1>
+		</div>
 
-			<div class="col-md-12">
-				<div class="pull-left">
-					<h1>My Collection</h1>
-				</div>
-
-				<div class="options pull-right">
-					<ul class="list-inline">
-						<li>
-							<p><a href="javascript: void(0);">Print &nbsp;</a></p>
-						</li>
-						<li class="vertical-divider">&nbsp;</li>
-						<li>
-							<p><a href="javascript: void(0);">Share</a></p>
-						</li>
-					</ul>
-				</div>
-			</div>
-
+		<div class="options pull-right">
+			<ul class="list-inline">
+				<li>
+                    <a href="javascript: window.print();"><span class="glyphicon glyphicon-print"></span> Print</a>
+                </li>
+				<li>
+                    <a href="javascript: void(0);"><span class="glyphicon glyphicon-share-alt"></span> Share</a>
+                </li>
+			</ul>
 		</div>
 
 	</div>
-
 </div>
 
 <div class="browse-items">
-	<div class="light-gray-gradients">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-12">
-
-					<div id="posts" data-columns>
-						
-						<?php foreach($nodes as $n): ?>
-						
-							<div class="post">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="posts" data-columns>
+					
+					<?php foreach($nodes as $n): ?>
+					
+						<div class="post">
+							<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
+								<img src="<?php print file_create_url($n->field_file['und'][0]['uri']); ?>" alt="<?php print $n->title;?>" />
+							</a>
+							<p class="title">
 								<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
-									<img src="http://placehold.it/280x400" />
+									<?php print $n->title; ?>
 								</a>
-								<p class="title">
-									<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
-										<?php print $n->title; ?>
-									</a>
-								</p>
-								<p class="date">
-									Flyer from
-									<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
-								</p>
-								<div class="save-icon hidden-xs ">
-									<img style="width:20px; height:20px;" src="/rememberinglincoln/themes/lincoln/assets/images/save-icon.png" alt="Save Icon" />
-								</div>
-							</div>
-							
-						<?php endforeach; ?>
-					</div>
-
+							</p>
+							<p class="date">
+								<?php print $n->field_item_type['und'][0]['taxonomy_term']->name;?> from
+								<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
+							</p>
+							<div class="save-icon hidden-xs" data-nodeId="<?php print $n->nid ?>">
+                                <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
+        				    </div>
+						</div>
+						
+					<?php endforeach; ?>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
-
-	<!--<div class="text-center">
-		<div class="load-more" style="position: relative; bottom: -106px;">
-			<a href="" class="btn btn-outline btn-gray"><em>Load more resources</em></a>
-		</div>
-	</div>-->
 </div>
 
 <div class="gray-area">
-
 	<div class="curated-content">
-
 		<div class="container">
-
 			<div class="row">
 				<div class="col-md-12 curated-header">
 					<h1>
 						Curated collections
+                        <small><a href="javascript: void();" class="view-all">View all &raquo;</a></small>
 					</h1>
-					<p>
-						<a href="javascript: void(0);">View all &raquo;</a>
-					</p>
 				</div>
 			</div>
 
