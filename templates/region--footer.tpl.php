@@ -14,22 +14,22 @@
 			<div class="row">
 				<div class="col-md-4 col-xs-12 left-footer-col">
 					<div class="logo-image">
-						<img src="/rememberinglincoln/themes/lincoln/assets/images/logo.png" alt="Logo" class="img-responsive"/>
+						<object type="image/svg+xml" data="<?php global $base_path; print $base_path; ?>/themes/lincoln/assets/images/logo_footer.svg">
+                            Remembering Lincoln
+                        </object>
 					</div>
 					<p class="small">
-						Copyright 2014 <a href="javascript:void(0);">Ford's Theatre</a>
+						Copyright 2014 <a href="http://www.fords.org/">Ford's Theatre</a>.
 						<br />
 						All Objects and images copyright their respective instutitions.
 					</p>
 					
 					<p class="small">
-						This project was made possible in part by the 
-						<a href="javascript: void(0);">Institute of Museum and <br /> Library Services</a>,
-						grant number MA-10-13-0274-13
+						This project was made possible in part by the <a href="http://www.imls.gov/">Institute of Museum and Library Services</a>, grant number MA-10-13-0274-13
 					</p>
 				</div>
 
-				<div class="col-md-8 hidden-sm hidden-xs">
+				<div class="col-md-8 col-lg-6 col-lg-offset-2 hidden-sm hidden-xs">
 
 					<ul class="footer-links">
 						<li>
@@ -49,7 +49,7 @@
 								<li><a class="my-collection-footer-link" href="javascript:void(0);">View collections</a></li>
 								<li><a href="javascript:void(0);">Submit an item</a></li>
 								<br />
-								<li class="title">For Teacher</li>
+								<li class="title">For teachers</li>
 								<li><a href="javascript:void(0);">Teaching modules</a></li>
 								<li><a href="javascript:void(0);">Submit a module</a></li>
 							</ul>
@@ -57,13 +57,13 @@
 
 						<li>
 							<ul>
-								<li class="title">About this project</li>
+								<li class="title">About the project</li>
 								<li><a href="javascript:void(0);">Resources</a></li>
 								<li><a href="javascript:void(0);">Partners</a></li>
 								<li><a href="javascript:void(0);">Documentation</a></li>
 								<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
-								<li><a href="http://blog.fords.org/">Ford's Theatre blog</a></li>
-								<li><a href="http://fords.org/contact">Contact Us</a></li>
+								<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>
+								<li><a href="http://fords.org/contact">Contact us</a></li>
 							</ul>
 						</li>
 					</ul>

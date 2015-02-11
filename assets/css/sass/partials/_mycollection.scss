@@ -1,0 +1,32 @@
+.my-collection-header {
+    margin-bottom: 40px;
+}
+
+.my-collection-header .options ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.my-collection-header .options ul li {
+    margin: 0px;
+    padding: 0px;
+    margin: 0 8px;
+}
+
+.my-collection-header .options ul li p {
+    font-size: 18px;
+    margin: 0px;
+}
+
+.my-collection-header .options ul li p a {
+    color:#222;
+}
+
+.my-collection-header .options ul li p a:hover {
+    text-decoration: none;
+}
+
+.my-collection-header .vertical-divider {
+    margin: 0 9px;
+    border-left: 1px solid #888;
+}

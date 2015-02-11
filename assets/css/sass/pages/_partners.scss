@@ -1,0 +1,74 @@
+.partner-page-header {
+    margin-bottom: 32px;
+}
+
+.partner-page-header a {
+    text-transform: uppercase;
+    color:#BFB9B6;
+    font-size: .9em;
+    font-family: "myriad pro";
+    font-weight: 600;
+}
+
+.partner-page-header img {
+    margin: 15px 0 5px;
+}
+
+.partner-page {
+    margin-bottom: 50px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #ddd;
+}
+
+.partner-page p.information {
+    line-height: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.partner-page ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.partner-page ul li {
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.partner-page ul li p.header {
+    font-size: 13px;
+    margin: 4px 0;
+    font-weight: bold;
+}
+
+.partner-page ul li p.detail {
+    font-size: 15px;
+	line-height: 20px;
+	color: black;
+	margin: 2px 0;
+}
+
+.partner-page ul li p.detail a {
+    color:#333;
+}
+
+.partner-items {
+    border:none;
+}
+
+.partners ul {
+    width: 1010px;
+    margin: 35px auto;
+}
+.partners ul li {
+    margin-right: 40px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.partners .partner p {
+    font-weight: bold;
+    margin: 6px 0;
+    font-size: 14px;
+}

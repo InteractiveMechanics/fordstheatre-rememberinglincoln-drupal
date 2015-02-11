@@ -1,0 +1,31 @@
+.dark-gray {
+    background-color: #3c3c3c;
+}
+
+.bottom-from-image {
+    margin: 30px 0;
+}
+
+.about-info {
+	margin-bottom: 80px;
+}
+
+.about-info .center-content p:first-letter {
+    font-weight: bold;
+    float: left;
+    display: block;
+    margin: .08em .25em 0 0;
+    color: #000;
+    font-style: normal;
+    font-size: 4.5em;
+    line-height: 1;
+    /*-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+}
+
+.about-info p {
+    line-height: 50px;
+    font-family: "minion pro";
+    font-size: 20px;
+    color:black;
+}

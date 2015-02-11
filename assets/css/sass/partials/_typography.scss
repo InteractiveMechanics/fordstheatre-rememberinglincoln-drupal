@@ -1,0 +1,43 @@
+h1 {
+	font-family: "minion pro";
+	font-weight: 400;
+	font-size: 48px;
+}
+
+h2 {
+	font-family: "minion pro";
+	font-size:36px;
+}
+
+h3 {
+	font-family: "minion pro";
+	font-size:24px;
+}
+
+h4 {
+    text-transform: uppercase;
+    color:#BFB9B6;
+    font-size: .9em;
+    font-family: "myriad pro";
+    font-weight: 600;
+}
+
+p {
+	font-family: "myriad pro";
+	color:#808080;
+	font-size: 27px;
+	line-height: 48px;
+	font-weight: 300;
+
+    &.lead {
+    	font-family: "myriad pro";
+    	color:#808080;
+    	font-size: 18px;
+    	line-height: 30px;
+    	font-weight: 300;	
+    }
+}
+
+a {
+	font-family: "myriad pro";
+}

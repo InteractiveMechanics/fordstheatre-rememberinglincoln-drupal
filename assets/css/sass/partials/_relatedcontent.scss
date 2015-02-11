@@ -1,0 +1,50 @@
+.related-content {
+    padding: 20px 40px 40px;    
+}
+
+.related-content h2 {
+    font-weight: normal;  
+}
+
+.padding-row {
+    padding: 60px 40px 0 40px;
+}
+
+.related-content h2{
+    margin: 20px 0;
+}
+
+.related-content .related-item {
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+}
+.related-content .related-items ul {
+	margin-left: 20px;
+}
+.related-content .related-items ul li{
+    color:black;
+    font-weight: bold;
+    list-style: disc;
+    font-size: 16px;
+}
+
+.related-content .related-items ul li a{
+    color:#c3003f;
+}
+
+.related-content .related-item p {
+    line-height: 20px;
+	font-size: 18px;
+}
+
+.related-content .related-item p.title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+.related-content .related-item h3{
+    margin-top:10px;
+}

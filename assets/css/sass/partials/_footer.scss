@@ -1,0 +1,82 @@
+.footer {
+    background: $warmgray;
+    padding: 55px 0px;
+
+    .logo-image {
+    	margin: 0 0 15px 0;
+        max-width: 250px;
+    }
+
+    p {
+    	line-height: 20px;
+    	color: $darkgray;
+    	margin: 15px 0 0;
+        display: block;
+
+        a {
+        	color: black;
+        	font-weight: bold;
+        	text-decoration: underline;
+        }
+    }
+
+    ul.footer-links {
+        margin: 0px;
+        padding: 0;
+
+        li {
+            list-style: none;
+
+            &.title {
+                color: black;
+                font-weight: bold;
+                font-family: "minion pro";
+                font-size: 18px;
+            }
+
+            ul {
+                float: left;
+                margin-right: 30px;
+            }
+            a {
+                color: $darkgray;
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+    }
+    ul.no-style {
+        margin: 0px;
+
+        li{
+            list-style: none;
+        }
+    }
+    ul.info-list {
+        margin: 0px;
+        color: $darkgray;
+        padding: 0px;
+        
+        > li {
+            list-style: none;
+            float: left;
+        }
+        ul  {
+            padding-left: 30px;
+        }
+        li {
+            &.small {
+                font-size: 11px;
+            }
+            &.title {
+                color: $darkgray;
+                font-weight: bold;
+            }
+            
+            a {
+                color: $darkgray;
+                font-weight: bold;
+            }
+        }
+    }
+}

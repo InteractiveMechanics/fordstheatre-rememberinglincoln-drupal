@@ -1,0 +1,153 @@
+.site-wrapper {
+    .navbar-inverse.navbar {
+	    margin: 0px;
+        border-radius: 0px;
+        background: rgba(0, 0, 0, .8);
+        height: 72px;
+        border: none;
+
+        a.navbar-brand {
+        	font-weight: 700;
+        	font-size: 21px;
+        	text-transform: uppercase;
+        	color: white;
+            height: 72px;
+            
+
+            &:hover object {
+                opacity: 0.75;
+            }
+
+            object {
+                width: 264px;
+                height: 40px;
+                pointer-events: none;
+                opacity: 1;
+                transition: $fast-trans;
+                
+                .no-svg & {
+                    background-image: url(../images/logo_header@2x.png);
+                    background-size: 100%;
+                }
+            }
+        }
+        .navbar-nav {
+            li {
+                a {
+                    padding: 26px 15px;
+                    color: $warmgray;
+                    transition: $fast-trans;
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .collection-list {
+            margin-right: -15px;
+            margin-left: 20px;
+            height: 72px;
+            border-left: 1px solid $warmgray;
+
+            &.collection-has-items {
+            	background: $fts-red;
+            	color: white !important;
+            	cursor: pointer;
+                border-left: 1px solid transparent;
+                transition: $slow-trans;
+
+                &:hover {
+                    background: $fts-darkred;
+                }
+
+                li, p {
+                    color: white !important;
+                }
+            }
+
+            ul {
+                margin: 0px;
+                padding: 10px 20px;
+                height: 72px;
+
+                li {
+                    list-style: none;
+                    float: left;
+                }
+            }
+        }
+        .collection-number {
+            margin-right: 8px;
+
+            p {
+                font-size: 36px;
+                font-weight: 900;
+                line-height: 56px;
+            }
+        }
+        .collection-text {
+            font-size: 11px;
+            padding-top: 10px;
+            font-weight: bold;
+            color: $warmgray;
+        }
+    }
+}
+
+
+.mobile-menu-area {
+	width: 88%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: -88%;
+	background: rgba(0, 0, 0, .8);
+	font-family: "myriad pro";
+
+    ul {
+    	margin: 0px; 
+    	padding: 0px;
+
+        li{
+        	list-style: none;
+        	padding: 10px 40px;
+        	border-bottom: 1px solid #777;
+        	color:white;
+        	font-weight: bold;
+
+            &.title{
+            	padding: 15px 20px 11px;
+            	border-width: 3px;
+            	font-weight: normal;
+            	font-size: 16px;
+            }
+
+            a {
+                color: white;
+            }
+        }
+    }
+}
+.mobile-navbar {
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+	padding: 12px 20px;
+    background: rgba(0, 0, 0, .8);
+    
+    .logo-mobile {
+        display: inline-block;
+        width: 226px;
+        height: 20px;
+        vertical-align: middle;
+        margin-top: 3px;
+        margin-left: 8px;
+    }
+    .toggle-nav {
+	    cursor: pointer;
+        color: white;
+        font-size: 18px;
+        vertical-align: middle;
+    }
+}

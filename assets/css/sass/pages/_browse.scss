@@ -1,0 +1,84 @@
+.browse-header {
+    background: #f5f5f5;
+}
+
+.object-header {
+	background: none !important;
+}
+
+.browse-header h4 {
+    margin: 15px 0 10px;
+}
+
+.browse-header p, h2{
+    margin: 0px;
+    padding: 0px;
+}
+
+.browse-header h1 {
+	margin: 0px;
+}
+
+.browse-header p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+.browse-details .browse-photo {
+    padding: 30px;
+}
+
+.browse-details .browse-photo .download-link a {
+    color:#727272;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.browse-details .browse-photo .download-link a:hover {
+    text-decoration: none;
+}
+
+.browse-details .browse-photo .photo {
+    margin: 0 auto;
+    width: 465px;
+    padding: 30px;
+}
+
+
+.browse-search-header {
+    border-bottom:1px solid #ddd;
+    padding: 30px 0;
+}
+
+.browse-search {
+    margin-bottom: 35px;
+	padding: 15px 0;
+}
+
+.browse-search .form-control {
+    border-radius: 30px;
+    border:0px;
+    box-shadow: 0px;
+}
+
+.browse-search .form-control input {
+    border:none;
+}
+
+
+.browse-items {
+    border-bottom:2px solid #ddd;
+    margin-bottom: 100px;
+    padding-bottom: 80px;
+}
+
+.btn-reset {
+    background: none;
+    border:2px solid #aaa;
+    color:#aaa;
+    font-style: italic;
+    border-radius: 30px;
+    font-size: 12px;
+}
