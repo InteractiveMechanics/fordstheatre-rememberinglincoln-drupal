@@ -53,7 +53,7 @@
         .menu {
             ul {
                 border: 1px solid #ddd;
-                width: 180px;
+                width: 100%;
                 padding: 30px 35px 20px;
                 margin-top: 6px;
 
@@ -100,10 +100,13 @@
             opacity: 0.75;
         }
 
+        img {
+            max-width: 100%;
+        }
         h2 {
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 400;
-            margin: 20px 0 2px;
+            margin: 20px 0 5px;
             color: black;
             opacity: 1;
             transition: $fast-trans;
@@ -167,7 +170,24 @@
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33000000',GradientType=0 );
     }
 
-    #leaflet { height: 650px; }
+    #leaflet { 
+        height: 650px;
+
+        .leaflet-bottom, .leaflet-top {
+            z-index: 50;
+        }
+    }
+
+    @media screen and #{$screen-md} {
+        height: 550px;
+
+        #leaflet { height: 550px; }
+    }
+    @media screen and #{$screen-xs}, #{$screen-sm} {
+        height: 400px;
+
+        #leaflet { height: 400px; }
+    }
 }
 
 .next-section-area {

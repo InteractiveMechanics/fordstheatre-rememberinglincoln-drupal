@@ -6,26 +6,26 @@
 	<div class="container">
 		<div class="header row">
             <div class="col-lg-8 col-lg-offset-2">
-			    <h4>Explore the Exhibit</h4>
-                <h1>Events</h1>
+			    <h4>Explore the Story</h4>
+                <h1><?php print $node->title; ?></h1>
             </div>
 		</div>
 	
 		<div class="row information-row">
-			<div class="col-md-6 col-lg-5 col-lg-offset-2">
+			<div class="col-md-8 col-lg-5 col-lg-offset-2">
 				<p><?php print $node->body['und'][0]['value'];?></p>
 			</div>
-			<div class="col-md-6 col-lg-3">
+			<div class="col-md-4 col-lg-3">
 				<div class="menu pull-right">
 					<ul>
 						<li>
 							<a href="<?php print $base_path; ?>exhibit/introduction">1. Introduction</a>
 						</li>
 						<li class="active">
-							<a href="<?php print $base_path; ?>exhibit/events">2. Events</a>
+							<a href="<?php print $base_path; ?>exhibit/events">2. Timeline</a>
 						</li>	
 						<li>
-							<a href="<?php print $base_path; ?>exhibit/places">3. Places</a>
+							<a href="<?php print $base_path; ?>exhibit/places">3. Map of Responses</a>
 						</li>	
 						<li>
 							<a href="<?php print $base_path; ?>exhibit/people">4. People</a>
@@ -39,7 +39,7 @@
 </div>
 	
 <div class="timeline">
-	<iframe src='http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=0Agl_Dv6iEbDadHdKcHlHcTB5bzhvbF9iTWwyMmJHdkE&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650' width='100%' height='650' frameborder='0'></iframe>
+	<iframe src='<?php print $node->field_exhibit_event_spreadsheet['und'][0]['value'];?>' width='100%' height='650' frameborder='0'></iframe>
 </div>
 	
 
@@ -55,7 +55,7 @@
 			<div class="col-md-6">
 				<?php 
                     $call_out = $node->field_exhibit_callout['und'][0]['entity'];
-                    $call_out_type = $call_out->field_type['und'][0]['value'];
+                    $call_out_type = $call_out->field_callout_type['und'][0]['value'];
                 ?>
 				<?php if ( $call_out->body['und'][0]['value'] ): ?>
 					
@@ -94,7 +94,7 @@
 					<h4 class="text-right">
 						NEXT
 					</h4>
-					<h2><a href="<?php print $base_path; ?>exhibit/places">Places <span>&#8594;</span></a></h2>
+					<h2><a href="<?php print $base_path; ?>exhibit/places">Map of Responses <span>&#8594;</span></a></h2>
 				</div>
 			</div>
 		</div>

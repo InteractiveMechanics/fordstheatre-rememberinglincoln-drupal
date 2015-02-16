@@ -1,65 +1,23 @@
 .about-page-header {
-    margin-bottom: 35px;
-}
+    background: $lightgray;
+    padding: 120px 0 30px;
+    margin-bottom: 50px;
 
-.about-page-info p {
-    margin-bottom: 30px;
-    line-height: 25px;
-    font-size:14px;
-}
-
-.about-page-info p.lead {
-    margin-bottom: 40px;
-    font-size: 23px;
-    line-height: 35px;
+    h1 {
+        font-weight: normal;
+    }
 }
 
 .about-page-info {
-    margin-bottom: 180px;
-}
+    margin-bottom: 100px;
 
-.about-page-header h1 {
-    font-weight: normal;
-}
+    p {
+        margin-bottom: 30px;
+        line-height: 27px;
+        font-size: 18px;
 
-.post img {
-    width: 100%;
-}
- 
-.post{
-  z-index: 400;
-  position: relative;
-}
-
-.post .save-icon {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
-}
-
-.post a {
-	color:#000;
-}
-
-.post a:hover {
-	text-decoration: underline;
-}
-
-.post p {
-	margin:6px 0;
-	line-height: 20px;
-	color:black;
-	display: block;
-}
-
-.post p.date {
-	font-size: 12px;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.post p.title {
-	font-size: 16px;
-	
+        strong {
+            color: black;
+        }
+    }
 }

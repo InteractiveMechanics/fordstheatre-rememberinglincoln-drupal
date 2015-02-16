@@ -1,31 +1,15 @@
 .view-people {
     border-top: 1px solid #ddd; 
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 80px;
     padding: 40px 0;
     position: relative;
 
-    &:after {
-        content: '';
-        position: absolute;
-        pointer-events: none;
-        bottom: 0;
-        height: 100px;
-        left: 0;
-        right: 0;
-        background: -moz-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(24%, transparent), color-stop(100%, rgba(0, 0, 0, 0.1)));
-        background: -webkit-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
-        background: -o-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
-        background: -ms-linear-gradient(top, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
-        background: linear-gradient(to bottom, transparent 0%, transparent 24%, rgba(0, 0, 0, 0.1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33000000',GradientType=0 );
-    }
+    & + div { margin-top: 0; }
 
     .person {
         background-color: $lightgray;
         padding: 0 50px 50px;
         margin: 40px 20px;
+        min-height: 425px;
 
         .photo  {
             width: 150px;

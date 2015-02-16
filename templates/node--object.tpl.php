@@ -1,4 +1,7 @@
 <?php
+	$email_link = "mailto:?subject=" . urlencode("Explore this response on Remembering Lincoln") . "&body=" . urlencode('Check out "' . $node->title . '", an important response from the Remembering Lincoln collection,' . " a project of Ford's Theatre: ") . urlencode(lincoln_current_url());
+	$twitter_link = "http://twitter.com/share?text=Explore stories of the Lincoln assassination&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
+	
 	$node_wrapper = entity_metadata_wrapper('node', $node);
 	$timelineData = entity_load('node', array($node->nid) );
 	$node_data = $timelineData[ $node->nid ];
@@ -26,7 +29,7 @@
 <div class="browse-header object-header">
 	<div class="container">
 		<h4>
-			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name;?> from 
+			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?> from 
 			<?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'M. j, Y');?>
 		</h4>
 
@@ -94,7 +97,7 @@
           	<div class="col-md-5 object-content">
           		<div class="row padding-row">
 
-          			<div class="col-md-8">
+          			<div class="col-lg-8">
           				<ul>
                             <li>
           						<h4 class="title">Full Title</h4>
@@ -135,7 +138,7 @@
 		  				</ul>
           			</div>
 
-          			<div class="col-md-4">
+          			<div class="col-lg-4">
           				<ul>
           					<?php if( $node->field_subject['und'][0]['value'] ): ?>
 	          					<li>
@@ -182,16 +185,31 @@
 		  					
           					<li>
           						<div class="options">
-          							<p>
-                                        <a href="javascript: void(0);">
-                                            <span class="glyphicon glyphicon-share-alt"></span> Share
-          								</a>
-          							</p>
+          							
+          							<div class="dropdown">
+	          							<a href="javascript: void(0);" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+	                                        <span class="glyphicon glyphicon-share-alt" ></span> Share
+	          					        </a>
+	          							
+	          							<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										    <li role="presentation">
+										    	<a role="menuitem" tabindex="-1" href="<?php print $email_link; ?>">Email this response</a>
+										    </li>
+                                            <li role="presentation" class="divider"></li>
+										    <li role="presentation">
+										    	<a role="menuitem" tabindex="-1" href="<?php print $twitter_link; ?>">
+										    		Share on Twitter
+										    	</a>
+										    </li>
+										</ul>
+          							</div>
+          							          							
           							<p>
           								<a href="javascript: window.print();">
           									<span class="glyphicon glyphicon-print"></span> Print
           								</a>
           							</p>
+									
           						</div>
           					</li>
           				</ul>

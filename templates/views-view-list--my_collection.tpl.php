@@ -4,6 +4,10 @@
 	$nodeids = explode(",", $ids);
 	
 	$nodes = node_load_multiple($nodeids);
+	
+	
+	$email_link = "mailto:&subject=" . urlencode("Remembering Lincoln Response") . "&body=" . urlencode("Check out this response for the remembering lincoln collection, ") . urlencode(lincoln_current_url());
+	$twitter_link = "http://twitter.com/share?text=Check out this collection&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
 ?>
 
 <div class="my-collection-header">
@@ -19,7 +23,21 @@
                     <a href="javascript: window.print();"><span class="glyphicon glyphicon-print"></span> Print</a>
                 </li>
 				<li>
-                    <a href="javascript: void(0);"><span class="glyphicon glyphicon-share-alt"></span> Share</a>
+                    
+                    <div class="dropdown">
+	          							
+                        <a href="javascript: void(0);" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-share-alt" ></span> Share
+						</a>
+						
+						
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email collection</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript: void(0);" onclick="bookmark_collection();">Bookmark collection</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $twitter_link ?>">Share on Twitter</a></li>
+						</ul>
+					</div>
+                    
                 </li>
 			</ul>
 		</div>
@@ -259,3 +277,12 @@
 	<div style="page-break-after:always"></div>
 </div>
 <?php endforeach; ?>
+
+
+<script>
+	$(document).ready(function(){
+		function bookmark_collection() {
+			
+		}
+	});
+</script>

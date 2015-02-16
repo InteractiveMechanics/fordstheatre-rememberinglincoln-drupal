@@ -3,6 +3,7 @@
     height: 700px;
     background: url(../images/homepage_hero@2x.jpg);
     background-size: cover;
+    overflow: hidden;
 
     @media screen and #{$screen-xs} {
         height: 580px;
@@ -12,13 +13,24 @@
         padding: 72px 0 0;
         background: none;
         margin: 0;
+        position: relative;
+        z-index: 20;
 
         h1 {
-            margin: 140px 0 0;
+            margin: 130px 0 0;
             color: white;
             width: 90%;
             line-height: 80px;
+            font-size: 72px;
 
+            @media screen and #{$screen-xl} {
+                font-size: 72px;
+                margin: 160px 0 0;
+            }
+            @media screen and #{$screen-sm} {
+                width: 100%;
+                padding: 0 30px;
+            }
             @media screen and #{$screen-xs} {
                 width: 100%;
                 padding: 0 20px;
@@ -26,6 +38,7 @@
                 font-size: 52px;
                 line-height: 64px;
             }
+            
         }
     }
     .scroll-down {
@@ -49,6 +62,7 @@
         text-decoration: none;
         opacity: 0.75;
         transition: $slow-trans;
+        z-index: 10;
 
         &:hover {
             opacity: 1;

@@ -13,7 +13,7 @@
 	  foreach( $timelineCollection as $index => $collection ) {
 		$wrapper->field_exhibit_people_person[ $index ];
 		$temp = array();
-        $image = $wrapper->field_exhibit_people_person[0]->field_person_image->value();
+        $image = $wrapper->field_exhibit_people_person[$index]->field_person_image->value();
 		
 		$resources = $wrapper->field_exhibit_people_person[$index]->field_related_resources->value();
 		
@@ -44,16 +44,16 @@
 	<div class="container">
 		<div class="header row">
             <div class="col-lg-8 col-lg-offset-2">
-			    <h4>Explore the Exhibit</h4>
-                <h1>People</h1>
+			    <h4>Explore the Story</h4>
+                <h1><?php print $node->title; ?></h1>
             </div>
 		</div>
 
 		<div class="row information-row">
-			<div class="col-md-6 col-lg-5 col-lg-offset-2">
+			<div class="col-md-8 col-lg-5 col-lg-offset-2">
 				<p><?php print $node->body['und'][0]['value'];?></p>
 			</div>
-			<div class="col-md-6 col-lg-3">
+			<div class="col-md-4 col-lg-3">
 				<div class="menu pull-right">
 
 					<ul>
@@ -61,10 +61,10 @@
 							<a href="<?php print $base_path; ?>exhibit/introduction">1. Introduction</a>
 						</li>
 						<li>
-							<a href="<?php print $base_path; ?>exhibit/events">2. Events</a>
+							<a href="<?php print $base_path; ?>exhibit/events">2. Timeline</a>
 						</li>	
 						<li>
-							<a href="<?php print $base_path; ?>exhibit/places">3. Places</a>
+							<a href="<?php print $base_path; ?>exhibit/places">3. Map of Responses</a>
 						</li>	
 						<li class="active">
 							<a href="<?php print $base_path; ?>exhibit/people">4. People</a>
@@ -96,65 +96,30 @@
 								<p class="lead"><?php print $res['body'] ?></p>
 				            </div>
 		
-							<div class="related-info">
-								<h4>Related Responses</h4>
-								<ul>
-								    <?php foreach( $res['resources'] as $r): ?>
-                                        <li>
-                                            <a href="<?php print url('node/' . $r['node_id'], array('absolute' => TRUE)); ?>">
-												<?php print $r['title'] ?>
-								            </a>
-                                        </li>
-                                    <?php endforeach; ?>
-								</ul>
-				            </div>
+                            <?php if( $res['resources'] ): ?>
+    							<div class="related-info">
+    								<h4>Related Responses</h4>
+    								<ul>
+    								    <?php foreach( $res['resources'] as $r): ?>
+                                            <li>
+                                                <a href="<?php print url('node/' . $r['node_id'], array('absolute' => TRUE)); ?>">
+    												<?php print $r['title'] ?>
+    								            </a>
+                                            </li>
+                                        <?php endforeach; ?>
+    								</ul>
+    				            </div>
+                            <?php endif; ?>
 				        </div>
 					</div>
 						
                     <?php $j++; ?>
-                    <?php if($j >= 2 ) { break; } ?>
 						
 				<?php endforeach; ?>
             <?php endif; ?>
 
         </div>
     </div>
-</div>
-
-<div class="exhibit-sub-section">
-	<div class="container">
-		<div class="row">
-		
-			<div class="col-md-6">
-				<div class="exhibit-sub-info">
-					<p><?php print $node->field_exhibit_summary['und'][0]['value'];?></p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<?php 
-                    $call_out = $node->field_exhibit_callout['und'][0]['entity'];
-                    $call_out_type = $call_out->field_type['und'][0]['value'];
-                ?>
-				<?php if ( $call_out->body['und'][0]['value'] ): ?>
-					
-					<div class="callout pull-right" data-url="<?php print $call_out->field_link['und'][0]['value']; ?>">
-						<p class="hashtag">
-                            <?php if ( $call_out_type === 'twitter' ): ?>
-                                <span class="glyphicon glyphicon-comment"></span> #rememberinglincoln
-                            <?php elseif ( $call_out_type === 'youtube' ): ?>
-                                <span class="glyphicon glyphicon-facetime-video"></span> Ford's Theatre on YouTube
-                            <?php else: ?>
-                                <span class="glyphicon glyphicon-book"></span> Ford's Theatre Blog
-                            <?php endif; ?>
-                        </p>
-						<p class="message"><?php print $call_out->body['und'][0]['value']; ?></p>
-					</div>
-					
-				<?php endif; ?>
-			</div>
-
-		</div>
-	</div>
 </div>
 
 <div class="next-section-area">
@@ -165,7 +130,7 @@
 					<h4 class="text-left">
 						Previous
 					</h4>
-					<h2><a href="<?php print $base_path; ?>exhibit/places"><span>&#8592;</span> Places</a></h2>
+					<h2><a href="<?php print $base_path; ?>exhibit/places"><span>&#8592;</span> Map of Responses</a></h2>
 				</div>
 
 				<div class="pull-right">

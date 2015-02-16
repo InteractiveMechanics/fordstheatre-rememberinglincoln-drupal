@@ -1,23 +1,22 @@
 <?php
-
+	 $subjects = array();
+	 $objects = array();
+	 $node_arr = lincoln_get_all_of_type('object');
+	 
+	 foreach ($node_arr as $value) {
+	 	$browse_obj = lincoln_taxonomy_term_load($value->field_item_type['und'][0]['tid']) . "|" . $value->field_item_type['und'][0]['tid'];
+	 	$subject = $value->field_subject['und'][0]['value'];
+	 	
+	 	array_push($subjects, $subject);
+	 	array_push($objects, $browse_obj);
+	 }
+	 
+	 $subjects = array_unique($subjects);
+	 $objects = array_unique($objects);
+	 
+	 $vocabulary = taxonomy_vocabulary_machine_name_load('Regions');
+	 $regions = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
 ?>
-<pre>
-	<?php
-		 $subjects = array();
-		 $objects = array();
-		 foreach ($view->result as $delta => $item)
-		 {
-		 	$browse_obj = $view->result[$delta]->field_field_item_type[0]['raw']['taxonomy_term']->name;
-		 	$subject = $view->result[$delta]->_field_data['nid']['entity']->field_subject['und'][0]['value'];
-		 	
-		 	array_push($subjects, $subject);
-		 	array_push($objects, $browse_obj);
-		 }
-		 
-		 $subjects = array_unique($subjects);
-		 $objects = array_unique($objects);
-	?>
-</pre>
 
 <div class="browse-header">
 	<div class="browse-search-header">
@@ -40,29 +39,35 @@
 						<form class="form-inline">
 						  
 						  	<div class="form-group">
-						    	<input autocomplete="off" type="text" class="form-control" id="exampleInputEmail2" placeholder="Search collection">
+						    	<input autocomplete="off" type="text" class="form-control title_input" id="exampleInputEmail2" placeholder="Search collection">
 						  	</div>
 						  
 						  	<div class="form-group">
-						  		<select class="form-control" style="width:125px; text-align:center;" >
-									<option value="-1">Object Type</option>
+						  		<select class="form-control item_type_drop_down" style="width:125px; text-align:center;" >
+									<option value="">Object Type</option>
 									<?php foreach($objects as $o): ?>
 										<?php if($o): ?>
-											<option value="<?php print $o ?>"><?php print $o ?></option>
+											<?php $elements = explode("|", $o); ?>
+											<?php if($elements[0]): ?>
+												<option value="<?php print $elements[1] ?>"><?php print $elements[0] ?></option>
+											<?php endif; ?>
 										<?php endif; ?>
 									<?php endforeach; ?>
 								</select>
 						  	</div>
 	
 						  	<div class="form-group hidden-xs">
-						   		<select class="form-control" style="width:100px; text-align:center;" >
-						   			<option value="-1">Region</option>
+						   		<select class="form-control region_drop_down" style="width:100px; text-align:center;" >
+						   			<option value="">Region</option>
+						   			<?php foreach($regions as $r): ?>
+						   				<option value="<?php print $r->tid; ?>"><?php print $r->name; ?></option>
+						   			<?php endforeach; ?>
 						   		</select>
 						  	</div>
 	
 						  	<div class="form-group hidden-xs">
-						    	<select class="form-control" style="width:100px; text-align:center;" >
-									<option value="-1">Subject</option>
+						    	<select class="form-control subject_drop_down" style="width:100px; text-align:center;" >
+									<option value="">Subject</option>
 									<?php foreach($subjects as $s): ?>
 										<?php if($s): ?>
 											<option value="<?php print $s; ?>"><?php print $s; ?></option>
@@ -71,21 +76,17 @@
 								</select>
 						  	</div>
 						  
-						  	<button type="submit" class="btn hidden-xs btn-reset">Reset filters</button>
+						  	<button class="btn btn-reset btn-go">Go</button>
+						  	
+						  	<button class="btn hidden-xs btn-reset">Reset filters</button>
 	
 						</form>
 	
 					</div>
-	
-					<div class="pull-right">
-	
-					</div>
-	
 				</div>	
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <div class="browse-items">
@@ -96,27 +97,34 @@
 					<div id="posts" data-columns>
 					
 						<?php foreach ($view->result as $delta => $item): ?>
-							<div class="post">
-								<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
-									
-									<?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'])): ?>
-										<img src="<?php print image_style_url('large', file_create_url($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'])); ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />
+                            <?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['filename'])): ?>
+                            	
+    							<div class="post">
+    								<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
+                                        <?php
+                                            $preset = 'square'; //presetname
+                                            $src = file_build_uri($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['filename']);
+                                            $dst = image_style_path($preset, $src);
+                                            //$success = file_exists($dst) || image_style_create_derivative($preset, $src, $dst);
+                                   
+                                        ?>
                                         
-									<?php endif; ?>
-								</a>
-								
-								<p class="title">
-									<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
-										<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>
-									</a>
-								</p>
-								<p class="date">
-									from
-									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
-								</p>
-                                <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
-								</div>
-							</div>
+										<img src="<?php print file_create_url($dst); ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />    									
+    								</a>
+    								
+    								<p class="title">
+    									<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
+    										<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>
+    									</a>
+    								</p>
+    								<p class="date">
+                                        <?php $term = taxonomy_term_load($view->result[$delta]->_field_data['nid']['entity']->field_item_type['und'][0]['tid']); print $term->name; ?><span>|</span> 
+    									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
+    								</p>
+                                    <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
+    								</div>
+    							</div>
+                            <?php endif; ?>
 						<?php endforeach; ?>
 					
 					</div>
@@ -131,3 +139,117 @@
 		</div>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		/*$('.item_type_drop_down').on('change', function() {
+			var path = window.location.origin + window.location.pathname + "?item_type[]=" + this.value;
+			window.location.href = path;
+		});
+		
+		$('.subject_drop_down').on('change', function() {
+			var path = window.location.origin + window.location.pathname + "?subject=" + this.value;
+			window.location.href = path;
+		});*/
+		
+		$('.btn-go').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			e.stopImmediatePropagation();
+			
+			var path = window.location.origin + window.location.pathname;
+			
+			var title = $('.title_input').val();
+			var object = $('.item_type_drop_down').val();
+			var region = $('.region_drop_down').val();
+			var subject = $('.subject_drop_down').val();
+			
+			if(title) {
+				if (containsQuestionMark(path)) {
+					path += "&title=" + title;
+				} else {
+					path += "?title=" + title;
+				}
+			}
+			
+			if(object) {
+				if (containsQuestionMark(path)) {
+					path += "&item_type[]=" + object;
+				} else {
+					path += "?item_type[]=" + object;
+				}
+			}
+			
+			if(region) {
+				if (containsQuestionMark(path)) {
+					path += "&region[]=" + region;
+				} else {
+					path += "?region[]=" + region;
+				}
+			}
+			
+			if(subject) {
+				if (containsQuestionMark(path)) {
+					path += "&subject=" + subject;
+				} else {
+					path += "?subject=" + subject;
+				}
+			}
+			
+			window.location.href = path;
+			
+		});
+		
+		$('.btn-reset').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			e.stopImmediatePropagation();
+			
+			var path = window.location.origin + window.location.pathname;
+			window.location.href = path;
+		});	
+		
+		function containsQuestionMark(str) {
+			return str.indexOf("?") > 0;
+		}
+	
+		
+		function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+		
+		function populateParams() {
+			var title = getParameterByName('title');
+			var object = getParameterByName('item_type[]');
+			var region = getParameterByName('region[]');
+			var subject = getParameterByName('subject');
+			
+			if(title) {
+				$('.title_input').val(title);
+			}
+			
+			if(object) {
+				$(".item_type_drop_down option[value='" + object +"']").attr('selected', 'selected');
+			}
+			
+			if(region) {
+				$(".region_drop_down option[value='" + region +"']").attr('selected', 'selected');
+			}
+			
+			if(subject) {
+				console.log($(".subject_drop_down option[value='" + subject +"']").attr('selected', 'selected'));
+			}
+		}
+		
+		if( containsQuestionMark( window.location.href ) ) {
+			populateParams();
+		}
+	});
+	
+</script>

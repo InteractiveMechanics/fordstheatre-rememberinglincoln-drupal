@@ -30,15 +30,15 @@
 					</p>
 				</div>
 
-				<div class="col-md-8 col-lg-6 col-lg-offset-2 hidden-sm hidden-xs">
+				<div class="col-md-8 col-lg-7 col-lg-offset-1 hidden-sm hidden-xs">
 
 					<ul class="footer-links">
 						<li>
 							<ul>
-								<li class="title">Exhibit</li>
+								<li class="title">Story</li>
 								<li><a href="<?php print $base_path; ?>exhibit/introduction">Introduction</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/events">Events</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/places">Places</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/events">Timeline</a></li>
+								<li><a href="<?php print $base_path; ?>exhibit/places">Map of Responses</a></li>
 								<li><a href="<?php print $base_path; ?>exhibit/people">People</a></li>
 							</ul>
 						</li>
@@ -59,9 +59,9 @@
 						<li>
 							<ul>
 								<li class="title">About the project</li>
-								<li><a href="javascript:void(0);">Resources</a></li>
+                                <li><a href="<?php print $base_path; ?>about-remembering-lincoln">About Remembering Lincoln</a></li>
+                                <li><a href="<?php print $base_path; ?>about-fords-theatre">About Ford's Theatre</a></li>
 								<li><a href="<?php print $base_path; ?>partners">Partners</a></li>
-								<li><a href="javascript:void(0);">Documentation</a></li>
 								<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
 								<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>
 								<li><a href="http://fords.org/contact">Contact us</a></li>

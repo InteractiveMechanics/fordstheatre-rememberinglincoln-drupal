@@ -30,7 +30,7 @@
 							<a href="<?php print $front_page; ?>">Homepage</a>
 						</li>
 						<li class="title">
-                            <a href="<?php print $base_path; ?>exhibit/introduction">Explore the Exhibit</a>
+                            <a href="<?php print $base_path; ?>exhibit/introduction">Explore the Story</a>
                         </li>
 						<li class="title">
 							<a href="<?php print $base_path; ?>browse">Browse All Responses</a>
@@ -68,7 +68,7 @@
 			        <ul class="nav navbar-nav pull-right">
 		            	<li>
 		            		<a href="<?php print $base_path; ?>exhibit/introduction" class="scroll-link" data-id="mission">
-		            			Explore the Exhibit
+		            			Explore the Story
 		            		</a>
 		            	</li>
 

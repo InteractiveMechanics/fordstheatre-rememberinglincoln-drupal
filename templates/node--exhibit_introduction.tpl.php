@@ -7,7 +7,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-                        <h4>Explore the Exhibit</h4>
+                        <h4>Explore the Story</h4>
 						<h1><?php print $node->title;?></h1>
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 					<div class="sub-section-image">
 						<img src="<?php print file_create_url($node->field_exhibit_intro_event_image['und'][0]['uri']); ?>" alt="Events" />
 					</div>
-					<h2>Events</h2>
+					<h2>Timeline</h2>
 					<p><?php print $node->field_exhibit_intro_event_body['und'][0]['value'];?></p>
 				</a>
 			</div>
@@ -53,7 +53,7 @@
 					<div class="sub-section-image">
 						<img src="<?php print file_create_url($node->field_exhibit_intro_place_image['und'][0]['uri']); ?>" alt="Places" />
 					</div>
-					<h2>Places</h2>
+					<h2>Map of Responses</h2>
 					<p><?php print $node->field_exhibit_intro_place_body['und'][0]['value'];?></p>
 				</a>
 			</div>
@@ -78,7 +78,7 @@
 			<h4 class="text-right">
 				NEXT
 			</h4>
-			<h2><a href="<?php print $base_path; ?>exhibit/events">Events <span>&#8594;</span></a></h2>
+			<h2><a href="<?php print $base_path; ?>exhibit/events">Timeline <span>&#8594;</span></a></h2>
 		</div>
 	</div>
 </div>

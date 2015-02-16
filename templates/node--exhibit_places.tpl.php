@@ -13,7 +13,7 @@
 	  foreach( $timelineCollection as $index => $collection ) {
 		$wrapper->field_exhibit_place_historypin[ $index ];
 		$temp = array();
-		$image = $wrapper->field_exhibit_place_historypin[0]->field_historypin_image->value();
+		$image = $wrapper->field_exhibit_place_historypin[$index]->field_historypin_image->value();
 		
 		$temp['title'] = $wrapper->field_exhibit_place_historypin[$index]->field_historypin_title->value();
 		$temp['image'] = file_create_url($image['uri']);
@@ -32,16 +32,16 @@
 	<div class="container">
 		<div class="header row">
             <div class="col-lg-8 col-lg-offset-2">
-			    <h4>Explore the Exhibit</h4>
-                <h1>Places</h1>
+			    <h4>Explore the Story</h4>
+                <h1><?php print $node->title; ?></h1>
             </div>
 		</div>
 	
 		<div class="row information-row">
-			<div class="col-md-6 col-lg-5 col-lg-offset-2">
+			<div class="col-md-8 col-lg-5 col-lg-offset-2">
 				<p><?php print $node->body['und'][0]['value'];?></p>
 			</div>
-			<div class="col-md-6 col-lg-3">
+			<div class="col-md-4 col-lg-3">
 				<div class="menu pull-right">
 
 					<ul>
@@ -49,10 +49,10 @@
 							<a href="<?php print $base_path; ?>exhibit/introduction">1. Introduction</a>
 						</li>
 						<li>
-							<a href="<?php print $base_path; ?>exhibit/events">2. Events</a>
+							<a href="<?php print $base_path; ?>exhibit/events">2. Timeline</a>
 						</li>	
 						<li class="active">
-							<a href="<?php print $base_path; ?>exhibit/places">3. Places</a>
+							<a href="<?php print $base_path; ?>exhibit/places">3. Map of Responses</a>
 						</li>	
 						<li>
 							<a href="<?php print $base_path; ?>exhibit/people">4. People</a>
@@ -75,7 +75,6 @@
 		
 			<?php if ($places_arrary): ?>
 				<?php foreach ($places_arrary as $place): ?>
-
 					<div class="col-md-4">
 						<a class="sub-section-item" href="<?php print $place['link'] ?>" target="_blank">
 							<div class="sub-section-image">
@@ -99,7 +98,7 @@
 			<div class="col-md-12">
 				<div class="pull-left">
 					<h4 class="text-left">PREVIOUS</h4>
-					<h2><a href="<?php print $base_path; ?>exhibit/events"><span>&#8592;</span> Events</a></h2>
+					<h2><a href="<?php print $base_path; ?>exhibit/events"><span>&#8592;</span> Timeline</a></h2>
 				</div>
 	
 				<div class="pull-right">

@@ -9,6 +9,7 @@ stylesheets[all][] = /assets/bootstrap/css/bootstrap.min.css
 stylesheets[all][] = /assets/css/style.css
 stylesheets[print][] = /assets/css/print.css
 
+
 regions[header]         = Header
 regions[navigation]     = Navigation bar
 regions[highlighted]    = Highlighted

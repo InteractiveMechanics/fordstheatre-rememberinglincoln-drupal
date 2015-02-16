@@ -705,20 +705,91 @@ function zen_panels_default_style_render_region($variables) {
 }
 
 
-function lincoln_get_random_node_count($content_type) {
+function lincoln_get_node_count($content_type) {
      $query = "SELECT COUNT(*) amount FROM {node} n ".
               "WHERE n.type = :type";
      $result = db_query($query, array(':type' => $content_type))->fetch();
      return $result->amount;
 }
 
-function lincoln_get_random_node_type($content_type) {
+function lincoln_get_random_node_type($content_type, $limit) {
+	$query = db_query("SELECT nid FROM {node} n WHERE status = 1 AND n.type = '$content_type' ORDER BY RAND() LIMIT $limit")->fetch();
 	
-	$query=db_query('SELECT nid, RAND() as _random FROM {node} WHERE status = 1 AND n.type = :type ORDER BY _random ASC LIMIT 1');
-	$result=db_fetch_object($query);
-    $result = db_query($query, array(':type' => $content_type))->fetch();
-   
-    $n = node_load($result->nid);
-    
-    return $n;
+	if($query) {
+		$n = node_load($query->nid);
+		return $n;
+	}
+	
+	return null;
+}
+
+function lincoln_get_random_objects() {
+	$query = new EntityFieldQuery();
+	
+	$query->entityCondition('entity_type', 'node')
+	  ->entityCondition('bundle', 'object')
+	  ->propertyCondition('status', 1)
+	  ->range(0, 20);
+	
+	$result = $query->execute();
+	
+	if (isset($result['node'])) {
+	  	$news_items_nids = array_keys($result['node']);
+	  	$news_items = entity_load('node', $news_items_nids);
+	  
+	  	$arr = array();
+	  	foreach ($news_items as $value) {
+		    array_push($arr, $value);
+		}
+		
+		return $arr;
+	}
+	
+	return null;
+}
+
+function lincoln_taxonomy_term_load($tid) {
+  	if (!is_numeric($tid)) {
+	    return FALSE;
+	}
+  	$term = taxonomy_term_load_multiple(array($tid), array());
+  	return $term ? $term[$tid]->name : '';
+}
+
+function lincoln_get_all_of_type($content_type) {
+	$query = new EntityFieldQuery();
+	
+	$query->entityCondition('entity_type', 'node')
+	  ->entityCondition('bundle', 'object')
+	  ->propertyCondition('status', 1);
+	
+	$result = $query->execute();
+	if (isset($result['node'])) {
+	  	$news_items_nids = array_keys($result['node']);
+	  	$news_items = entity_load('node', $news_items_nids);
+	  
+	  	$arr = array();
+	  	foreach ($news_items as $value) {
+		    array_push($arr, $value);
+		}
+		
+		return $arr;
+	}
+	
+	return null;
+}
+
+function lincoln_current_url() {
+	$pageURL = 'http';
+	if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	
+	$pageURL .= "://";
+	
+	if ($_SERVER["SERVER_PORT"] != "80") {
+		$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	} else {
+		$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	}
+	
+	return $pageURL;
 }

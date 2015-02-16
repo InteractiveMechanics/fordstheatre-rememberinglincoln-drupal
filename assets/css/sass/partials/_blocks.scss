@@ -2,16 +2,90 @@
     .block {
         float: left;
         background: $lightgray;
-        padding: 20px;
+        padding: 40px 35px 35px;
         height: 230px;
+        overflow: hidden;
         box-shadow: 0;
         transition: $slow-trans;
         position: relative;
         z-index: 1;
+        cursor: pointer;
 
         &:hover {
             box-shadow: 0 2px 16px rgba(0,0,0,0.2);
             z-index: 2;
+
+            .overlay {
+                
+            }
+        }
+
+        h2 {
+            color: white;
+            margin: 80px 0 0;
+            position: relative;
+            z-index: 2;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'myriad-pro';
+        }
+        p {
+            color: white;
+            margin: 8px 0 0;
+            position: relative;
+            z-index: 2;
+            line-height: 27px;
+            font-weight: 700;
+            font-family: 'minion-pro';
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        &.block-curated {
+            background: $fts-darkgold;
+        }
+        &.block-number {
+            background: url(../images/callout_count.jpg) no-repeat;
+            background-size: cover;
+
+            h2 {
+                font-size: 60px;
+            }
+            p {
+                line-height: 27px;
+            }
+        }
+        &.block-callout {
+            background: $fts-darkred;
+
+            p {
+                margin: 0px;
+                color: white;
+                font-family: 'myriad-pro';
+        
+                &.hashtag {
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 16px;
+        
+                    span {
+                        font-size: 12px;
+                        margin-right: 6px;
+                    }
+                }
+                &.message {
+                    font-size: 21px;
+                    margin: 10px 0 0;
+                    line-height: 30px;
+                    font-family: "minion-pro";
+                    font-weight: 700;
+                }
+            }
         }
 
         @media screen and (min-width: 1440px) {
@@ -43,10 +117,6 @@
 
             &.two { width: 100%; }
             &.hide-xs { display: none; }
-        }
-
-        &:nth-child(2n) {
-            background: darken($lightgray, 10%);
         }
     }
 }

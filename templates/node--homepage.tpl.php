@@ -6,9 +6,11 @@
 	*/
 	
 	$num_responses = lincoln_get_node_count('object');
-	$random_curated_node = lincoln_get_random_node_type('curated_collection');
-	$random_callout = lincoln_get_random_node_type('call_out');
+	$random_curated_node = lincoln_get_random_node_type('curated_collection', 1);
+	$random_callout = lincoln_get_random_node_type('call_out', 1);
 	
+	$random_objects = lincoln_get_random_objects();
+	global $base_path; 
 ?>
 
 <div class="hero-unit homepage">
@@ -17,50 +19,81 @@
 			<div class="row">
 				<div class="col-md-6 pull-right">
 					<h1>
-						Exploring the <em>life</em>, <em>legacy</em>, and <em>memory</em> of Abraham Lincoln.
+						<?php print $node->field_hero_unit_message['und'][0]['value'];?>
 					</h1>
 				</div>
 			</div>
 		</div> <!--./hero-unit-message-->
-        <a href="#" class="scroll-down">&#8594;</a>
 	</div><!--./jumbotron-->
+    <a href="#explore-the-story" class="scroll-down">&#8594;</a>
 
-    <div class="object fade-left-up"></div>
+    <div class="object fade-left-up"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_01.jpg" /></div>
+    <div class="object fade-right-up"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_02.jpg" /></div>
+    <div class="object fade-right-down"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_03.jpg" /></div>
 </div> <!--./hero-->
 
 
-<div class="about-info">
+<div id="explore-the-story" class="about-info">
     <div class="row">
     	<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     		<p><?php print $node->field_homepage_message['und'][0]['value'];?></p>
     	</div>
     </div>
     <div class="text-center">
-    	<a href="<?php global $base_path; print $base_path; ?>exhibit/introduction" class="btn btn-outline">
-            Explore the Exhibit <span>&#8594;</span>
+    	<a href="<?php print $base_path; ?>exhibit/introduction" class="btn btn-outline">
+            Explore the Story <span>&#8594;</span>
         </a>
     </div>
 </div> <!--./about-info -->
 
 
 <div class="blocks clearfix">
-    <div class="block two">
-	    
+    <div class="block two block-number" data-url="<?php print url('browse'); ?>">
+	    <h2><?php print $num_responses; ?></h2>
+	    <p>Responses</p>
     </div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block hide-xs"></div>
-    <div class="block hide-xs"></div>
-    <div class="block hide-xs hide-md"></div>
-    <div class="block hide-xs hide-sm hide-md"></div>
-    <div class="block hide-xs hide-sm hide-md hide-lg"></div>
-    <div class="block hide-xs hide-sm hide-md hide-lg"></div>
-    <div class="block two"></div>
-    <div class="block hide-xs hide-sm hide-md"></div>
-    <div class="block two hide-xs hide-sm"></div>
-    <div class="block hide-xs hide-sm"></div>
-    <div class="block hide-xs hide-sm"></div>
-    <div class="block hide-xs hide-sm hide-md hide-lg"></div>
+    
+    <?php foreach($random_objects as $key => $object): ?>
+        <?php if( $key < 12 ): ?>
+            <div class="block 
+                <?php if ($key > 1){ echo ' hide-xs'; } ?>
+                <?php if ($key > 4){ echo ' hide-sm'; } ?>
+                <?php if (($key > 3 && $key < 9) || ($key == 11)){ echo ' hide-md'; } ?>
+                <?php if (($key > 5 && $key < 8) || ($key == 11)){ echo ' hide-lg'; } ?>
+                " data-url="<?php print url('node/' . $random_objects[$key]->nid, array('absolute' => TRUE)); ?>">
+                <h2><?php print format_date(strtotime($random_objects[$key]->field_date['und'][0]['value']), 'custom', 'Y'); ?></h2>
+    	   		<p><?php print lincoln_taxonomy_term_load($random_objects[$key]->field_item_type['und'][0]['tid']); ?></p>
+                <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
+                    <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <?php if ($key == 7): ?>
+                <?php if($random_callout): ?>
+            		<?php $call_out_type = $random_callout->field_callout_type['und'][0]['value']; ?> 
+            	    <div class="block two block-callout" data-url="<?php print $random_callout->field_link['und'][0]['value']; ?>">
+                        <p class="hashtag">
+                			<?php if ( $call_out_type === 'twitter' ): ?>
+                	            <span class="glyphicon glyphicon-comment"></span> #rememberinglincoln
+                	        <?php elseif ( $call_out_type === 'youtube' ): ?>
+                	            <span class="glyphicon glyphicon-facetime-video"></span> Ford's Theatre on YouTube
+                	        <?php else: ?>
+                	            <span class="glyphicon glyphicon-book"></span> Ford's Theatre Blog
+                	        <?php endif; ?>
+                        </p>
+            			<p class="message"><?php print $random_callout->body['und'][0]['value']; ?></p>    
+            	    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if ($key == 8): ?>
+                <div class="block two block-curated hide-xs hide-sm" data-url="<?php print url('node/' . $random_curated_node->nid, array('absolute' => TRUE)); ?>">
+        	    	<h2>Curated Collection</h2>  
+        			<p><?php print $random_curated_node->title; ?></p>
+            	</div>
+            <?php endif; ?> 
+        <?php endif; ?>
+    <?php endforeach; ?>
+    
 </div> <!--./blocks -->
 
 
@@ -97,3 +130,16 @@
 
 	</div> <!--./container -->
 </div> <!--./homepage-blog-section -->
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$('.blocks .block').click(function(){
+			window.location.href = $(this).data('url');
+		}).find('.save-icon').click(function(e){
+            return false;
+        });
+	});
+
+</script>

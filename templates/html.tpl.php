@@ -32,6 +32,12 @@
 
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+    
+    <style type="text/css">
+    	.views-exposed-form {
+	    	display: none;	
+    	}
+    </style>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
     <?php if ($skip_link_text && $skip_link_anchor): ?>
@@ -43,8 +49,8 @@
     <?php print $page; ?>
     <?php print $page_bottom; ?>
   
-    <script src="<?php global $base_path; print $base_path; ?>themes/lincoln/assets/js/salvattore.js"></script>
-    <script src="<?php global $base_path; print $base_path; ?>themes/lincoln/assets/js/jquery.elevatezoom.js"></script>
+    <script src="<?php print $base_path; ?>themes/lincoln/assets/js/salvattore.js"></script>
+    <script src="<?php print $base_path; ?>themes/lincoln/assets/js/jquery.elevatezoom.js"></script>
     <script type="text/javascript">
 		$(function() {
 			$('.toggle-nav').click(function() {
@@ -55,10 +61,7 @@
 				var arr = JSON.parse(localStorage.getItem('remembering_lincoln'));
 				updateCollectionHTML(arr);
 			}
-		});
-		
-		$(document).ready(function(){
-		
+
 			$('.save-icon').click(function(){
 				var type = $(this).data('nodeid');
                 $(this).toggleClass('object-added');
@@ -84,6 +87,19 @@
                 cursor: "crosshair"
             });
 			
+            $('a[href*=#]:not([href=#])').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 80
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+
 		});
 
 		function toggleNav() {
@@ -167,5 +183,7 @@
 			}
 		}
 	</script>
+	
+	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
