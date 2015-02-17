@@ -15,8 +15,18 @@
                 position: absolute;
                 top: -15px;
                 right: 0;
-                max-width: 175px;
-                max-height: 50px;
+                opacity: 0.5;
+                transition: $slow-trans;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                img {
+                    max-width: 175px;
+                    max-height: 70px;
+                }
             }
         }
     }

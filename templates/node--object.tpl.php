@@ -24,6 +24,8 @@
 
 	  }
 	}
+    $uid = $node->uid;
+    $user_info = user_load($uid);
 ?>
 
 
@@ -49,9 +51,11 @@
 					</div>
 
 					<div class="hidden-xs hidden-sm pull-right">
-						<div class="content-from-image">
-							<!--<img src="./images/washington.jpg" alt="Logo" />-->
-						</div>
+						<a class="content-from-image" href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+							<?php if($user_info->picture): ?>
+        						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
+        					<?php endif; ?>
+						</a>
 					</div>
 				</div>
 
@@ -238,9 +242,11 @@
           			<div class="container">
           				<hr />
 	          			<div class="text-center">
-							<div class="content-from-image">
-								<!--<img src="./images/washington.jpg" alt="Logo" />-->
-							</div>
+							<a class="content-from-image" href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+    							<?php if($user_info->picture): ?>
+            						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
+            					<?php endif; ?>
+    						</a>
 						</div>
           			</div>
           		</div>
@@ -252,147 +258,80 @@
 
 <div class="print-view">
 	<div class='category'>
-	
-		<p>
-			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name;?>
-			from 
-			<?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'M. j, Y');?>
-		</p>
-		
-		<h2>
-			<?php print $node->title;?>
-		</h2>
+		<p><?php print $node->field_item_type['und'][0]['taxonomy_term']->name;?> from <?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'M. j, Y');?></p>
+		<h2><?php print $node->title; ?></h2>
 	</div>
-
-	<div class="center">
-		<div class="print-photo" style="width: 350px; /* text-align: center; */ margin: 20px auto;"> 
-			<center>
-				<img 
-            				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
-            				alt="<?php print $node->title;?>" 
-            				width="325" 
-            				class="img-responsive" 
-            				alt="<?php print $node->title;?>" 
-            			/>
-			</center>
-		</div>
+	<div class="print-photo"> 
+		<img 
+			src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
+			alt="<?php print $node->title;?>" 
+			width="325" 
+			class="img-responsive" 
+			alt="<?php print $node->title;?>" />
 	</div>
-
 	<div class="details">
-		<div class="col-md-6">
-  				<ul class="list-inline">
-  					<?php if( $node->body['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Description
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->body['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_source['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Source
-      						</h4>
-
-      						<p>
-      							<?php print $node->field_source['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-  					
-  					<?php if( $node->field_rights['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Rights
-      						</h4>
-
-      						<p>
-      							<?php print $node->field_rights['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_subject['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Subject
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->field_subject['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_publisher['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Publisher
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->field_publisher['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_date['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Date
-      						</h4>
-	  						
-      						<p>
-      							<?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'F j, Y');?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_material['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Material
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->field_material['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-
-  					<?php if( $node->field_object_dimensions['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Dimensions
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->field_object_dimensions['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-  					
-  					<?php if( $node->field_object_dimensions['und'][0]['value'] ): ?>
-      					<li>
-      						<h4 class="title">
-      							Region
-      						</h4>
-	  						
-      						<p>
-      							<?php print $node->field_object_dimensions['und'][0]['value'];?>
-      						</p>
-      					</li>
-  					<?php endif; ?>
-  				</ul>
-  			</div>
-
-  		</div>
+	    <ul class="list-inline">
+            <?php if( $node->body['und'][0]['value'] ): ?>
+                <li>
+                    <h4 class="title">Description</h4>
+                    <p><?php print $node->body['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_source['und'][0]['value'] ): ?>
+                <li>
+                    <h4 class="title">Source</h4>
+                    <p><?php print $node->field_source['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_rights['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Rights</h4>
+                    <p><?php print $node->field_rights['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_subject['und'][0]['value'] ): ?>
+                <li>
+                    <h4 class="title">Subject</h4>
+    				<p><?php print $node->field_subject['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_creator['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Creator</h4>
+    				<p><?php print $node->field_creator['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_publisher['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Publisher</h4>
+    				<p><?php print $node->field_publisher['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_date['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Date</h4>
+    				<p><?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'F j, Y');?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_material['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Material</h4>
+    				<p><?php print $node->field_material['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_object_dimensions['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Dimensions</h4>
+    				<p><?php print $node->field_object_dimensions['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+            <?php if( $node->field_region['und'][0]['value'] ): ?>
+                <li>
+    				<h4 class="title">Region</h4>
+    				<p><?php print $node->field_object_dimensions['und'][0]['value'];?></p>
+                </li>
+            <?php endif; ?>
+        </ul>
 	</div>
-	
 	<div style="page-break-after:always"></div>
 </div>

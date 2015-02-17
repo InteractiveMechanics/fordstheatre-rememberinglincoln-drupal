@@ -12,6 +12,20 @@
 
 .print-view {
 	display: block;
+    padding: 25px;
+}
+.print-view .category p {
+    font-weight: bold;
+}
+.print-view .details li {
+    display: block;
+}
+.print-view .details li h4 {
+    margin: 15px 0 4px;
+}
+.print-view .details li p {
+    font-size: 14px !important;
+    line-height: 21px !important;
 }
 
 .browse-details {
@@ -982,6 +996,10 @@ ul.partner-list li {
     border-bottom: 1px solid #ddd;
 }
 
+.module-page .print-photo {
+    margin: 20px 0;
+}
+
 .module-page h3 {
     margin-top: 10px;
 }
@@ -998,12 +1016,15 @@ ul.partner-list li {
 }
 
 .module-page ul.details li {
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     list-style: none;
+    display: block;
+    width: 100%;
 }
 
 .module-page ul.details li h4 {
-    margin: 7px 0 10px;
+    margin: 15px 0 5px;
+    display: block;
 }
 
 .module-page ul.details li p.header {

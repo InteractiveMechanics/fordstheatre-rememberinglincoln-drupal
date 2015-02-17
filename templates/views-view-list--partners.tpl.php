@@ -1,10 +1,8 @@
 <?php
-	//$view->result[$delta]->_field_data['nid']['entity']->field_file['und']
+	global $base_path;
 ?>
-
-<div class="partners" style="padding-top:100px;">
-	<div class="container">
-
+<div class="partner-page-header">
+    <div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h1>
@@ -12,30 +10,28 @@
 				</h1>
 			</div>
 		</div>
-
+    </div>
+</div>
+<div class="partners">
+    <div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<ul class="list-inline">
-					<?php foreach ($view->result as $delta => $item): ?>
-						<li>
-							<div class="partner">
-								<!--<img src="./images/washington.jpg" class="img-responsive" alt="Partner" />-->
-								
-								<p>
-									<?php $uid = $view->result[$delta]->_field_data['uid']['entity']->uid; ?>
-									<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=partner&uid=<?php print $uid ?>">
-										<?php print $view->result[$delta]->_field_data['uid']['entity']->field_contact_email['und'][0]['value']; ?>
-									</a>
-								</p>
-							</div>
-						</li>
-						
-					<?php endforeach; ?>
-
-				</ul>
-			</div>
+			<?php foreach ($view->result as $delta => $item): ?>
+                <?php if ($view->result[$delta]->_field_data['uid']['entity']->uid != 29): ?>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+					<div class="partner">
+                        <?php $uid = $view->result[$delta]->_field_data['uid']['entity']->uid; ?>
+                        <a href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+                            <?php if($view->result[$delta]->_field_data['uid']['entity']->picture): ?>
+        						<img src="<?php print file_create_url($view->result[$delta]->_field_data['uid']['entity']->picture->uri); ?>" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
+                            <?php else: ?>
+                                <img src="http://placehold.it/200x120.jpg" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
+        					<?php endif; ?>
+                            <p><?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution['und'][0]['value']; ?></p>
+				        </a>
+					</div>
+				</div>
+                <?php endif; ?>
+			<?php endforeach; ?>
 		</div>
-
 	</div>
-
 </div>
