@@ -76,9 +76,9 @@
 								</select>
 						  	</div>
 						  
-						  	<button class="btn btn-reset btn-go">Go</button>
+						  	<button class="btn btn-reset btn-go">Filter</button>
 						  	
-						  	<button class="btn hidden-xs btn-reset">Reset filters</button>
+						  	<button class="btn hidden-xs btn-reset">Reset</button>
 	
 						</form>
 	
@@ -97,16 +97,15 @@
 					<div id="posts" data-columns>
 					
 						<?php foreach ($view->result as $delta => $item): ?>
-                            <?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['filename'])): ?>
+                            <?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'])): ?>
                             	
     							<div class="post">
     								<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
                                         <?php
-                                            $preset = 'square'; //presetname
-                                            $src = file_build_uri($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['filename']);
+                                            $preset = 'square';
+                                            $src = $view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'];
                                             $dst = image_style_path($preset, $src);
-                                            //$success = file_exists($dst) || image_style_create_derivative($preset, $src, $dst);
-                                   
+                                            $success = file_exists($dst) || image_style_create_derivative(image_style_load($preset), $src, $dst);
                                         ?>
                                         
 										<img src="<?php print file_create_url($dst); ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />    									
@@ -122,6 +121,7 @@
     									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
     								</p>
                                     <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
+                                        <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
     								</div>
     							</div>
                             <?php endif; ?>

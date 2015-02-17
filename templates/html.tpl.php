@@ -83,8 +83,8 @@
 			});
 
             $(".img-zoomable").elevateZoom({ 
-                zoomType: "inner", 
-                cursor: "crosshair"
+                zoomType: "lens",
+                containLensZoom: true
             });
 			
             $('a[href*=#]:not([href=#])').click(function() {

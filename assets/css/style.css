@@ -398,15 +398,18 @@ blockquote {
   cursor: pointer;
   transition: all 0.25s;
   z-index: 99;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.45); }
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg); }
   .save-icon.object-added {
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
+    -moz-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0); }
 
 .blocks .block {
   float: left;
-  background: #f1f2f2;
+  background-size: cover;
   padding: 40px 35px 35px;
   height: 230px;
   overflow: hidden;
@@ -416,7 +419,7 @@ blockquote {
   z-index: 1;
   cursor: pointer; }
   .blocks .block:hover {
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     z-index: 2; }
   .blocks .block h2 {
     color: white;
@@ -439,16 +442,22 @@ blockquote {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0; }
+    right: 0;
+    background: black;
+    opacity: 0.35; }
   .blocks .block.block-curated {
     background: #ccab77; }
+    .blocks .block.block-curated p {
+      font-size: 36px; }
   .blocks .block.block-number {
     background: url(../images/callout_count.jpg) no-repeat;
     background-size: cover; }
     .blocks .block.block-number h2 {
-      font-size: 60px; }
+      font-size: 80px;
+      line-height: 64px;
+      margin-top: 70px; }
     .blocks .block.block-number p {
-      line-height: 27px; }
+      line-height: 24px; }
   .blocks .block.block-callout {
     background: #800426; }
     .blocks .block.block-callout p {
@@ -463,7 +472,7 @@ blockquote {
           font-size: 12px;
           margin-right: 6px; }
       .blocks .block.block-callout p.message {
-        font-size: 21px;
+        font-size: 24px;
         margin: 10px 0 0;
         line-height: 30px;
         font-family: "minion-pro";

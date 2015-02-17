@@ -55,15 +55,25 @@
     
     <?php foreach($random_objects as $key => $object): ?>
         <?php if( $key < 12 ): ?>
-            <div class="block 
-                <?php if ($key > 1){ echo ' hide-xs'; } ?>
-                <?php if ($key > 4){ echo ' hide-sm'; } ?>
-                <?php if (($key > 3 && $key < 9) || ($key == 11)){ echo ' hide-md'; } ?>
-                <?php if (($key > 5 && $key < 8) || ($key == 11)){ echo ' hide-lg'; } ?>
-                " data-url="<?php print url('node/' . $random_objects[$key]->nid, array('absolute' => TRUE)); ?>">
+            <?php
+                $preset = 'square';
+                $src = $random_objects[$key]->field_file['und'][0]['uri'];
+                $dst = image_style_path($preset, $src);
+                $success = file_exists($dst) || image_style_create_derivative(image_style_load($preset), $src, $dst);
+            ?>        	
+
+        	<div 
+                class="block 
+                    <?php if ($key > 1){ echo ' hide-xs'; } ?>
+                    <?php if ($key > 4){ echo ' hide-sm'; } ?>
+                    <?php if (($key > 3 && $key < 9) || ($key == 11)){ echo ' hide-md'; } ?>
+                    <?php if (($key > 5 && $key < 8) || ($key == 11)){ echo ' hide-lg'; } ?>
+                " 
+                style="background: url(<?php print file_create_url($dst); ?>)" 
+                data-url="<?php print url('node/' . $random_objects[$key]->nid, array('absolute' => TRUE)); ?>">
                 <h2><?php print format_date(strtotime($random_objects[$key]->field_date['und'][0]['value']), 'custom', 'Y'); ?></h2>
     	   		<p><?php print lincoln_taxonomy_term_load($random_objects[$key]->field_item_type['und'][0]['tid']); ?></p>
-                <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
+                <div class="save-icon hidden-xs" data-nodeId="<?php print $random_objects[$key]->nid ?>">
                     <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
                 </div>
                 <div class="overlay"></div>

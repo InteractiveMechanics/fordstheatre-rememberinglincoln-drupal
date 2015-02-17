@@ -1,7 +1,7 @@
 .blocks {
     .block {
         float: left;
-        background: $lightgray;
+        background-size: cover;
         padding: 40px 35px 35px;
         height: 230px;
         overflow: hidden;
@@ -12,7 +12,7 @@
         cursor: pointer;
 
         &:hover {
-            box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
             z-index: 2;
 
             .overlay {
@@ -44,20 +44,28 @@
             bottom: 0;
             left: 0;
             right: 0;
+            background: black;
+            opacity: 0.35;
         }
 
         &.block-curated {
             background: $fts-darkgold;
+
+            p {
+                font-size: 36px;
+            }
         }
         &.block-number {
             background: url(../images/callout_count.jpg) no-repeat;
             background-size: cover;
 
             h2 {
-                font-size: 60px;
+                font-size: 80px;
+                line-height: 64px;
+                margin-top: 70px;
             }
             p {
-                line-height: 27px;
+                line-height: 24px;
             }
         }
         &.block-callout {
@@ -79,7 +87,7 @@
                     }
                 }
                 &.message {
-                    font-size: 21px;
+                    font-size: 24px;
                     margin: 10px 0 0;
                     line-height: 30px;
                     font-family: "minion-pro";

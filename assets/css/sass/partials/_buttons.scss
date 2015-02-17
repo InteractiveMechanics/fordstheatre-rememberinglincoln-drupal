@@ -65,10 +65,13 @@
     transition: $fast-trans;
     z-index: 99;
     text-shadow: 0 0 10px rgba(0,0,0,0.45);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 
     &.object-added {
-        -moz-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
+        -moz-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
 }
