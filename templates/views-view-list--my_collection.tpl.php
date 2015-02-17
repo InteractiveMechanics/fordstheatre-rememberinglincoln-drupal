@@ -8,6 +8,9 @@
 	
 	$email_link = "mailto:&subject=" . urlencode("Remembering Lincoln Response") . "&body=" . urlencode("Check out this response for the remembering lincoln collection, ") . urlencode(lincoln_current_url());
 	$twitter_link = "http://twitter.com/share?text=Check out this collection&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
+	
+	$random_curated_nodes = lincoln_get_curated_content();
+	
 ?>
 
 <div class="my-collection-header">
@@ -66,7 +69,7 @@
 								<?php print $n->field_item_type['und'][0]['taxonomy_term']->name;?> from
 								<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
 							</p>
-							<div class="save-icon hidden-xs" data-nodeId="<?php print $n->nid ?>">
+							<div class="save-icon hidden-xs node-<?php print $n->nid ?>" data-nodeId="<?php print $n->nid ?>">
                                 <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
         				    </div>
 						</div>
@@ -79,47 +82,30 @@
 </div>
 
 <div class="gray-area">
+	
 	<div class="curated-content">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 curated-header">
 					<h1>
 						Curated collections
-                        <small><a href="javascript: void();" class="view-all">View all &raquo;</a></small>
+                        <small><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=curated-collection" class="view-all">View all &raquo;</a></small>
 					</h1>
 				</div>
 			</div>
 
 			<div class="curated-row row">
+				<?php foreach($random_curated_nodes as  $object): ?>
 				<div class="col-md-4">
 					<div class="curated-row-item">
-						<img src="http://placehold.it/375x260" />
-						<h2>Funeral Procession Artifacts</h2>
+						<img src="<?php print file_create_url($object->field_image["und"][0]["uri"]); ?>" />
+						<h2><?php print $object->title; ?></h2>
 						<h4>
 							Created by Ford's Theatre
 						</h4>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="curated-row-item">
-						<img src="http://placehold.it/375x260" />
-						<h2>Funeral Procession Artifacts</h2>
-						<h4>
-							Created by Ford's Theatre
-						</h4>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<div class="curated-row-item">
-						<img src="http://placehold.it/375x260" />
-						<h2>Funeral Procession Artifacts</h2>
-						<h4>
-							Created by Ford's Theatre
-						</h4>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 
 		</div>

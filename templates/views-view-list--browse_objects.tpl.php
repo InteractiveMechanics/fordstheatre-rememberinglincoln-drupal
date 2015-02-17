@@ -120,7 +120,7 @@
                                         <?php $term = taxonomy_term_load($view->result[$delta]->_field_data['nid']['entity']->field_item_type['und'][0]['tid']); print $term->name; ?><span>|</span> 
     									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
     								</p>
-                                    <div class="save-icon hidden-xs" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
+                                    <div class="save-icon hidden-xs node-<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
                                         <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
     								</div>
     							</div>

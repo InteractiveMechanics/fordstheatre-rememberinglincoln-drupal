@@ -22,14 +22,14 @@
 								<!--<img src="./images/washington.jpg" class="img-responsive" alt="Partner" />-->
 								
 								<p>
-									<a href="javascript: void(0);">
+									<?php $uid = $view->result[$delta]->_field_data['uid']['entity']->uid; ?>
+									<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=partner&uid=<?php print $uid ?>">
 										<?php print $view->result[$delta]->_field_data['uid']['entity']->field_contact_email['und'][0]['value']; ?>
 									</a>
 								</p>
 							</div>
 						</li>
 						
-						<?php var_dump($view->result[$delta]->_field_data['uid']['entity']->uid); ?>
 					<?php endforeach; ?>
 
 				</ul>

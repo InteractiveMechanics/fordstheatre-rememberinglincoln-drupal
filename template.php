@@ -748,6 +748,31 @@ function lincoln_get_random_objects() {
 	return null;
 }
 
+function lincoln_get_curated_content() {
+	$query = new EntityFieldQuery();
+	
+	$query->entityCondition('entity_type', 'node')
+	  ->entityCondition('bundle', 'curated_collection')
+	  ->propertyCondition('status', 1)
+	  ->range(0, 3);
+	
+	$result = $query->execute();
+	
+	if (isset($result['node'])) {
+	  	$news_items_nids = array_keys($result['node']);
+	  	$news_items = entity_load('node', $news_items_nids);
+	  
+	  	$arr = array();
+	  	foreach ($news_items as $value) {
+		    array_push($arr, $value);
+		}
+		
+		return $arr;
+	}
+	
+	return null;
+}
+
 function lincoln_taxonomy_term_load($tid) {
   	if (!is_numeric($tid)) {
 	    return FALSE;

@@ -182,6 +182,10 @@
 			} else {
 				$('.collection-has-items').attr("data-url", "");
 			}
+			
+			for(var i = 0; i < arr.length; i++) {
+				$('.node-' + arr[i]).addClass('object-added');
+			}
 		}
 	</script>
 	

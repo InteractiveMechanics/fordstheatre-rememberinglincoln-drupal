@@ -26,6 +26,7 @@
 	}
 ?>
 
+
 <div class="browse-header object-header">
 	<div class="container">
 		<h4>
@@ -49,7 +50,7 @@
 
 					<div class="hidden-xs hidden-sm pull-right">
 						<div class="content-from-image">
-							<img src="./images/washington.jpg" alt="Logo" />
+							<!--<img src="./images/washington.jpg" alt="Logo" />-->
 						</div>
 					</div>
 				</div>
@@ -238,7 +239,7 @@
           				<hr />
 	          			<div class="text-center">
 							<div class="content-from-image">
-								<img src="./images/washington.jpg" alt="Logo" />
+								<!--<img src="./images/washington.jpg" alt="Logo" />-->
 							</div>
 						</div>
           			</div>
