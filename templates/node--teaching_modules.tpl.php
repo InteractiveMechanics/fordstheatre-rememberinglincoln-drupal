@@ -24,7 +24,7 @@
 		array_push($downloads, $temp);
 	  }
 	}
-	
+	global $base_path;
 ?>
 
 
@@ -35,7 +35,7 @@
 		<div class="row">
 
 			<div class="col-md-12">
-				<a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=teaching-modules" class="back-link">&laquo; Return to Teaching Modules</a>
+				<a href="<?php print $base_path; ?>teaching-modules" class="back-link">&laquo; Return to Teaching Modules</a>
 				<br />
 				<h1><?php print $node->title; ?></h1>
 			</div>
