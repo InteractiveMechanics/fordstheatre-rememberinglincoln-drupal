@@ -36,17 +36,15 @@
     							<div class="post">
     								<a href="<?php print url('node/' . $obj["entity"]->nid, array('absolute' => TRUE)); ?>">
                                         <?php
-                                            $presetname = 'square'; //presetname
-                                            $src = file_build_uri($obj["entity"]->field_file['und'][0]['filename']);
-                                            $dst = image_style_path($presetname, $src);
-                                            //$success = file_exists($dst) || image_style_create_derivative($presetname, $src, $dst);
-                                   
+                                            $preset = 'square';
+                                            $src = $obj["entity"]->field_file['und'][0]['uri'];
+                                            $dst = image_style_path($preset, $src);
+                                            $success = file_exists($dst) || image_style_create_derivative(image_style_load($preset), $src, $dst);
                                         ?>
                                         
-										<img src="<?php print file_create_url($dst); ?>" alt="<?php print $obj["entity"]->title; ?>" />    									
+										<img src="<?php print file_create_url($dst); ?>" alt="<?php print $obj["entity"]->title; ?>" />
     								</a>
     								
-    							<pre><?php var_dump(file_create_url($dst)); ?></pre>
     								<p class="title">
     									<a href="<?php print url('node/' . $obj["entity"]->nid, array('absolute' => TRUE)); ?>">
     										<?php print $obj["entity"]->title; ?>

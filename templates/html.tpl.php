@@ -178,7 +178,6 @@
 				var url = "<?php print $base_path; ?>my-collection?ids=" + ids;
 		
 				$('.collection-has-items').attr("data-url", url);
-				$('.my-collection-footer-link').attr('href', url);
 			} else {
 				$('.collection-has-items').attr("data-url", "");
 			}

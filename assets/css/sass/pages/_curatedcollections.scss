@@ -3,10 +3,12 @@
         margin-bottom: 20px;
     }
     .curated-row-item {
+        a { text-decoration: none; }
         h2 {
             font-size: 24px;
             font-weight: normal;
             margin: 15px 0 0;
+            color: #333;
         }
         h4 {
             margin: 8px 0 0;

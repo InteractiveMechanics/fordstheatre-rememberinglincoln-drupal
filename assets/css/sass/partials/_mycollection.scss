@@ -4,11 +4,11 @@
     .options {
         margin-top: 45px;
 
-        ul {
+        > ul {
             margin: 0;
             padding: 0;
 
-            li {
+            > li {
                 margin: 0;
                 padding: 0;
                 margin: 0 8px;
@@ -21,13 +21,37 @@
 
                 a {
                     color: $fts-red;
-                        
+                    font-weight: bold;
+                    font-size: 15px;
+
                     &:hover {
-                        text-decoration: none;
                         color: $fts-darkred;
+                        text-decoration: none;
                     }
 
                     span { margin-right: 6px; }
+                }
+                ul {
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        margin: 0;
+                        padding: 0;
+
+                        a { 
+                            padding: 10px 20px;
+                            font-size: 16px;
+                            font-weight: 400;
+                            font-style: italic;
+                            line-height: 1.42857143;
+                            color: #333;
+                        }
+                        &.divider { margin: 0; }
+                    }
                 }
             }
         }

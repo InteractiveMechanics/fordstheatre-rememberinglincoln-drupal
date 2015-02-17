@@ -399,13 +399,15 @@ blockquote {
   transition: all 0.25s;
   z-index: 99;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+  opacity: 1;
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg); }
   .save-icon.object-added {
     -moz-transform: rotate(0);
     -webkit-transform: rotate(0);
-    transform: rotate(0); }
+    transform: rotate(0);
+    opacity: 0.5; }
   .post .save-icon {
     top: 20px;
     right: 20px; }
@@ -548,24 +550,44 @@ blockquote {
   padding: 120px 0 30px; }
   .my-collection-header .options {
     margin-top: 45px; }
-    .my-collection-header .options ul {
+    .my-collection-header .options > ul {
       margin: 0;
       padding: 0; }
-      .my-collection-header .options ul li {
+      .my-collection-header .options > ul > li {
         margin: 0;
         padding: 0;
         margin: 0 8px; }
-        .my-collection-header .options ul li:first-child {
+        .my-collection-header .options > ul > li:first-child {
           padding-right: 25px;
           margin-right: 12px;
           border-right: 4px solid #f1f2f2; }
-        .my-collection-header .options ul li a {
-          color: #b00f3b; }
-          .my-collection-header .options ul li a:hover {
-            text-decoration: none;
-            color: #800426; }
-          .my-collection-header .options ul li a span {
+        .my-collection-header .options > ul > li a {
+          color: #b00f3b;
+          font-weight: bold;
+          font-size: 15px; }
+          .my-collection-header .options > ul > li a:hover {
+            color: #800426;
+            text-decoration: none; }
+          .my-collection-header .options > ul > li a span {
             margin-right: 6px; }
+        .my-collection-header .options > ul > li ul {
+          border: none;
+          border-radius: 0;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+          margin: 0;
+          padding: 0; }
+          .my-collection-header .options > ul > li ul li {
+            margin: 0;
+            padding: 0; }
+            .my-collection-header .options > ul > li ul li a {
+              padding: 10px 20px;
+              font-size: 16px;
+              font-weight: 400;
+              font-style: italic;
+              line-height: 1.42857143;
+              color: #333; }
+            .my-collection-header .options > ul > li ul li.divider {
+              margin: 0; }
 
 .hero-unit.homepage {
   position: relative;
@@ -992,7 +1014,7 @@ ul.partner-list li {
       width: auto; }
     .browse-details .browse-photo .photo.landscape img {
       max-width: 85%;
-      height: auto; }
+      max-height: 85%; }
 
 @media screen and (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
   .zoomContainer {
@@ -1131,10 +1153,13 @@ ul.partner-list li {
 
 .curated-content .curated-header {
   margin-bottom: 20px; }
+.curated-content .curated-row-item a {
+  text-decoration: none; }
 .curated-content .curated-row-item h2 {
   font-size: 24px;
   font-weight: normal;
-  margin: 15px 0 0; }
+  margin: 15px 0 0;
+  color: #333; }
 .curated-content .curated-row-item h4 {
   margin: 8px 0 0; }
 .curated-content .curated-row-item img {

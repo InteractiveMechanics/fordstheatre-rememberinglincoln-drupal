@@ -35,8 +35,8 @@
 						
 						
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email collection</a></li>
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript: void(0);" onclick="bookmark_collection();">Bookmark collection</a></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email my collection</a></li>
+                            <li role="presentation" class="divider"></li>
 					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $twitter_link ?>">Share on Twitter</a></li>
 						</ul>
 					</div>
@@ -98,11 +98,11 @@
 				<?php foreach($random_curated_nodes as  $object): ?>
 				<div class="col-md-4">
 					<div class="curated-row-item">
-						<img src="<?php print file_create_url($object->field_image["und"][0]["uri"]); ?>" />
-						<h2><?php print $object->title; ?></h2>
-						<h4>
-							Created by Ford's Theatre
-						</h4>
+                        <a href="<?php print url('node/' . $object->nid, array('absolute' => TRUE)); ?>">
+    						<img src="<?php print file_create_url($object->field_image["und"][0]["uri"]); ?>" />
+    						<h2><?php print $object->title; ?></h2>
+    						<h4>Created by Ford's Theatre</h4>
+                        </a>
 					</div>
 				</div>
 				<?php endforeach; ?>

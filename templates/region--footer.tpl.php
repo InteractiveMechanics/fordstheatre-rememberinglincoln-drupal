@@ -47,7 +47,7 @@
 							<ul>
 								<li class="title">Responses</li>
 								<li><a href="<?php print $base_path; ?>browse">Browse all items</a></li>
-								<li><a class="my-collection-footer-link" href="javascript:void(0);">View collections</a></li>
+								<li><a href="<?php print $base_path; ?>curated-collection">View collections</a></li>
 								<li><a href="javascript:void(0);">Submit an item</a></li>
 								<br />
 								<li class="title">For teachers</li>
