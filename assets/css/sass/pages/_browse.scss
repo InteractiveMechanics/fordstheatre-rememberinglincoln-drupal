@@ -2,16 +2,31 @@
     background: $lightgray;
     padding: 120px 0 30px;
 
+    .page-teaching-modules &,
     .page-browse & { padding-bottom: 0; margin-bottom: 30px; }
-    .object-header { background: none !important; }
+
+    &.object-header { 
+        background: none !important;
+
+        .header-details {
+            position: relative;
+
+            .content-from-image {
+                position: absolute;
+                top: -15px;
+                right: 0;
+                max-width: 175px;
+                max-height: 50px;
+            }
+        }
+    }
     
     h1 {
     	margin: 0;
-        width: 90%;
-        display: inline-block;
+        padding-right: 200px;
 
         @media screen and #{$screen-sm}, #{$screen-xs} {
-            width: 100%;
+            padding-right: 0;
         }
     }
     p, h2{
@@ -29,12 +44,12 @@
 }
 
 .browse-search-header {
-    border-bottom: 1px solid #ddd;
     padding: 25px 0;
 }
 
 .browse-search {
 	padding: 15px 0;
+    border-top: 1px solid #ddd;
 
     .form-control {
         border-radius: 30px;
@@ -127,25 +142,35 @@
             height: 650px;
             background-position: center;
             background-repeat: no-repeat;
+            text-align: center;
 
             @media screen and #{$screen-xs}, #{$screen-sm} {
                 height: 400px;
             }
 
-            &.portrait {
-                background-size: auto 85%;
-            }
-            &.landscape {
-                background-size: 85% auto;
+            &:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -0.25em; /* Adjusts for spacing */
             }
 
             img {
-                height: 100%;
-                width: 100%;
-                visibility: hidden;
+                display: inline-block;
+                vertical-align: middle;
+            }
 
-                @media screen and #{$screen-xs}, #{$screen-sm} {
-                    display: none;
+            &.portrait {
+                img {
+                    max-height: 85%;
+                    width: auto;
+                }
+            }
+            &.landscape {
+                img {
+                    max-width: 85%;
+                    height: auto;
                 }
             }
         }
@@ -170,6 +195,11 @@
     overflow: hidden;
     overflow-y: auto;
     position: relative;
+
+    @media screen and #{$screen-sm}, #{$screen-xs} {
+        height: auto;
+        overflow: visible;
+    }
 
     &:before {
         content: '';

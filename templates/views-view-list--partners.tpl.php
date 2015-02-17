@@ -28,6 +28,8 @@
 								</p>
 							</div>
 						</li>
+						
+						<?php var_dump($view->result[$delta]->_field_data['uid']['entity']->uid); ?>
 					<?php endforeach; ?>
 
 				</ul>

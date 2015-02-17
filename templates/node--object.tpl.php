@@ -70,8 +70,7 @@
                         $info = image_get_info($node->field_file['und'][0]['uri']);
                         $ratio = $info['width']/$info['height']; 
                     ?>
-            		<div class="photo <?php if ($ratio < 1){ echo 'portrait'; } else { echo 'landscape'; } ?>" 
-                         style="background-image: url(<?php print file_create_url($node->field_file['und'][0]['uri']); ?>);">
+            		<div class="photo <?php if ($ratio < 1){ echo 'portrait'; } else { echo 'landscape'; } ?>">
             			<img 
             				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
             				alt="<?php print $node->title; ?>" 

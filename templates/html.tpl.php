@@ -84,7 +84,8 @@
 
             $(".img-zoomable").elevateZoom({ 
                 zoomType: "lens",
-                containLensZoom: true
+                responsive: true,
+                borderSize: 2
             });
 			
             $('a[href*=#]:not([href=#])').click(function() {

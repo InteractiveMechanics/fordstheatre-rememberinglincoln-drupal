@@ -53,20 +53,16 @@
 		<div class="row">
 
 			<div class="col-md-9">
-				<p class="information">
-					<?php print $node->body['und'][0]['value']; ?>
-				</p>
+				<p class="lead"><?php print $node->body['und'][0]['value']; ?></p>
 
-				<h3>Contemporary Connections</h3>
+                <?php if ($node->field_connections['und'][0]['value']): ?>
+				    <h3>Contemporary Connections</h3>
+                    <p class="information"><?php print $node->field_connections['und'][0]['value']; ?></p>
+                <?php endif; ?>
 
-				<p class="information">
-					<?php print $node->field_connections['und'][0]['value']; ?>
-				</p>
-
-				<h3>Downloads</h3>
-
-				<ul class="downloads">
-					<?php if ($downloads): ?>
+                <?php if ($downloads): ?>
+				    <h3>Downloads</h3>
+                    <ul class="downloads">
 				
 						<?php foreach ($downloads as $download): ?>
 							<li>
@@ -77,70 +73,51 @@
 								</p>
 							</li>
 						<?php endforeach; ?>
-					<?php endif; ?>
-				</ul>
+				    </ul>
+                <?php endif; ?>
 			</div>
 
 			<div class="col-md-3">
 				<ul class="details">
+                    <?php if ($node->field_grade_level['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Grade Level
-						</h4>
-						<p class="detail">
-							<?php print $node->field_grade_level['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Grade Level</h4>
+						<p class="detail"><?php print $node->field_grade_level['und'][0]['value']; ?></p>
 					</li>
-					
+                    <?php endif; ?>					
+                    <?php if ($node->field_timeframe['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Timeframe
-						</h4>
-						<p class="detail">
-							<?php print $node->field_timeframe['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Timeframe</h4>
+						<p class="detail"><?php print $node->field_timeframe['und'][0]['value']; ?></p>
 					</li>
-					
+					<?php endif; ?>
+                    <?php if ($node->field_class_subject['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Class Subject
-						</h4>
-						<p class="detail">
-							<?php print $node->field_class_subject['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Class Subject</h4>
+						<p class="detail"><?php print $node->field_class_subject['und'][0]['value']; ?></p>
 					</li>
-					
+					<?php endif; ?>
+                    <?php if ($node->field_class_standards['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Class Standards
-						</h4>
-						<p class="detail">
-							<?php print $node->field_class_standards['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Class Standards</h4>
+						<p class="detail"><?php print $node->field_class_standards['und'][0]['value']; ?></p>
 					</li>
-					
+					<?php endif; ?>
+                    <?php if ($node->field_skills['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Skills
-						</h4>
-						<p class="detail">
-							<?php print $node->field_skills['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Skills</h4>
+						<p class="detail"><?php print $node->field_skills['und'][0]['value']; ?></p>
 					</li>
-					
+					<?php endif; ?>
+                    <?php if ($node->field_region['und'][0]['value']): ?>
 					<li>
-						<h4 class="header">
-							Regions
-						</h4>
-						<p class="detail">
-							<?php print $node->field_region['und'][0]['value']; ?>
-						</p>
+						<h4 class="header">Regions</h4>
+						<p class="detail"><?php print $node->field_region['und'][0]['value']; ?></p>
 					</li>
+                    <?php endif; ?>
 				</ul>
 			</div>
-
 		</div>
-
 	</div>
 </div>
 
@@ -177,20 +154,11 @@
 								</a>
 							</p>
 							<p class="date">
-								<?php if( isset($obj["entity"]->field_item_type['und'][0]['taxonomy_term']->name)): ?>
-								
-									<?php print $obj["entity"]->field_item_type['und'][0]['taxonomy_term']->name;?>
-									FROM 
-									<?php print format_date(strtotime($obj["entity"]->field_date['und'][0]['value']), 'custom', 'M. j, Y');?>
-									
-								<?php endif; ?>
+								<?php $term = taxonomy_term_load($obj["entity"]->field_item_type['und'][0]['tid']); print $term->name; ?><span>|</span> 
+                                <?php print format_date(strtotime($obj["entity"]->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
 							</p>
-							<div class="save-icon hidden-xs">
-								<img 
-									style="width:20px; height:20px;" 
-									src="/rememberinglincoln/themes/lincoln/assets/images/save-icon.png" 
-									alt="Save Icon" 
-								/>
+							<div class="save-icon hidden-xs" data-nodeId="<?php print $obj["entity"]->nid ?>">
+								<span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
 							</div>
 						</div>
 					
