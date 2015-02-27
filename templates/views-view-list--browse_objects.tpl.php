@@ -133,7 +133,7 @@
 		</div>
 	</div>
 
-	<div class="text-center">
+	<div class="text-center hidden">
 		<div class="load-more" style="position: relative; bottom: -106px;">
 			<a href="" class="btn btn-outline btn-gray"><em>Load more resources</em></a>
 		</div>
@@ -144,16 +144,6 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-		
-		/*$('.item_type_drop_down').on('change', function() {
-			var path = window.location.origin + window.location.pathname + "?item_type[]=" + this.value;
-			window.location.href = path;
-		});
-		
-		$('.subject_drop_down').on('change', function() {
-			var path = window.location.origin + window.location.pathname + "?subject=" + this.value;
-			window.location.href = path;
-		});*/
 		
 		$('.btn-go').click(function(e){
 			e.stopPropagation();
@@ -250,6 +240,12 @@
 		if( containsQuestionMark( window.location.href ) ) {
 			populateParams();
 		}
+	});
+	
+	$(document).ready(function(){
+		
+		$('.site-wrapper .navbar-inverse.navbar .navbar-nav li:eq(1)').addClass('active');
+		
 	});
 	
 </script>

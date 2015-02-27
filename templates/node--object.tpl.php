@@ -26,6 +26,68 @@
 	}
     $uid = $node->uid;
     $user_info = user_load($uid);
+	 
+	 $element = array(
+	 	'#tag' => 'meta', 
+	 	'#attributes' => array(
+	 		'property' => 'og:type',
+	 		'content' => 'article',
+	 	),
+	 );
+	 drupal_add_html_head($element, 'og_type');
+	 
+	 
+	 $link = url('node/' . $node->nid, array('absolute' => TRUE));
+	
+	 $element = array(
+	 	'#tag' => 'meta', 
+	 	'#attributes' => array(
+	 		'property' => 'og:url',
+	 		'content' => $link,
+	 	),
+	 );
+	 drupal_add_html_head($element, 'og_link');
+	 
+	 
+	 if ( $node->title ) {
+		 $element = array(
+		 	'#tag' => 'meta', 
+		 	'#attributes' => array(
+		 		'property' => 'og:title',
+		 		'content' => $node->title,
+		 	),
+		 );
+		 drupal_add_html_head($element, 'og_title');
+	 }
+	 
+	 if ( $node->body['und'][0]['value'] ) {
+	 	 $body = $node->body['und'][0]['value'];
+		 
+		 $element = array(
+		 	'#tag' => 'meta', 
+		 	'#attributes' => array(
+		 		'property' => 'og:description',
+		 		'content' => $body,
+		 	),
+		 );
+		 drupal_add_html_head($element, 'og_body');
+	 }
+	 
+	 
+	 if ( $node->field_file['und'][0]['uri'] ) {
+	 	 $img = file_create_url($node->field_file['und'][0]['uri']);
+		 
+		 $element = array(
+		 	'#tag' => 'meta', 
+		 	'#attributes' => array(
+		 		'property' => 'og:image',
+		 		'content' => $img,
+		 	),
+		 );
+		 drupal_add_html_head($element, 'og_image');
+	 }
+	 
+	 
 ?>
 
 

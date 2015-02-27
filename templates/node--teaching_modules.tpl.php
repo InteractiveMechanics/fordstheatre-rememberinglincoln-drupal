@@ -29,31 +29,21 @@
 
 
 <div class="module-page-header">
-
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-md-12">
 				<a href="<?php print $base_path; ?>teaching-modules" class="back-link">&laquo; Return to Teaching Modules</a>
-				<br />
 				<h1><?php print $node->title; ?></h1>
 			</div>
-
 		</div>
-
 	</div>
-
 </div>
 
 <div class="module-page">
-
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-md-9">
-				<p class="lead"><?php print $node->body['und'][0]['value']; ?></p>
+				<div class="description"><?php print $node->body['und'][0]['value']; ?></div>
 
                 <?php if ($node->field_connections['und'][0]['value']): ?>
 				    <h3>Contemporary Connections</h3>
@@ -66,11 +56,9 @@
 				
 						<?php foreach ($downloads as $download): ?>
 							<li>
-								<p>
-									<a href="<?php print $download['file']; ?>" target="_blank" download>
-									<?php print $download['title']; ?>
-									</a> (.<?php print $download['file_extension']; ?>)
-								</p>
+								<a href="<?php print $download['file']; ?>" target="_blank" download>
+								<?php print $download['title']; ?>
+								</a> (.<?php print $download['file_extension']; ?>)
 							</li>
 						<?php endforeach; ?>
 				    </ul>
@@ -88,7 +76,7 @@
                     <?php if ($node->field_timeframe['und'][0]['value']): ?>
 					<li>
 						<h4 class="header">Timeframe</h4>
-						<p class="detail"><?php print $node->field_timeframe['und'][0]['value']; ?></p>
+						<p class="detail"><?php print $node->field_timeframe['und'][0]['value']; ?> classes (45 min/period)</p>
 					</li>
 					<?php endif; ?>
                     <?php if ($node->field_class_subject['und'][0]['value']): ?>

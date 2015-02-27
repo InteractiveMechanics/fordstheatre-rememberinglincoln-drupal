@@ -83,3 +83,11 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('.site-wrapper .navbar-inverse.navbar .navbar-nav li:eq(0)').addClass('active');
+		
+	});
+</script>
+

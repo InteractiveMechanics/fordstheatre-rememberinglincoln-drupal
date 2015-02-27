@@ -166,6 +166,9 @@ blockquote {
     transition: all 0.25s; }
     .site-wrapper .navbar-inverse.navbar .navbar-nav li a:hover {
       color: white; }
+      
+   .site-wrapper .navbar-inverse.navbar .navbar-nav li .active {
+      color: white; }
   .site-wrapper .navbar-inverse.navbar .collection-list {
     margin-right: -15px;
     margin-left: 20px;
@@ -721,22 +724,43 @@ ul.partner-list li {
 .hero-unit.exhibit {
   position: relative;
   height: 700px;
-  background: #333333;
+  background: url(../images/exhibit_intro_hero@2x.jpg);
   background-size: cover; }
   @media screen and (max-width: 767px) {
     .hero-unit.exhibit {
       height: 580px; } }
+  .hero-unit.exhibit:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    bottom: 0;
+    height: 50%;
+    left: 0;
+    right: 0;
+    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(100%, rgba(0, 0, 0, 0.5)));
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#33000000',GradientType=0 ); }
   .hero-unit.exhibit .jumbotron {
     padding: 72px 0 0;
     background: none;
-    margin: 0; }
+    margin: 0;
+    z-index: 2;
+    position: relative; }
     .hero-unit.exhibit .jumbotron h4 {
-      margin: 300px 0 0;
+      margin: 360px 0 0;
       text-transform: uppercase;
       font-family: "myriad-pro";
-      font-size: 16px; }
+      font-size: 18px;
+      color: white;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); }
     .hero-unit.exhibit .jumbotron h1 {
-      color: white; }
+      color: white;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+      margin: 0; }
       @media screen and (min-width: 1440px) {
         .hero-unit.exhibit .jumbotron h1 {
           font-size: 102px; } }
@@ -1323,15 +1347,22 @@ ul.partner-list li {
     font-weight: 600; }
 
 .module-page {
-  margin-bottom: 50px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid #ddd; }
+  padding-bottom: 60px; }
   .module-page h3 {
-    margin-top: 10px; }
+    margin-top: 25px; }
   .module-page p.information {
     line-height: 30px;
     font-size: 16px;
     margin-bottom: 10px; }
+  .module-page div.description {
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #808080; }
+    .module-page div.description strong {
+      display: block;
+      margin: 15px 0 5px;
+      color: #333333; }
   .module-page ul.details {
     padding: 0px;
     margin: 0px; }
@@ -1353,14 +1384,13 @@ ul.partner-list li {
           color: #333; }
   .module-page ul.downloads {
     padding-left: 25px; }
-    .module-page ul.downloads li p {
-      font-weight: bold;
-      font-size: 16px; }
     .module-page ul.downloads li a {
-      color: black;
-      text-decoration: underline; }
+      font-weight: bold;
+      font-size: 16px;
+      color: black; }
       .module-page ul.downloads li a span {
-        text-decoration: none; }
+        text-decoration: none;
+        font-weight: 400; }
 
 .module-items {
   margin-bottom: 50px; }
@@ -1376,6 +1406,7 @@ ul.partner-list li {
       font-weight: normal;
       margin: 10px 0; }
       .module-items .module-item h3.title a {
-        color: black; }
+        color: black;
+        font-family: 'minion-pro'; }
         .module-items .module-item h3.title a:hover {
           text-decoration: underline; }

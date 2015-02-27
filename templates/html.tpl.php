@@ -37,7 +37,11 @@
     	.views-exposed-form {
 	    	display: none;	
     	}
+    	
+    	.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {color:white !important; background: none;}
     </style>
+    
+    <!--Replace With Facebook Tags -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
     <?php if ($skip_link_text && $skip_link_anchor): ?>
@@ -178,6 +182,12 @@
 				var url = "<?php print $base_path; ?>my-collection?ids=" + ids;
 		
 				$('.collection-has-items').attr("data-url", url);
+				
+				$('.collection-has-items').on( "click", function() {
+					var url = $(this).data('url');
+					if(url){ window.location.href = url; }
+				});
+				
 			} else {
 				$('.collection-has-items').attr("data-url", "");
 			}

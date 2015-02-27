@@ -24,7 +24,7 @@
                             <?php if($view->result[$delta]->_field_data['uid']['entity']->picture): ?>
         						<img src="<?php print file_create_url($view->result[$delta]->_field_data['uid']['entity']->picture->uri); ?>" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
                             <?php else: ?>
-                                <img src="http://placehold.it/200x120.jpg" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
+                                <img src="<?php print $base_path; ?>/themes/lincoln/assets/images/placeholder.png" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
         					<?php endif; ?>
                             <p><?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution['und'][0]['value']; ?></p>
 				        </a>

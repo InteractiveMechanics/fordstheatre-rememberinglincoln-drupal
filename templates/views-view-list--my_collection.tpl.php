@@ -56,7 +56,7 @@
 					
 					<?php foreach($nodes as $n): ?>
 					
-						<div class="post">
+						<div class="post post-<?php print $n->nid ?>">
 							<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
 								<img src="<?php print file_create_url($n->field_file['und'][0]['uri']); ?>" alt="<?php print $n->title;?>" />
 							</a>
@@ -267,8 +267,12 @@
 
 <script>
 	$(document).ready(function(){
-		function bookmark_collection() {
-			
-		}
+		$('.save-icon').click(function(){
+			var nodeid = $(this).data('nodeid');
+
+			var target = $('.post-'+nodeid),
+			opacity = target.css('opacity');
+			target.animate({opacity: (opacity==1?.4:1)});
+		});
 	});
 </script>
