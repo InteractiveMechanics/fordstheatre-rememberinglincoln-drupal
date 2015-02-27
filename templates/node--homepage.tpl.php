@@ -71,8 +71,8 @@
                 " 
                 style="background: url(<?php print file_create_url($dst); ?>)" 
                 data-url="<?php print url('node/' . $random_objects[$key]->nid, array('absolute' => TRUE)); ?>">
-                <h2><?php print format_date(strtotime($random_objects[$key]->field_date['und'][0]['value']), 'custom', 'Y'); ?></h2>
-    	   		<p><?php print lincoln_taxonomy_term_load($random_objects[$key]->field_item_type['und'][0]['tid']); ?></p>
+                <h2 class="hidden"><?php print format_date(strtotime($random_objects[$key]->field_date['und'][0]['value']), 'custom', 'Y'); ?></h2>
+    	   		<p class="hidden"><?php print lincoln_taxonomy_term_load($random_objects[$key]->field_item_type['und'][0]['tid']); ?></p>
                 <div class="save-icon hidden-xs node-<?php print $random_objects[$key]->nid ?>" data-nodeId="<?php print $random_objects[$key]->nid ?>">
                     <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
                 </div>

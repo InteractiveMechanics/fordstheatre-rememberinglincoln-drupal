@@ -20,6 +20,9 @@ body {
     	transform: translateX(88%);
     }
 }
+.disable-scroll {
+    overflow: hidden;
+}
 
 .print-view {
 	display: none;

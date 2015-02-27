@@ -32,6 +32,7 @@
 
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+    <link href="<?php print $base_path; ?>themes/lincoln/assets/css/featherlight.css" rel='stylesheet' />
     
     <style type="text/css">
     	.views-exposed-form {
@@ -55,6 +56,7 @@
   
     <script src="<?php print $base_path; ?>themes/lincoln/assets/js/salvattore.js"></script>
     <script src="<?php print $base_path; ?>themes/lincoln/assets/js/jquery.elevatezoom.js"></script>
+    <script src="<?php print $base_path; ?>themes/lincoln/assets/js/featherlight.js"></script>
     <script type="text/javascript">
 		$(function() {
 			$('.toggle-nav').click(function() {
@@ -86,10 +88,24 @@
 				window.open(url,'_blank');
 			});
 
-            $(".img-zoomable").elevateZoom({ 
-                zoomType: "lens",
-                responsive: true,
-                borderSize: 2
+            $('.photo-lightbox').featherlight({
+                afterOpen: function(event){
+                    $(".img-zoomable").elevateZoom({ 
+                        zoomType: "inner", 
+                        cursor: "crosshair"
+                    });
+                    $('body').addClass('disable-scroll');
+                },
+                afterClose: function(event){
+                    $('body').removeClass('disable-scroll');
+                    $('.zoomContainer').remove();
+                }
+            });
+
+            $('.save-icon').not('.object-added').tooltip({
+                container: 'body',
+                html: true,
+                title: '<small>Add to</small>My Collection'
             });
 			
             $('a[href*=#]:not([href=#])').click(function() {

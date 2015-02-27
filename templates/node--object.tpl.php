@@ -138,13 +138,14 @@
                         $ratio = $info['width']/$info['height']; 
                     ?>
             		<div class="photo <?php if ($ratio < 1){ echo 'portrait'; } else { echo 'landscape'; } ?>">
-            			<img 
-            				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
-            				alt="<?php print $node->title; ?>" 
-            				class="img-responsive img-zoomable"
-                            data-zoom-image="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>"
-            			/>
-            			
+            			<a href="#" class="photo-lightbox" 
+                           data-featherlight="<div class='img-zoomable' data-zoom-image='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>'><img src='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>' /></div>">
+                            <img 
+                				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
+                				alt="<?php print $node->title; ?>" 
+                				class="img-responsive"
+                			/>
+            			</a>
             		</div>
 
                     <div class="save-icon hidden-xs" data-nodeId="<?php print $node->nid ?>">
@@ -225,10 +226,17 @@
 	          					</li>
 		  					<?php endif; ?>
           					<?php if( $node->field_date['und'][0]['value'] ): ?>
-	          					<li>
-	          						<h4 class="title">Date</h4>
-	          						<p><?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'F j, Y');?></p>
-	          					</li>
+                                <?php if( $node->field_display_date['und'][0]['value'] ): ?>
+    	          					<li>
+    	          						<h4 class="title">Date</h4>
+    	          						<p><?php print $node->field_display_date['und'][0]['value'];?></p>
+    	          					</li>
+                                <?php else: ?>
+                                    <li>
+    	          						<h4 class="title">Date</h4>
+    	          						<p><?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'F j, Y');?></p>
+    	          					</li>
+    		  					<?php endif; ?>
 		  					<?php endif; ?>
           					<?php if( $node->field_material['und'][0]['value'] ): ?>
 	          					<li>

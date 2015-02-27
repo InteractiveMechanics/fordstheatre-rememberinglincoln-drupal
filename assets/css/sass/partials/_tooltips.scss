@@ -1,0 +1,18 @@
+.tooltip {
+    &.top {
+        margin-top: 0;
+
+        .tooltip-arrow {
+            border-top-color: $fts-gold !important;
+        }
+    }
+    .tooltip-inner {
+        background: $fts-gold;
+        border-radius: 0;
+        color: white;
+        padding: 5px 10px;
+        font-weight: 700;        
+
+        small { display: block; color: white; font-family: 'minion-pro'; font-style: italic; font-weight: 500; }
+    }
+}

@@ -113,7 +113,11 @@
     								
     								<p class="title">
     									<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
-    										<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>
+                                            <?php if ($view->result[$delta]->_field_data['nid']['entity']->field_short_title['und'][0]['value']): ?>
+                							    <?php print $view->result[$delta]->_field_data['nid']['entity']->field_short_title['und'][0]['value']; ?>
+                                            <?php else: ?>
+                                                <?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>
+                                            <?php endif; ?>
     									</a>
     								</p>
     								<p class="date">

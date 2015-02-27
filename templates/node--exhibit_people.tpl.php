@@ -4,23 +4,18 @@
 	$node_data = $timelineData[ $node->nid ];
 	 
 	$wrapper = entity_metadata_wrapper('node', $node_data);
-	$timelineCollection = field_get_items('node', $node_data, 'field_exhibit_people_person');
+	$peopleCollection = field_get_items('node', $node_data, 'field_exhibit_people_person');
 	
-	$related_resources = array();
+	$people = array();
  
-	if( $timelineCollection ) {
+	if( $peopleCollection ) {
 	 
-	  foreach( $timelineCollection as $index => $collection ) {
+	  foreach( $peopleCollection as $index => $collection ) {
 		$wrapper->field_exhibit_people_person[ $index ];
 		$temp = array();
         $image = $wrapper->field_exhibit_people_person[$index]->field_person_image->value();
-		
+
 		$resources = $wrapper->field_exhibit_people_person[$index]->field_related_resources->value();
-		
-		$temp['name'] = $wrapper->field_exhibit_people_person[$index]->field_person_name->value();
-		$temp['body'] = $wrapper->field_exhibit_people_person[$index]->field_person_body->value();
-        $temp['image'] = file_create_url($image['uri']);
-		
 		$res_arr = array();
 		for($i = 0; $i < count($resources); $i++) {
 			$temp_arr = array();
@@ -30,10 +25,27 @@
 			
 			array_push($res_arr, $temp_arr);
 		}
+
+        $externals = $wrapper->field_exhibit_people_person[$index]->field_external_resources;
+        $ext_temp = array();
+        if ( $externals ) {
+            foreach ( $externals as $sub_index => $collection ) {
+                $temp_sub_arr = array();
+        			
+    			$temp_sub_arr['title'] = $externals[$sub_index]->field_external_resources_title->value();
+    			$temp_sub_arr['url'] = $externals[$sub_index]->field_external_resources_url->value();
+    			
+    			array_push($ext_temp, $temp_sub_arr);
+            }
+        }
+
+        $temp['name'] = $wrapper->field_exhibit_people_person[$index]->field_person_name->value();
+		$temp['body'] = $wrapper->field_exhibit_people_person[$index]->field_person_body->value();
+        $temp['image'] = file_create_url($image['uri']);
+        $temp['resources'] = $res_arr;
+        $temp['externals'] = $ext_temp;
 		
-		$temp['resources'] = $res_arr;
-		
-		array_push($related_resources, $temp);
+		array_push($people, $temp);
 	  }
 	}
     global $base_path;	
@@ -81,9 +93,9 @@
     <div class="container">
         <div class="row">
 
-            <?php if($related_resources): ?>
+            <?php if($people): ?>
 				<?php $j = 0; ?>
-				<?php foreach( $related_resources as $res): ?>
+				<?php foreach( $people as $res): ?>
 					
 					<div class="col-md-6">
                         <div class="person">
@@ -105,6 +117,18 @@
                                                 <a href="<?php print url('node/' . $r['node_id'], array('absolute' => TRUE)); ?>">
     												<?php print $r['title'] ?>
     								            </a>
+                                            </li>
+                                        <?php endforeach; ?>
+    								</ul>
+    				            </div>
+                            <?php endif; ?>
+                            <?php if( $res['externals'] ): ?>
+    							<div class="related-info">
+    								<h4>External Resources</h4>
+    								<ul>
+    								    <?php foreach( $res['externals'] as $r): ?>
+                                            <li>
+                                                <a href="<?php print $r['url']; ?>"><?php print $r['title'] ?></a>
                                             </li>
                                         <?php endforeach; ?>
     								</ul>

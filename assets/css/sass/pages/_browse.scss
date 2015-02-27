@@ -116,7 +116,7 @@
         padding: 0;
         position: relative;
 
-        a {
+        a:not(.photo-lightbox) {
             position: absolute;
             color: white;
             font-style: italic;
@@ -153,6 +153,7 @@
             background-position: center;
             background-repeat: no-repeat;
             text-align: center;
+            display: block;
 
             @media screen and #{$screen-xs}, #{$screen-sm} {
                 height: 400px;
@@ -187,6 +188,9 @@
     }
 }
 
+.zoomContainer {
+    z-index: 1000;
+}
 @media screen and #{$screen-xs}, #{$screen-sm} {
     .zoomContainer {
         display: none !important;

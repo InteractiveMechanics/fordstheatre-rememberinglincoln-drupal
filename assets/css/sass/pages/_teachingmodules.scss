@@ -17,6 +17,12 @@
         margin-top: 25px;
     }
     
+    a.suggest {
+        color: $fts-red;
+        font-weight: bold;
+        font-size: 15px;
+        font-style: italic;
+    }
     p.information {
         line-height: 30px;
         font-size: 16px;
