@@ -2,6 +2,8 @@
 	$email_link = "mailto:?subject=" . urlencode("Explore this response on Remembering Lincoln") . "&body=" . urlencode('Check out "' . $node->title . '", an important response from the Remembering Lincoln collection,' . " a project of Ford's Theatre: ") . urlencode(lincoln_current_url());
 	$twitter_link = "http://twitter.com/share?text=Explore stories of the Lincoln assassination&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
 	
+	$facebook_link = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode(lincoln_current_url());
+	
 	$node_wrapper = entity_metadata_wrapper('node', $node);
 	$timelineData = entity_load('node', array($node->nid) );
 	$node_data = $timelineData[ $node->nid ];
@@ -94,7 +96,9 @@
 <div class="browse-header object-header">
 	<div class="container">
 		<h4>
-			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?> from 
+			<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?item_type[]=<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>">
+			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?>
+			</a> from 
 			<?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'M. j, Y');?>
 		</h4>
 
@@ -194,11 +198,17 @@
 	          						<p><?php print $node->field_rights['und'][0]['value']; ?></p>
 	          					</li>
 		  					<?php endif; ?>
-		  					<?php if( $node->field_tags['und'][0]['value'] ): ?>
-	          					<li>
+		  					<?php if( $node->field_tags['und'] ): ?>
+		  						<li>
 	          						<h4 class="title">Tags</h4>
 	          						<ul class="list-inline tags">
-          								<li><h5>tag name</h5></li>
+	          							<?php foreach($node->field_tags['und'] as $tag): ?>
+          									<li>
+          										<h5>
+          											<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?tags=<?php print $tag['taxonomy_term']->name ?>"><?php print $tag['taxonomy_term']->name ?></a>
+          										</h5>
+          									</li>
+          								<?php endforeach; ?>
 	          						</ul>
 	          					</li>
 		  					<?php endif; ?>
@@ -250,10 +260,14 @@
 	          						<p><?php print $node->field_object_dimensions['und'][0]['value'];?></p>
 	          					</li>
 		  					<?php endif; ?>
-          					<?php if( $node->field_region['und'][0]['value'] ): ?>
+          					<?php if( $node->field_region['und'][0]['taxonomy_term'] ): ?>
 	          					<li>
 	          						<h4 class="title">Region</h4>
-	          						<p><?php print $node->field_region['und'][0]['value'];?></p>
+	          						<p>
+	          							<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?region[]=<?php print $node->field_region['und'][0]['taxonomy_term']->tid;?>">
+		          							<?php print $node->field_region['und'][0]['taxonomy_term']->name;?>
+	          							</a>
+	          						</p>
 	          					</li>
 		  					<?php endif; ?>
 		  					
@@ -275,6 +289,8 @@
 										    		Share on Twitter
 										    	</a>
 										    </li>
+										    <li role="presentation" class="divider"></li>
+											<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $facebook_link ?>">Share on Facebook</a></li>
 										</ul>
           							</div>
           							          							
@@ -325,6 +341,8 @@
   	</div>
 
 </div> <!--./browse-details-->
+
+		  					
 
 <div class="print-view">
 	<div class='category'>
@@ -404,4 +422,6 @@
         </ul>
 	</div>
 	<div style="page-break-after:always"></div>
+	
+	
 </div>

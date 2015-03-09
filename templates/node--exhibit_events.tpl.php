@@ -43,7 +43,7 @@
 </div>
 	
 
-<div class="exhibit-sub-section">
+<div class="exhibit-sub-section timeline-section">
 	<div class="container">
 		<div class="row">
 		

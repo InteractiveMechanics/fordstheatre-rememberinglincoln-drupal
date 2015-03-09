@@ -40,6 +40,26 @@
     	}
     	
     	.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {color:white !important; background: none;}
+    	
+    	h4 a {
+	    	color: #BFB9B6;
+    	}
+    	
+    	h4 a:hover {
+	    	color:#86827F;
+    	}
+    	
+    	
+    	@media only screen and (max-width : 985px) {
+			.next-section-area h2 {
+	    		font-size: 16px;
+			}
+			
+			.timeline-section {
+				margin-top:250px;
+			}
+		}
+    	
     </style>
     
     <!--Replace With Facebook Tags -->

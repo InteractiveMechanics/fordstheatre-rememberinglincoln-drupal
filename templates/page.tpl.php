@@ -36,7 +36,7 @@
 							<a href="<?php print $base_path; ?>browse">Browse All Responses</a>
 						</li>
 						<li class="title">
-							<a href="<?php print $base_path; ?>curated-collections">Curated Collections</a>
+							<a href="<?php print $base_path; ?>curated-collection">Curated Collections</a>
 						</li>
 						<li class="title">
                             <a>About This Project</a>

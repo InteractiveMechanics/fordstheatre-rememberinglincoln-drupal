@@ -9,7 +9,28 @@
 	$email_link = "mailto:&subject=" . urlencode("Remembering Lincoln Response") . "&body=" . urlencode("Check out this response for the remembering lincoln collection, ") . urlencode(lincoln_current_url());
 	$twitter_link = "http://twitter.com/share?text=Check out this collection&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
 	
+	$facebook_link = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode(lincoln_current_url());
+	
 	$random_curated_nodes = lincoln_get_curated_content();
+	
+	$element = array(
+	 	'#tag' => 'meta', 
+	 	'#attributes' => array(
+	 		'property' => 'og:title',
+	 		'content' => 'Remembering Lincoln: My Collections',
+	 	),
+	 );
+	 drupal_add_html_head($element, 'og_title');
+	 
+	 
+ 	 $element = array(
+	 	'#tag' => 'meta', 
+	 	'#attributes' => array(
+	 		'property' => 'og:description',
+	 		'content' => "Checkout out my collections from Ford's Theatre Remembering Lincoln",
+	 	),
+	 );
+	 drupal_add_html_head($element, 'og_body');
 	
 ?>
 
@@ -38,6 +59,8 @@
 					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email my collection</a></li>
                             <li role="presentation" class="divider"></li>
 					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $twitter_link ?>">Share on Twitter</a></li>
+					    	<li role="presentation" class="divider"></li>
+					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $facebook_link ?>">Share on Facebook</a></li>
 						</ul>
 					</div>
                     

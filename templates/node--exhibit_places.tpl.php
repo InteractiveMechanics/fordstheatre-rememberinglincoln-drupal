@@ -116,11 +116,65 @@
         var mapboxTiles = L.tileLayer('https://{s}.tiles.mapbox.com/v4/interactivemech.l6d62e93/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
                 attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
             });
+            
 
         var map = L.map('leaflet')
             .addLayer(mapboxTiles)
             .setView([39.7786249, -97.665032], 5);
         map.scrollWheelZoom.disable();
+        
+        var myLayer = L.mapbox.featureLayer().addTo(map);
+
+        
+        var geoJson = [{
+		    type: 'Feature',
+		    "geometry": { "type": "Point", "coordinates": [-77.03, 38.90]},
+		    "properties": {
+		        "image": "http://staging.interactivemechanics.com/rememberinglincoln/sites/default/files/styles/square/public/DHS9%20-%20fire%20engine%20no%204.jpg",
+		        "url": "http://staging.interactivemechanics.com/rememberinglincoln/?q=node/180",
+		        "marker-symbol": "star",
+		        "marker-color": "#ff8888",
+		        "marker-size": "large",
+		        "city": "Washington, D.C.",
+		        "title": "The firefighters of Detroit's K.C. Barker",
+		        "date": "January 1, 1860",
+		        "category": "FLYER",
+		        "nodeid": 180,
+		    }
+		}];
+
+// Add custom popups to each using our custom feature properties
+myLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+
+    // Create custom popup content
+    var popupContent =  '<div>' +
+							'<div style="float:left; width:105px;">' +
+								'<a href="' + feature.properties.url + '">' +
+									'<img src="' + feature.properties.image + '" width="100" height="100" alt="' + feature.properties.title + '" />' +
+								'</a>' +
+								'<div class="save-icon hidden-xs node-' + feature.properties.nodeid + '" data-nodeId="' + feature.properties.nodeid + '"></div>' +
+							'</div>' + 
+							
+							'<div style="float:right; width:190px;">' +
+								'<h4>' + feature.properties.category + ' on ' + feature.properties.date + '</h4>' +
+								'<h2><a style="color:black; font-size:18px; line-height:23px;" href="' + feature.properties.url + '">' + feature.properties.title + '</a></h2>' +
+							'</div>' +
+						'</div><br style="clear:both;" />';
+
+    // http://leafletjs.com/reference.html#popup
+    marker.bindPopup(popupContent,{
+        closeButton: false,
+        minWidth: 320
+    });
+});
+
+// Add features to the map
+myLayer.setGeoJSON(geoJson);
+        
+       
 	});
 
 </script>
+
