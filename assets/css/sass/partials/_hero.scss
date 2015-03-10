@@ -5,39 +5,92 @@
     transform: translateX($x) translateY($y) rotate($deg);
 }
 
+@mixin animation($name, $duration, $delay, $fill, $timing) {
+    -webkit-animation: $name $duration $delay $fill $timing;
+    -moz-animation: $name $duration $delay $fill $timing;
+    -o-animation: $name $duration $delay $fill $timing;
+    animation: $name $duration $delay $fill $timing;
+}
+
+@each $name, $startX, $startY, $startA, $startR, $endX, $endY, $endA, $endR in (newspaper, -110px, 120px, 0, 0, -110px, 70px, 1, -6deg), 
+                                                                               (diary, 500px, 90px, 0, -2deg, 500px, 52px, 1, 3deg),
+                                                                               (poster, 250px, 90px, 0, -5deg, 250px, 45px, 1, 2deg), 
+                                                                               (letter, 70px, 100px, 0, -7deg, 70px, 40px, 1, -3deg),
+                                                                               (ribbon, 50px, 140px, 0, 23deg, 50px, 80px, 1, 11deg) {
+    @-webkit-keyframes #{$name} {
+        0%   { @include transform($startX, $startY, $startR); opacity: $startA; }
+        100% { @include transform($endX, $endY, $endR); opacity: $endA; }
+    }
+    @-moz-keyframes #{$name} {
+        0%   { @include transform($startX, $startY, $startR); opacity: $startA; }
+        100% { @include transform($endX, $endY, $endR); opacity: $endA; }
+    }
+    @-o-keyframes #{$name} {
+        0%   { @include transform($startX, $startY, $startR); opacity: $startA; }
+        100% { @include transform($endX, $endY, $endR); opacity: $endA; }
+    }
+    @keyframes #{$name} {
+        0%   { @include transform($startX, $startY, $startR); opacity: $startA; }
+        100% { @include transform($endX, $endY, $endR); opacity: $endA; }
+    }
+}
+
 .hero-unit.homepage {
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: black;
+        opacity: 0.25;
+        z-index: 9;
+
+        @media screen and #{$screen-sm}, #{$screen-xs} {
+            opacity: 0.45;
+        }
+    }
     .object {
         position: absolute;
         bottom: 0;
         left: 0;
-        box-shadow: 0 0 15px rgba(0,0,0,0.25);
         -webkit-backface-visibility: hidden;
-        background: black;
 
         img {
             max-width: 350px;
             -webkit-backface-visibility: hidden;
             transition: $slow-trans;
-
-            @media screen and #{$screen-md} {
-                max-width: 300px;
-            }
-            @media screen and #{$screen-sm}, #{$screen-xs} {
-                opacity: 0.35;
-            }
         }
 
-        &.fade-left-up {
-            @include transform(-100px, 40px, -6deg);
+        &.object-newspaper {
+            @include transform(-110px, 70px, -6deg);
+            @include animation(newspaper, 1s, 0, both, ease-out);
             z-index: 2;
+
+            img { max-width: 450px; }
         }
-        &.fade-right-up {
-            @include transform(120px, 40px, 2deg);
-            z-index: 3;
+        &.object-ribbon {
+            @include transform(50px, 80px, 11deg);
+            @include animation(ribbon, 1s, 1.5s, both, ease-out);
+            z-index: 7;
         }
-        &.fade-right-down {
-            @include transform(240px, 40px, -3deg);
+        &.object-letter {
+            @include transform(70px, 40px, -3deg);
+            @include animation(letter, 1s, 1s, both, ease-out);
+            left: auto; right: 0;
             z-index: 4;
+        }
+        &.object-diary {
+            @include transform(500px, 52px, 3deg);
+            @include animation(diary, 1s, 2s, both, ease-out);
+            z-index: 5;
+
+            img { max-width: 540px; }
+        }
+        &.object-poster {
+            @include transform(250px, 45px, 2deg);
+            @include animation(poster, 1s, 3s, both, ease-out);
+            z-index: 6;
         }
     }
 }

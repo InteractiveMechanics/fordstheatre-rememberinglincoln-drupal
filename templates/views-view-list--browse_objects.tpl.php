@@ -1,17 +1,25 @@
 <?php
 	 $subjects = array();
+	 $tags = array();
+	 
 	 $objects = array();
 	 $node_arr = lincoln_get_all_of_type('object');
 	 
 	 foreach ($node_arr as $value) {
 	 	$browse_obj = lincoln_taxonomy_term_load($value->field_item_type['und'][0]['tid']) . "|" . $value->field_item_type['und'][0]['tid'];
-	 	$subject = $value->field_subject['und'][0]['value'];
+	 	//$subject = $value->field_subject['und'][0]['value'];
 	 	
-	 	array_push($subjects, $subject);
+	 	if( $value->field_tags['und'] ) {
+		 	foreach ($value->field_tags['und'] as $tag) {
+		 	var_dump($tag);
+		 		array_push($tags, $tag['taxonomy_term']->name);
+		 	}
+	 	}
+	 	
 	 	array_push($objects, $browse_obj);
 	 }
 	 
-	 $subjects = array_unique($subjects);
+	 $tags = array_unique($tags);
 	 $objects = array_unique($objects);
 	 
 	 $vocabulary = taxonomy_vocabulary_machine_name_load('Regions');
@@ -68,9 +76,9 @@
 						  	<div class="form-group hidden-xs">
 						    	<select class="form-control subject_drop_down" style="width:100px; text-align:center;" >
 									<option value="">Subject</option>
-									<?php foreach($subjects as $s): ?>
-										<?php if($s): ?>
-											<option value="<?php print $s; ?>"><?php print $s; ?></option>
+									<?php foreach($tags as $t): ?>
+										<?php if($t): ?>
+											<option value="<?php print $t; ?>"><?php print $t; ?></option>
 										<?php endif; ?>
 									<?php endforeach; ?>
 								</select>

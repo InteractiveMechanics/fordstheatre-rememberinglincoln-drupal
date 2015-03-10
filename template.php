@@ -713,7 +713,7 @@ function lincoln_get_node_count($content_type) {
 }
 
 function lincoln_get_random_node_type($content_type, $limit) {
-	$query = db_query("SELECT nid FROM {node} n WHERE status = 1 AND n.type = '$content_type' ORDER BY RAND() LIMIT $limit")->fetch();
+	$query = db_query("SELECT nid, RAND() as _random FROM {node} n WHERE status = 1 AND n.type = '$content_type' ORDER BY _random LIMIT $limit")->fetch();
 	
 	if($query) {
 		$n = node_load($query->nid);

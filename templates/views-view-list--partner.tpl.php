@@ -9,7 +9,7 @@
     	->fieldCondition('field_contributor', 'target_id', $user_info->uid, '=');
     
     $entities = $query->execute();
-    
+   
     $obj_nodes = node_load_multiple(array_keys($entities['node']));
     global $base_path;
 ?>

@@ -26,10 +26,13 @@
 		</div> <!--./hero-unit-message-->
 	</div><!--./jumbotron-->
     <a href="#explore-the-story" class="scroll-down">&#8594;</a>
+    <div class="overlay"></div>
 
-    <div class="object fade-left-up"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_01.jpg" /></div>
-    <div class="object fade-right-up"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_02.jpg" /></div>
-    <div class="object fade-right-down"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_objects_03.jpg" /></div>
+    <div class="object object-letter"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_letter.png" /></div>
+    <div class="object object-diary"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_diary.png" /></div>
+    <div class="object object-newspaper"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_newspaper.png" /></div>
+    <div class="object object-ribbon"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_ribbon.png" /></div>
+    <div class="object object-poster"><img src="<?php print $base_path; ?>themes/lincoln/assets/images/homepage_poster.png" /></div>
 </div> <!--./hero-->
 
 
