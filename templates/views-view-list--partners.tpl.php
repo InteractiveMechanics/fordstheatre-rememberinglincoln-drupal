@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>
-					Partners
+					Contributors
 				</h1>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3">
 					<div class="partner">
                         <?php $uid = $view->result[$delta]->_field_data['uid']['entity']->uid; ?>
-                        <a href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+                        <a href="<?php print $base_path; ?>contributor?uid=<?php print $uid ?>">
                             <?php if($view->result[$delta]->_field_data['uid']['entity']->picture): ?>
         						<img src="<?php print file_create_url($view->result[$delta]->_field_data['uid']['entity']->picture->uri); ?>" class="img-responsive" alt="<?php print $view->result[$delta]->_field_data['uid']['entity']->field_institution["und"][0]["value"]; ?>" />
                             <?php else: ?>

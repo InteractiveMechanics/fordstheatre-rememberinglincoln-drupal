@@ -89,16 +89,14 @@
 		 drupal_add_html_head($element, 'og_image');
 	 }
 	 
-	 
+	 global $base_path;
 ?>
 
 
 <div class="browse-header object-header">
 	<div class="container">
 		<h4>
-			<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?item_type[]=<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>">
-			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?>
-			</a> from 
+			<?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?> from 
 			<?php print format_date(strtotime($node->field_date['und'][0]['value']), 'custom', 'M. j, Y');?>
 		</h4>
 
@@ -117,7 +115,7 @@
 					</div>
 
 					<div class="hidden-xs hidden-sm pull-right">
-						<a class="content-from-image" href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+						<a class="content-from-image" href="<?php print $base_path; ?>contributor?uid=<?php print $uid ?>">
 							<?php if($user_info->picture): ?>
         						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
         					<?php endif; ?>
@@ -159,7 +157,7 @@
 	            		<a href="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" target="_blank" class="download-link" download><span class="glyphicon glyphicon-floppy-disk"></span></a>
             		<?php endif; ?>
                     <?php if( $node->field_pdf['und'][0]['uri'] ): ?>
-      					<a href="<?php print $node->field_pdf['und'][0]['uri']; ?>" target="_blank" class="download-doc" download>View Full Document</a>
+      					<a href="<?php print file_create_url($node->field_pdf['und'][0]['uri']); ?>" target="_blank" class="download-doc" download>View Full Document</a>
   					<?php endif; ?>
             		
             	</div>
@@ -217,6 +215,12 @@
 
           			<div class="col-lg-4">
           				<ul>
+                            <?php if( $node->field_item_type['und'][0]['taxonomy_term'] ): ?>
+                                <li>
+                                    <h4 class="title">Item Type</h4>
+                                    <p><a href="<?php print $base_path; ?>browse?item_type[]=<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>"><?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?></a></p>
+                                </li>
+                            <?php endif; ?>
           					<?php if( $node->field_subject['und'][0]['value'] ): ?>
 	          					<li>
 	          						<h4 class="title">Subject</h4>
@@ -316,7 +320,7 @@
               				<ul>
           						<?php foreach ($external_items as $item): ?>
 	          						<li>
-	          							<a href="<?php print $item['url'] ?>" target="_blank"><?php print $item['title'] ?></a>
+	          							<a href="//<?php print $item['url'] ?>" target="_blank"><?php print $item['title'] ?></a>
 			  						</li>
 			  					<?php endforeach; ?>
               				</ul>
@@ -423,5 +427,20 @@
 	</div>
 	<div style="page-break-after:always"></div>
 	
-	
 </div>
+
+<script>
+    $(function(){
+        var $photoDiv = $('.object-photo');
+        var $contentDiv = $('.object-content');
+        var $mainNav = $('#main-nav');
+
+        var windowHeight = $(window).height();
+        var navHeight = $mainNav.height();
+        var calcHeight = windowHeight - navHeight;
+        var distance = $photoDiv.offset().top;
+
+        $photoDiv.height(calcHeight);
+        $contentDiv.height(calcHeight);
+    });
+</script>

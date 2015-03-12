@@ -6,12 +6,12 @@ h1 {
 
 h2 {
 	font-family: "minion-pro";
-	font-size:36px;
+	font-size: 36px;
 }
 
 h3 {
 	font-family: "minion-pro";
-	font-size:24px;
+	font-size: 24px;
 }
 
 h4 {
@@ -24,7 +24,7 @@ h4 {
 
 p {
 	font-family: "myriad-pro";
-	color:#808080;
+	color: #333;
 	font-size: 27px;
 	line-height: 48px;
 	font-weight: 300;
@@ -47,10 +47,16 @@ a {
         font-weight: 700;
         margin-left: 8px;
         color: $fts-red;
+        font-family: "minion-pro";
+        display: inline-block;
 
         &:hover {
             text-decoration: none;
             color: $fts-darkred;
+        }
+        
+        @media screen and #{$screen-sm}, #{$screen-xs} {
+            font-size: 16px;
         }
     }
 }
@@ -65,4 +71,12 @@ blockquote {
     border-left: 8px solid #eee;
     margin-left: 20px;
     padding: 6px 0 6px 20px;
+}
+
+.select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none; 
 }

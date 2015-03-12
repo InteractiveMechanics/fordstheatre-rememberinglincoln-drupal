@@ -19,19 +19,19 @@
 	 		'property' => 'og:title',
 	 		'content' => 'Remembering Lincoln: My Collections',
 	 	),
-	 );
-	 drupal_add_html_head($element, 'og_title');
+	);
+    drupal_add_html_head($element, 'og_title');
 	 
 	 
- 	 $element = array(
-	 	'#tag' => 'meta', 
-	 	'#attributes' => array(
-	 		'property' => 'og:description',
-	 		'content' => "Checkout out my collections from Ford's Theatre Remembering Lincoln",
-	 	),
-	 );
-	 drupal_add_html_head($element, 'og_body');
-	
+    $element = array(
+    '#tag' => 'meta', 
+    '#attributes' => array(
+    	'property' => 'og:description',
+    	'content' => "Checkout out my collections from Ford's Theatre Remembering Lincoln",
+    ),
+    );
+    drupal_add_html_head($element, 'og_body');
+    global $base_path;
 ?>
 
 <div class="my-collection-header">
@@ -56,11 +56,16 @@
 						
 						
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email my collection</a></li>
+					    	<li role="presentation"><a title="Email Your Collection" role="menuitem" tabindex="-1" href="<?php print $email_link ?>">Email my collection</a></li>
                             <li role="presentation" class="divider"></li>
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $twitter_link ?>">Share on Twitter</a></li>
+					    	<li role="presentation"><a title="Share Collection on Twitter" role="menuitem" tabindex="-1" target="_blank" href="<?php print $twitter_link ?>">Share on Twitter</a></li>
 					    	<li role="presentation" class="divider"></li>
-					    	<li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="<?php print $facebook_link ?>">Share on Facebook</a></li>
+					    	<li role="presentation"><a title="Share Collection on Facebook" role="menuitem" tabindex="-1" target="_blank" href="<?php print $facebook_link ?>">Share on Facebook</a></li>
+					    	
+					    	<li role="presentation" class="divider"></li>
+					    	<li role="presentation">
+					    		<a id="bookmarkme" href="javascript: void(0);" role="menuitem" tabindex="-1"  rel="sidebar" title="Bookmark Collection">Bookmark This Page</a>
+					    	</li>
 						</ul>
 					</div>
                     
@@ -79,23 +84,7 @@
 					
 					<?php foreach($nodes as $n): ?>
 					
-						<div class="post post-<?php print $n->nid ?>">
-							<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
-								<img src="<?php print file_create_url($n->field_file['und'][0]['uri']); ?>" alt="<?php print $n->title;?>" />
-							</a>
-							<p class="title">
-								<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
-									<?php print $n->title; ?>
-								</a>
-							</p>
-							<p class="date">
-								<?php print $n->field_item_type['und'][0]['taxonomy_term']->name;?> from
-								<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
-							</p>
-							<div class="save-icon hidden-xs node-<?php print $n->nid ?>" data-nodeId="<?php print $n->nid ?>">
-                                <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
-        				    </div>
-						</div>
+						<?php include('includes/inc-object-post.php'); ?>
 						
 					<?php endforeach; ?>
 				</div>
@@ -112,7 +101,7 @@
 				<div class="col-md-12 curated-header">
 					<h1>
 						Curated collections
-                        <small><a href="http://staging.interactivemechanics.com/rememberinglincoln/?q=curated-collection" class="view-all">View all &raquo;</a></small>
+                        <small><a href="<?php print $base_path; ?>curated-collection" class="view-all">View all &raquo;</a></small>
 					</h1>
 				</div>
 			</div>
@@ -297,5 +286,18 @@
 			opacity = target.css('opacity');
 			target.animate({opacity: (opacity==1?.4:1)});
 		});
+		
+		$('#bookmarkme').click(function() {
+            if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+                window.sidebar.addPanel(document.title,window.location.href,'');
+            } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+                window.external.AddFavorite(location.href,document.title); 
+            } else if(window.opera && window.print) { // Opera Hotlist
+                this.title=document.title;
+                return true;
+            } else { // webkit - safari/chrome
+                alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+            }
+        });
 	});
 </script>

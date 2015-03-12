@@ -20,6 +20,8 @@
 }
 
 .curated-collection-list {
+    margin-bottom: 60px;
+
     .curated-info {
         h3 {
             margin: 6px 0;
@@ -29,6 +31,13 @@
             a {
                 color: black;
                 font-family: "minion-pro";
+                text-decoration: none;
+                opacity: 1;
+                transition: $fast-trans;
+
+                &:hover {
+                    opacity: 0.75;
+                }
             }
         }
         p {

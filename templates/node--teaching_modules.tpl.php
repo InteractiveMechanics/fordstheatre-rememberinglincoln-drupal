@@ -183,60 +183,30 @@
 						<?php endforeach; ?>
 				    </ul>
                 <?php endif; ?>
-                <a href="<?php print $email_link; ?>" target="_blank" class="suggest">Suggest an edit or object</a>
+                <a href="<?php print $email_link; ?>" class="suggest">Suggest an edit or object</a>
 			</div>
 		</div>
 	</div>
 </div>
 
+<?php if ($field_objects): ?>
 <div class="browse-items partner-items">
-	
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-md-12">
-
+                <h2>Related Responses</h2>
 				<div id="posts" data-columns>
 					
 					<?php foreach($field_objects as $obj): ?>
 
-						<div class="post">
-							<?php if( isset($obj["entity"]->field_file['und'])): ?>
-								<a href="<?php print url('node/' . $obj["entity"]->nid, array('absolute' => TRUE)); ?>">
-									<img 
-										src="<?php print file_create_url($obj["entity"]->field_file['und'][0]['uri']); ?>" 
-			            				alt="<?php print $obj["entity"]->title;?>" 
-			            				width="331" 
-			            				class="img-responsive" 
-			            				alt="<?php print $obj["entity"]->title;?>"
-									/>
-								</a>
-							<?php endif; ?>
-							
-							<p class="title">
-								<a href="<?php print url('node/' . $obj["entity"]->nid, array('absolute' => TRUE)); ?>">
-									<?php print $obj["entity"]->title;?>
-								</a>
-							</p>
-							<p class="date">
-								<?php $term = taxonomy_term_load($obj["entity"]->field_item_type['und'][0]['tid']); print $term->name; ?><span>|</span> 
-                                <?php print format_date(strtotime($obj["entity"]->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
-							</p>
-							<div class="save-icon hidden-xs" data-nodeId="<?php print $obj["entity"]->nid ?>">
-								<span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
-							</div>
-						</div>
+						<?php $n = $obj["entity"]; include('includes/inc-object-post.php'); ?>
 					
 					<?php endforeach; ?>
-					
-					
 					
 				</div>
 
 			</div>
-
 		</div>
-
 	</div>
 </div>
+<?php endif; ?>

@@ -54,21 +54,43 @@
 }
 
 .browse-search-header {
-    padding: 25px 0;
+    padding: 20px 0;
 }
 
 .browse-search {
-	padding: 15px 0;
+	padding: 12px 0;
     border-top: 1px solid #ddd;
 
     .form-control {
         border-radius: 30px;
-        border: 0px;
-        box-shadow: 0px;
+        border: 1px solid darken($lightgray, 5%);
+        box-shadow: none;
+        padding: 8px 16px;
+        height: 46px;
     
-        input {
-            border:none;
+        &.form-control-select { 
+            margin-right: 4px; 
+            width: 120px;
+
+            option {
+                &.all { color: gray; }
+                &.header { font-weight: 700; }
+            }
         }
+        &.title_input {
+            margin-right: 8px;
+            width: 200px;
+            font-size: 16px;
+            padding: 6px 18px 8px;
+        }
+    }
+    .btn.btn-go,
+    .btn.btn-reset {
+        height: 46px;
+        padding: 4px 20px 6px;
+        font-size: 16px;
+        font-style: normal;
+        margin-left: 8px;
     }
 }
 
@@ -76,6 +98,8 @@
 .post{
     z-index: 400;
     position: relative;
+    background: url(../images/spinner.gif) center 50px no-repeat;
+    background-size: 30px;
 
     a {
     	color:#000;
@@ -115,6 +139,9 @@
     .browse-photo {
         padding: 0;
         position: relative;
+        background: url(../images/spinner.gif) center center no-repeat;
+        background-size: 30px;
+        height: inherit;
 
         a:not(.photo-lightbox) {
             position: absolute;
@@ -149,7 +176,7 @@
 
         .photo {
             margin: 0 auto;
-            height: 650px;
+            height: inherit;
             background-position: center;
             background-repeat: no-repeat;
             text-align: center;
@@ -190,6 +217,11 @@
 
 .zoomContainer {
     z-index: 1000;
+
+    .zoomWindowContainer {
+        width: auto !important;
+        & > div { background-size: cover; }
+    }
 }
 @media screen and #{$screen-xs}, #{$screen-sm} {
     .zoomContainer {
@@ -203,6 +235,11 @@
 
 .object-photo {
     background: $darkgray;
+    height: 650px;
+
+    @media screen and #{$screen-xs}, #{$screen-sm} {
+        height: 450px !important;
+    }
 }
 .object-content {
     height: 650px;
@@ -211,7 +248,7 @@
     position: relative;
 
     @media screen and #{$screen-sm}, #{$screen-xs} {
-        height: auto;
+        height: auto !important;
         overflow: visible;
     }
 
@@ -307,6 +344,7 @@
                         border: none;
                         border-radius: 0;
                         box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+                        margin-bottom: 30px;
 
                         li {
                             margin-bottom: 0;

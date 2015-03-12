@@ -1,4 +1,6 @@
 .blocks {
+    @extend .select-none;
+
     .block {
         float: left;
         background-size: cover;
@@ -63,10 +65,14 @@
             h2 {
                 font-size: 80px;
                 line-height: 64px;
-                margin-top: 70px;
+                margin-top: 60px;
             }
             p {
                 line-height: 24px;
+            }
+            .overlay {
+                background: desaturate($fts-gold, 10%);
+                opacity: 0.85;
             }
         }
         &.block-callout {
@@ -124,6 +130,7 @@
         @media screen and (max-width: 600px) {
             width: 50%;
 
+            &.block-callout { height: auto; }
             &.two { width: 100%; }
             &.hide-xs { display: none; }
         }

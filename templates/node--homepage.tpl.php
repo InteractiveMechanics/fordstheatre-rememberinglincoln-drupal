@@ -10,6 +10,10 @@
 	$random_callout = lincoln_get_random_node_type('call_out', 1);
 	
 	$random_objects = lincoln_get_random_objects();
+	
+	shuffle($random_objects);
+	shuffle($random_curated_node);
+	
 	global $base_path; 
 ?>
 
@@ -50,10 +54,12 @@
 </div> <!--./about-info -->
 
 
+
 <div class="blocks clearfix">
     <div class="block two block-number" data-url="<?php print url('browse'); ?>">
 	    <h2><?php print $num_responses; ?></h2>
 	    <p>Responses</p>
+        <div class="overlay"></div>
     </div>
     
     <?php foreach($random_objects as $key => $object): ?>
@@ -72,7 +78,7 @@
                     <?php if (($key > 3 && $key < 9) || ($key == 11)){ echo ' hide-md'; } ?>
                     <?php if (($key > 5 && $key < 8) || ($key == 11)){ echo ' hide-lg'; } ?>
                 " 
-                style="background: url(<?php print file_create_url($dst); ?>)" 
+                style="background: url(<?php print file_create_url($dst); ?>); background-size: cover;" 
                 data-url="<?php print url('node/' . $random_objects[$key]->nid, array('absolute' => TRUE)); ?>">
                 <h2 class="hidden"><?php print format_date(strtotime($random_objects[$key]->field_date['und'][0]['value']), 'custom', 'Y'); ?></h2>
     	   		<p class="hidden"><?php print lincoln_taxonomy_term_load($random_objects[$key]->field_item_type['und'][0]['tid']); ?></p>

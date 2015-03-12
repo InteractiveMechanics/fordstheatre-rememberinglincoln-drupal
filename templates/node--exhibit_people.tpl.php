@@ -91,58 +91,57 @@
 
 <div class="view-people">
     <div class="container">
-        <div class="row">
+    <?php if($people): ?>
+		<?php $j = 0; ?>
+		<?php foreach( $people as $res): ?>
 
-            <?php if($people): ?>
-				<?php $j = 0; ?>
-				<?php foreach( $people as $res): ?>
-					
-					<div class="col-md-6">
-                        <div class="person">
-                            <div class="photo">
-                                <img src="<?php print $res['image'] ?>" alt="Photo of <?php print $res['name'] ?>" />
-				            </div>
-		
-							<div class="about">
-								<h2 class="lead"><?php print $res['name'] ?></h2>
-								<p class="lead"><?php print $res['body'] ?></p>
-				            </div>
-		
-                            <?php if( $res['resources'] ): ?>
-    							<div class="related-info">
-    								<h4>Related Responses</h4>
-    								<ul>
-    								    <?php foreach( $res['resources'] as $r): ?>
-                                            <li>
-                                                <a href="<?php print url('node/' . $r['node_id'], array('absolute' => TRUE)); ?>">
-    												<?php print $r['title'] ?>
-    								            </a>
-                                            </li>
-                                        <?php endforeach; ?>
-    								</ul>
-    				            </div>
-                            <?php endif; ?>
-                            <?php if( $res['externals'] ): ?>
-    							<div class="related-info">
-    								<h4>External Resources</h4>
-    								<ul>
-    								    <?php foreach( $res['externals'] as $r): ?>
-                                            <li>
-                                                <a href="<?php print $r['url']; ?>"><?php print $r['title'] ?></a>
-                                            </li>
-                                        <?php endforeach; ?>
-    								</ul>
-    				            </div>
-                            <?php endif; ?>
-				        </div>
-					</div>
-						
-                    <?php $j++; ?>
-						
-				<?php endforeach; ?>
-            <?php endif; ?>
+            <?php if($j % 2 === 0){ print '<div class="row">'; } ?>
+			
+    			<div class="col-md-6">
+                    <div class="person">
+                        <div class="photo">
+                            <img src="<?php print $res['image'] ?>" alt="Photo of <?php print $res['name'] ?>" />
+    		            </div>
+    
+    					<div class="about">
+    						<h2 class="lead"><?php print $res['name'] ?></h2>
+    						<p class="lead"><?php print $res['body'] ?></p>
+    		            </div>
+    
+                        <?php if( $res['resources'] ): ?>
+    						<div class="related-info">
+    							<h4>Related Responses</h4>
+    							<ul>
+    							    <?php foreach( $res['resources'] as $r): ?>
+                                        <li>
+                                            <a href="<?php print url('node/' . $r['node_id'], array('absolute' => TRUE)); ?>">
+    											<?php print $r['title'] ?>
+    							            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+    							</ul>
+    			            </div>
+                        <?php endif; ?>
+                        <?php if( $res['externals'] ): ?>
+    						<div class="related-info">
+    							<h4>External Resources</h4>
+    							<ul>
+    							    <?php foreach( $res['externals'] as $r): ?>
+                                        <li>
+                                            <a href="//<?php print $r['url']; ?>" target="_blank"><?php print $r['title'] ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+    							</ul>
+    			            </div>
+                        <?php endif; ?>
+    		        </div>
+    			</div>
 
-        </div>
+            <?php $j++; ?>
+            <?php if($j % 2 === 0){ print '</div>'; } ?>
+				
+		<?php endforeach; ?>
+    <?php endif; ?>
     </div>
 </div>
 

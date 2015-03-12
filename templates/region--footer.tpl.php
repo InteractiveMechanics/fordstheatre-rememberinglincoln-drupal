@@ -61,7 +61,7 @@
 								<li class="title">About the project</li>
                                 <li><a href="<?php print $base_path; ?>about-remembering-lincoln">About Remembering Lincoln</a></li>
                                 <li><a href="<?php print $base_path; ?>about-fords-theatre">About Ford's Theatre</a></li>
-								<li><a href="<?php print $base_path; ?>partners">Partners</a></li>
+								<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
 								<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
 								<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>
 								<li><a href="http://fords.org/contact">Contact us</a></li>

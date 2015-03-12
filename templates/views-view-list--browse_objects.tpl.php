@@ -5,17 +5,15 @@
 	 $objects = array();
 	 $node_arr = lincoln_get_all_of_type('object');
 	 
+	 $vocabulary = taxonomy_vocabulary_machine_name_load('Tags');
+     $terms = taxonomy_get_tree($vocabulary->vid, 0, NULL, FALSE);
+	 
+	 foreach($terms as $term) {
+		 array_push($tags, $term->name);
+	 }
+
 	 foreach ($node_arr as $value) {
 	 	$browse_obj = lincoln_taxonomy_term_load($value->field_item_type['und'][0]['tid']) . "|" . $value->field_item_type['und'][0]['tid'];
-	 	//$subject = $value->field_subject['und'][0]['value'];
-	 	
-	 	if( $value->field_tags['und'] ) {
-		 	foreach ($value->field_tags['und'] as $tag) {
-		 	var_dump($tag);
-		 		array_push($tags, $tag['taxonomy_term']->name);
-		 	}
-	 	}
-	 	
 	 	array_push($objects, $browse_obj);
 	 }
 	 
@@ -24,6 +22,8 @@
 	 
 	 $vocabulary = taxonomy_vocabulary_machine_name_load('Regions');
 	 $regions = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+
+    global $base_path;
 ?>
 
 <div class="browse-header">
@@ -31,7 +31,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Browse Responses</h1>
+					<h1>Browse Responses 
+                        <small><a href="<?php print $base_path; ?>curated-collection" class="view-all">View Curated Collections &raquo;</a></small>
+                    </h1>
 				</div>
 			</div>
 		</div>
@@ -47,12 +49,12 @@
 						<form class="form-inline">
 						  
 						  	<div class="form-group">
-						    	<input autocomplete="off" type="text" class="form-control title_input" id="exampleInputEmail2" placeholder="Search collection">
+						    	<input autocomplete="off" type="text" class="form-control title_input" id="exampleInputEmail2" placeholder="Search responses">
 						  	</div>
 						  
 						  	<div class="form-group">
-						  		<select class="form-control item_type_drop_down" style="width:125px; text-align:center;" >
-									<option value="">Object Type</option>
+						  		<select class="form-control item_type_drop_down form-control-select">
+									<option value="" class="all">All Item Types</option>
 									<?php foreach($objects as $o): ?>
 										<?php if($o): ?>
 											<?php $elements = explode("|", $o); ?>
@@ -65,8 +67,8 @@
 						  	</div>
 	
 						  	<div class="form-group hidden-xs">
-						   		<select class="form-control region_drop_down" style="width:100px; text-align:center;" >
-						   			<option value="">Region</option>
+						   		<select class="form-control region_drop_down form-control-select">
+						   			<option value="" class="all">All Regions</option>
 						   			<?php foreach($regions as $r): ?>
 						   				<option value="<?php print $r->tid; ?>"><?php print $r->name; ?></option>
 						   			<?php endforeach; ?>
@@ -74,17 +76,19 @@
 						  	</div>
 	
 						  	<div class="form-group hidden-xs">
-						    	<select class="form-control subject_drop_down" style="width:100px; text-align:center;" >
-									<option value="">Subject</option>
+						    	<select class="form-control subject_drop_down form-control-select">
+									<option value="" class="all">All Tags</option>
 									<?php foreach($tags as $t): ?>
-										<?php if($t): ?>
-											<option value="<?php print $t; ?>"><?php print $t; ?></option>
+										<?php if($t && (($t == 'Topic') || ($t == 'Person'))): ?>
+											<option value="<?php print $t; ?>" class="header"><?php print $t; ?></option>
+                                        <?php else: ?>
+                                            <option value="<?php print $t; ?>">&nbsp;&nbsp;<?php print $t; ?></option>
 										<?php endif; ?>
 									<?php endforeach; ?>
 								</select>
 						  	</div>
 						  
-						  	<button class="btn btn-reset btn-go">Filter</button>
+						  	<button class="btn btn-go">Search</button>
 						  	
 						  	<button class="btn hidden-xs btn-reset">Reset</button>
 	
@@ -103,42 +107,13 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div id="posts" data-columns>
-					
-						<?php foreach ($view->result as $delta => $item): ?>
-                            <?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'])): ?>
-                            	
-    							<div class="post">
-    								<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
-                                        <?php
-                                            $preset = 'square';
-                                            $src = $view->result[$delta]->_field_data['nid']['entity']->field_file['und'][0]['uri'];
-                                            $dst = image_style_path($preset, $src);
-                                            $success = file_exists($dst) || image_style_create_derivative(image_style_load($preset), $src, $dst);
-                                        ?>
-                                        
-										<img src="<?php print file_create_url($dst); ?>" alt="<?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>" />    									
-    								</a>
-    								
-    								<p class="title">
-    									<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
-                                            <?php if ($view->result[$delta]->_field_data['nid']['entity']->field_short_title['und'][0]['value']): ?>
-                							    <?php print $view->result[$delta]->_field_data['nid']['entity']->field_short_title['und'][0]['value']; ?>
-                                            <?php else: ?>
-                                                <?php print $view->result[$delta]->_field_data['nid']['entity']->title; ?>
-                                            <?php endif; ?>
-    									</a>
-    								</p>
-    								<p class="date">
-                                        <?php $term = taxonomy_term_load($view->result[$delta]->_field_data['nid']['entity']->field_item_type['und'][0]['tid']); print $term->name; ?><span>|</span> 
-    									<?php print format_date(strtotime($view->result[$delta]->_field_data['nid']['entity']->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
-    								</p>
-                                    <div class="save-icon hidden-xs node-<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>" data-nodeId="<?php print $view->result[$delta]->_field_data['nid']['entity']->nid ?>">
-                                        <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
-    								</div>
-    							</div>
-                            <?php endif; ?>
-						<?php endforeach; ?>
-					
+					    <?php if ($view->result): ?>
+    						<?php foreach ($view->result as $delta => $item): ?>
+                                <?php $n = $view->result[$delta]->_field_data['nid']['entity']; include('includes/inc-object-post.php'); ?>
+    						<?php endforeach; ?>
+                        <?php else: ?>
+                            <h2>No results found. <small>Try broadening your search, or adjusting your search filters.</small></h2>
+                        <?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -195,9 +170,9 @@
 			
 			if(subject) {
 				if (containsQuestionMark(path)) {
-					path += "&subject=" + subject;
+					path += "&tags=" + subject;
 				} else {
-					path += "?subject=" + subject;
+					path += "?tags=" + subject;
 				}
 			}
 			
@@ -230,7 +205,7 @@
 			var title = getParameterByName('title');
 			var object = getParameterByName('item_type[]');
 			var region = getParameterByName('region[]');
-			var subject = getParameterByName('subject');
+			var tag = getParameterByName('tags');
 			
 			if(title) {
 				$('.title_input').val(title);
@@ -244,8 +219,8 @@
 				$(".region_drop_down option[value='" + region +"']").attr('selected', 'selected');
 			}
 			
-			if(subject) {
-				console.log($(".subject_drop_down option[value='" + subject +"']").attr('selected', 'selected'));
+			if(tag) {
+				console.log($(".subject_drop_down option[value='" + tag +"']").attr('selected', 'selected'));
 			}
 		}
 		
@@ -257,6 +232,10 @@
 	$(document).ready(function(){
 		
 		$('.site-wrapper .navbar-inverse.navbar .navbar-nav li:eq(1)').addClass('active');
+		
+		$(".post img.lazy").lazyload({
+			threshold : 200
+		});
 		
 	});
 	

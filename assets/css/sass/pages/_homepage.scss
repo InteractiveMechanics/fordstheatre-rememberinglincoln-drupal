@@ -42,34 +42,6 @@
             
         }
     }
-    .scroll-down {
-        -moz-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-        text-align: center;
-        display: block;
-        color: white;
-        font-size: 27px;
-        font-family: Arial;
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        margin-left: -30px;
-        padding-top: 7px;
-        width: 60px;
-        height: 60px;
-        border: 2px solid white;
-        border-radius: 999px;
-        text-decoration: none;
-        opacity: 0.75;
-        transition: $slow-trans;
-        z-index: 10;
-
-        &:hover {
-            opacity: 1;
-            bottom: 35px;
-        }
-    }
 }
 
 

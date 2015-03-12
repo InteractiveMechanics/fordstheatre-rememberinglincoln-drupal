@@ -54,9 +54,9 @@
 		overflow: visible;
 
 		/* dimensions: handling small or empty content */
-        min-width: 400px;
+        min-width: 55%;
         width: auto;
-        max-width: 65%;
+        max-width: 75%;
 
 		/* dimensions: handling large content */
 		margin-left: 5%;
@@ -79,21 +79,18 @@
 	}
 
 	.featherlight .featherlight-close-icon {
-		/* position: centering vertical and horizontal */
-		position: absolute;
+		position: fixed;
 		z-index: 9999;
-		top: 0;
-		right: -30px;
+		top: 20px;
+		right: 20px;
 
-		/* dimensions: 25px x 25px */
 		line-height: 25px;
 		width: 25px;
 
-		/* styling */
 		cursor: pointer;
 		text-align: center;
 		font-family: Arial, sans-serif;
-        font-size: 18px;
+        font-size: 24px;
 		color: #FFF;
 	}
 

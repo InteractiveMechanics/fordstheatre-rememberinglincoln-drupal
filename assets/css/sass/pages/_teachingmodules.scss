@@ -15,6 +15,7 @@
 
     h3 {
         margin-top: 25px;
+        color: black;
     }
     
     a.suggest {
@@ -62,11 +63,11 @@
                 &.detail {
                     font-size: 15px;
                     line-height: 20px;
-                    color:black;
+                    color: black;
                     margin: 2px 0;
 
                     a {
-                        color:#333;
+                        color: $fts-red;
                     }
                 }
             }
@@ -80,7 +81,7 @@
             a {
                 font-weight: bold;
                 font-size: 16px;
-                color: black;
+                color: $fts-red;
             
                 span {
                     text-decoration: none;
@@ -92,7 +93,7 @@
 }
     
 .module-items {
-    margin-bottom: 50px;
+    margin: 50px 0;
 
     .module-item {
         margin-bottom: 40px;
@@ -113,9 +114,13 @@
             a {
                 color:black;
                 font-family: 'minion-pro';
+                transition: $fast-trans;
 
+                &:active,
+                &:focus,
                 &:hover {
-                	text-decoration: underline;
+                	text-decoration: none;
+                    opacity: 0.75;
                 }
             }
         }

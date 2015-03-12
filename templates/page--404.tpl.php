@@ -42,16 +42,10 @@
             	
 			    <div id="main-nav" class="collapse navbar-collapse">
 			        <ul class="nav navbar-nav pull-right">
-		            	<li class="exhibit">
+		            	<li>
 		            		<a href="<?php print $base_path; ?>exhibit/introduction" class="scroll-link" data-id="mission">
 		            			Explore the Story
 		            		</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?php print $base_path; ?>exhibit/introduction">Introduction</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/events">Timeline</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/places">Map of Responses</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/people">People</a></li>
-                            </ul>
 		            	</li>
 
 				    	<li>
@@ -80,8 +74,20 @@
 			    </div>
             </nav><!--/.navbar-->
 		</div> <!--./header-->
+        <div class="hero-unit error">
+        	<div class="jumbotron">
+    			<div class="container">
+    				<div class="row">
+    					<div class="col-md-6">
+    						<h1>404</h1>
+                            <h3>"Remember in the depth and even the agony of despondency, that very shortly you are to feel well again."</h3>
+    					</div>
+    				</div>
+        		</div>
+        	</div><!--./jumbotron-->
+        </div> <!--./hero-->
 
-		<?php print render($page['content']); ?>
+
 		<?php print render($page['footer']); ?>
 		
 	</div>

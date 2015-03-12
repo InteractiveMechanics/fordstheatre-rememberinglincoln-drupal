@@ -37,6 +37,22 @@
     }
 }
 
+.btn-go {
+    background: none;
+    border: 2px solid $fts-red;
+    color: $fts-red;
+    font-style: italic;
+    border-radius: 99px;
+    font-size: 12px;
+    transition: $fast-trans;
+
+    &:hover {
+        border: 2px solid $fts-darkred;
+        background: $fts-darkred;
+        color: white;
+    }
+}
+
 .btn-reset {
     background: none;
     border: 2px solid $midgray;

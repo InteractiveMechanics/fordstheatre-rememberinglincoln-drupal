@@ -729,7 +729,7 @@ function lincoln_get_random_objects() {
 	$query->entityCondition('entity_type', 'node')
 	  ->entityCondition('bundle', 'object')
 	  ->propertyCondition('status', 1)
-	  ->range(0, 20);
+	  ->range(0, 150);
 	
 	$result = $query->execute();
 	
@@ -754,7 +754,7 @@ function lincoln_get_curated_content() {
 	$query->entityCondition('entity_type', 'node')
 	  ->entityCondition('bundle', 'curated_collection')
 	  ->propertyCondition('status', 1)
-	  ->range(0, 3);
+	  ->range(0, 30);
 	
 	$result = $query->execute();
 	
@@ -817,4 +817,11 @@ function lincoln_current_url() {
 	}
 	
 	return $pageURL;
+}
+
+function lincoln_preprocess_page(&$vars) {
+    $header = drupal_get_http_header('status'); 
+    if ($header == '404 Not Found') {     
+        $vars['theme_hook_suggestions'][] = 'page__404';
+    }
 }
