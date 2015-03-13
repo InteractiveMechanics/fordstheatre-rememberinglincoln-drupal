@@ -23,7 +23,7 @@
 			
 			<div class="row curated-row-item">
 	
-				<div class="col-md-3">
+				<div class="col-sm-3">
 					<div class="curated-image">
 						<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
 							<?php if( isset($view->result[$delta]->_field_data['nid']['entity']->field_image['und'])): ?>
@@ -41,16 +41,16 @@
 					</div>
 				</div>
 	
-				<div class='col-md-9'>
+				<div class='col-sm-9'>
 					<div class="curated-info">
-						<h4 class="author">
-							Created by Ford's Theatre
-						</h4>
 						<h3 class="title">
 							<a href="<?php print url('node/' . $view->result[$delta]->_field_data['nid']['entity']->nid, array('absolute' => TRUE)); ?>">
 								<?php print $view->result[$delta]->_field_data['nid']['entity']->title ?>
 							</a>
 						</h3>
+                        <h4 class="author">
+							Created by Ford's Theatre
+						</h4>
 						<p class="description">
 							<?php if( strlen( $view->result[$delta]->_field_data['nid']['entity']->body["und"][0]["value"] ) > 400): ?>
 							

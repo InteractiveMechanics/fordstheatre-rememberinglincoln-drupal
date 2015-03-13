@@ -52,7 +52,7 @@
 					<p><?php print $node->field_exhibit_summary['und'][0]['value'];?></p>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 hidden-sm">
 				<?php 
                     $call_out = $node->field_exhibit_callout['und'][0]['entity'];
                     $call_out_type = $call_out->field_callout_type['und'][0]['value'];

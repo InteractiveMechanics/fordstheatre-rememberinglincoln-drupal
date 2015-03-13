@@ -21,13 +21,13 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-md-6">
+			<div class="col-md-6 col-sm-8 col-sm-offset-2">
 				<p>
 					<?php print $node->body['und'][0]['value'];?>
 				</p>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6 hidden-sm hidden-xs">
 				<blockquote><?php print $node->field_exhibit_intro_quote['und'][0]['value'];?></blockquote>
 			</div>
 
@@ -39,7 +39,7 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/events">
 					<div class="sub-section-image">
 						<img src="<?php print file_create_url($node->field_exhibit_intro_event_image['und'][0]['uri']); ?>" alt="Events" />
@@ -49,7 +49,7 @@
 				</a>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/places">
 					<div class="sub-section-image">
 						<img src="<?php print file_create_url($node->field_exhibit_intro_place_image['und'][0]['uri']); ?>" alt="Places" />
@@ -59,7 +59,7 @@
 				</a>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<a class="sub-section-item" href="<?php print $base_path; ?>exhibit/people">
 					<div class="sub-section-image">
 						<img src="<?php print file_create_url($node->field_exhibit_intro_people_image['und'][0]['uri']); ?>" alt="People" />

@@ -24,9 +24,9 @@
 
     .curated-info {
         h3 {
-            margin: 6px 0;
-            font-size: 21px;
-            font-weight: bold;
+            margin: 20px 0 3px;
+            font-size: 30px;
+            font-weight: 400;
             
             a {
                 color: black;
@@ -43,7 +43,7 @@
         p {
             &.author {
                 font-size: 13px;
-                margin: 4px 0;
+                margin: 0 0 15px;
                 font-weight: bold;
             }
             &.description {
@@ -51,6 +51,7 @@
                 line-height: 30px;
             }
         }
+        h4 { margin: 0 0 10px; }
     }
     .curated-row-item {
         margin: 10px 0 30px;

@@ -18,7 +18,7 @@
 		<?php $term = taxonomy_term_load($n->field_item_type['und'][0]['tid']); print $term->name; ?> from
 		<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
 	</p>
-	<div class="save-icon hidden-xs node-<?php print $n->nid ?>" data-nodeId="<?php print $n->nid ?>">
+	<div class="save-icon hidden-xs hidden-sm node-<?php print $n->nid ?>" data-nodeId="<?php print $n->nid ?>">
         <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
     </div>
 </div>

@@ -75,7 +75,7 @@
 		
 			<?php if ($places_arrary): ?>
 				<?php foreach ($places_arrary as $place): ?>
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<a class="sub-section-item" href="//<?php print $place['link'] ?>" target="_blank">
 							<div class="sub-section-image">
 								<img class="img-responsive" src="<?php print $place['image'] ?>" alt="<?php print $place['title'] ?> Image" />

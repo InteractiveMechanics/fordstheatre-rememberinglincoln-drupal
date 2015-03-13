@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-md-12">
                     <?php if($user_info->picture): ?>
-						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
+						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive hidden-xs" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
 					<?php endif; ?>
 					<a href="<?php print $base_path; ?>contributors" class="back-link">
 						&laquo; Return to Contributor List

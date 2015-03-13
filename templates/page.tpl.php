@@ -65,7 +65,7 @@
 				    			For Teachers
 				    		</a>
 				    	</li>
-				    	<li class="collection-list">
+				    	<li class="collection-list" onclick="MyCollectionClicked();">
 				    		<ul>
 				    			<li class="collection-number">
 				    				<p>0</p>
@@ -100,9 +100,9 @@
     			<a href="<?php print $base_path; ?>curated-collection">Curated Collections</a>
     		</li>
     		<li class="title">
-                <a>About This Project</a>
+                <a href="<?php print $base_path; ?>about-remembering-lincoln">About This Project</a>
             </li>
-    		<li><a href="<?php print $base_path; ?>partners">Contributors</a></li>
+    		<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
     		<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
     		<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>
     		<li><a href="http://fords.org/contact">Contact Us</a></li>

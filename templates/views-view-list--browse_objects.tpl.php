@@ -52,7 +52,7 @@
 						    	<input autocomplete="off" type="text" class="form-control title_input" id="exampleInputEmail2" placeholder="Search responses">
 						  	</div>
 						  
-						  	<div class="form-group">
+						  	<div class="form-group hidden-xs">
 						  		<select class="form-control item_type_drop_down form-control-select">
 									<option value="" class="all">All Item Types</option>
 									<?php foreach($objects as $o): ?>
@@ -75,7 +75,7 @@
 						   		</select>
 						  	</div>
 	
-						  	<div class="form-group hidden-xs">
+						  	<div class="form-group hidden-xs hidden-sm">
 						    	<select class="form-control subject_drop_down form-control-select">
 									<option value="" class="all">All Tags</option>
 									<?php foreach($tags as $t): ?>

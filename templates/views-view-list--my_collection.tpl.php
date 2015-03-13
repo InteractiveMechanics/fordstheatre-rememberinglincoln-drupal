@@ -6,7 +6,7 @@
 	$nodes = node_load_multiple($nodeids);
 	
 	
-	$email_link = "mailto:&subject=" . urlencode("Remembering Lincoln Response") . "&body=" . urlencode("Check out this response for the remembering lincoln collection, ") . urlencode(lincoln_current_url());
+	$email_link = "mailto:?subject=" . urlencode("View My Collection on Remembering Lincoln") . "&body=" . urlencode("Check out the custom Collection I created through Remembering Lincoln, a project of Ford's Theatre:  ") . urlencode(lincoln_current_url());
 	$twitter_link = "http://twitter.com/share?text=Check out this collection&url=" . lincoln_current_url() . "&hashtags=rememberinglincoln";
 	
 	$facebook_link = "https://www.facebook.com/sharer/sharer.php?u=" . urlencode(lincoln_current_url());

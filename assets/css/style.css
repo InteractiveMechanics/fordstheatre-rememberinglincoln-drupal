@@ -370,6 +370,9 @@ blockquote {
     margin: 0 0 15px; }
     .footer .logo-image object {
       max-width: 250px; }
+      .no-svg .footer .logo-image object {
+        background-image: url(../images/logo_footer@2x.png);
+        background-size: 100%; }
   .footer p {
     line-height: 20px;
     color: #333333;
@@ -1078,7 +1081,7 @@ blockquote {
         .hero-unit.homepage .jumbotron h1 {
           width: 100%;
           padding: 0 20px;
-          margin: 40px 0 0;
+          margin: 80px 0 0;
           font-size: 52px;
           line-height: 64px; } }
 
@@ -1185,6 +1188,9 @@ ul.partner-list li {
       font-size: 18px;
       color: white;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); }
+      @media screen and (max-width: 767px) {
+        .hero-unit.exhibit .jumbotron h4 {
+          margin-top: 240px; } }
     .hero-unit.exhibit .jumbotron h1 {
       color: white;
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
@@ -1260,6 +1266,13 @@ ul.partner-list li {
       font-size: 18px;
       margin: 0px;
       line-height: 30px; }
+      @media screen and (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
+        .introduction-sub-section .sub-section-item p {
+          font-size: 16px;
+          line-height: 24px; } }
+      @media screen and (max-width: 767px) {
+        .introduction-sub-section .sub-section-item p {
+          margin-bottom: 32px; } }
 
 .exhibit-sub-section .exhibit-sub-info p {
   line-height: 42px;
@@ -1326,6 +1339,9 @@ ul.partner-list li {
       .timeline #leaflet {
         height: 400px; } }
 
+.timeline {
+  height: auto !important; }
+
 .next-section-area {
   background-color: #f1f2f2;
   padding: 25px 0 20px;
@@ -1346,6 +1362,9 @@ ul.partner-list li {
       font-size: 21px;
       line-height: 10px;
       margin: 0 4px; }
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      .next-section-area h2 {
+        font-size: 21px; } }
   .next-section-area h4 {
     margin: 0 0 4px; }
     .next-section-area h4.text-right {
@@ -1422,6 +1441,11 @@ ul.partner-list li {
     font-size: 16px;
     font-style: normal;
     margin-left: 8px; }
+  @media screen and (max-width: 767px) {
+    .browse-search .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle; } }
 
 .post {
   z-index: 400;
@@ -1674,9 +1698,9 @@ ul.partner-list li {
 .curated-collection-list {
   margin-bottom: 60px; }
   .curated-collection-list .curated-info h3 {
-    margin: 6px 0;
-    font-size: 21px;
-    font-weight: bold; }
+    margin: 20px 0 3px;
+    font-size: 30px;
+    font-weight: 400; }
     .curated-collection-list .curated-info h3 a {
       color: black;
       font-family: "minion-pro";
@@ -1687,11 +1711,13 @@ ul.partner-list li {
         opacity: 0.75; }
   .curated-collection-list .curated-info p.author {
     font-size: 13px;
-    margin: 4px 0;
+    margin: 0 0 15px;
     font-weight: bold; }
   .curated-collection-list .curated-info p.description {
     font-size: 16px;
     line-height: 30px; }
+  .curated-collection-list .curated-info h4 {
+    margin: 0 0 10px; }
   .curated-collection-list .curated-row-item {
     margin: 10px 0 30px; }
 
@@ -1772,6 +1798,8 @@ ul.partner-list li {
     margin-right: 20px;
     max-height: 80px;
     float: right; }
+  .partner-page-header h2 {
+    margin-top: 10px; }
 
 .partner-page {
   padding-bottom: 60px; }

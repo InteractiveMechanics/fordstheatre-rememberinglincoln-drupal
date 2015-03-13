@@ -7,6 +7,11 @@
 
         object {
             max-width: 250px;
+
+            .no-svg & {
+                background-image: url(../images/logo_footer@2x.png);
+                background-size: 100%;
+            }
         }
     }
 

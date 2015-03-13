@@ -150,7 +150,7 @@
             			</a>
             		</div>
 
-                    <div class="save-icon hidden-xs" data-nodeId="<?php print $node->nid ?>">
+                    <div class="save-icon hidden-xs hidden-sm node-<?php print $node->nid ?>" data-nodeId="<?php print $node->nid ?>">
                         <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>
 				    </div>
 					<?php if( file_create_url($node->field_file['und'][0]['uri']) ): ?>
@@ -166,7 +166,7 @@
           	<div class="col-md-5 object-content">
           		<div class="row padding-row">
 
-          			<div class="col-lg-8">
+          			<div class="col-sm-8 col-md-12 col-lg-8">
           				<ul>
                             <li>
           						<h4 class="title">Full Title</h4>
@@ -210,10 +210,34 @@
 	          						</ul>
 	          					</li>
 		  					<?php endif; ?>
+                            <?php if( $external_items ): ?>
+                          		<div class="related-content visible-xs visible-sm">
+                          			<hr />
+                          			<h2>Related resources</h2>
+                
+                          			<div class="related-items">
+                          				<ul>
+                      						<?php foreach ($external_items as $item): ?>
+            	          						<li>
+            	          							<a href="//<?php print $item['url'] ?>" target="_blank"><?php print $item['title'] ?></a>
+            			  						</li>
+            			  					<?php endforeach; ?>
+                          				</ul>
+                          			</div>
+                          		</div>
+                            <?php endif; ?>
 		  				</ul>
           			</div>
 
-          			<div class="col-lg-4">
+          			<div class="col-sm-4 col-md-12 col-lg-4">
+                        <?php if($user_info->picture): ?>
+                      		<div class="bottom-from-image visible-xs visible-sm">
+            				    <a class="content-from-image" href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
+                                    <img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
+                				</a>
+                                <hr />
+                      		</div>
+                        <?php endif; ?>
           				<ul>
                             <?php if( $node->field_item_type['und'][0]['taxonomy_term'] ): ?>
                                 <li>
@@ -308,11 +332,10 @@
           					</li>
           				</ul>
           			</div>
-
           		</div>
 
                 <?php if( $external_items ): ?>
-              		<div class="related-content hidden-xs">
+              		<div class="related-content hidden-xs hidden-sm">
               			<hr />
               			<h2>Related resources</h2>
     
@@ -327,19 +350,6 @@
               			</div>
               		</div>
                 <?php endif; ?>
-
-          		<div class="bottom-from-image visible-xs visible-sm">
-          			<div class="container">
-          				<hr />
-	          			<div class="text-center">
-							<a class="content-from-image" href="<?php print $base_path; ?>?q=partner&uid=<?php print $uid ?>">
-    							<?php if($user_info->picture): ?>
-            						<img src="<?php print file_create_url($user_info->picture->uri); ?>" class="img-responsive" alt="<?php print $user_info->field_institution["und"][0]["value"]; ?>" />
-            					<?php endif; ?>
-    						</a>
-						</div>
-          			</div>
-          		</div>
          	</div>
         </div>
   	</div>

@@ -48,37 +48,8 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
     <link href="<?php print $base_path; ?>themes/lincoln/assets/css/featherlight.css" rel='stylesheet' />
+    <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/js/modernizr.js"></script>
     <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/assets/js/jquery.lazyload.min.js"></script>
-   
-    <style type="text/css">
-    	.views-exposed-form {
-	    	display: none;	
-    	}
-    	
-    	.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {color:white !important; background: none;}
-    	
-    	h4 a {
-	    	color: #BFB9B6;
-    	}
-    	
-    	h4 a:hover {
-	    	color:#86827F;
-    	}
-    	
-    	
-    	@media only screen and (max-width : 985px) {
-			.next-section-area h2 {
-	    		font-size: 16px;
-			}
-			
-			.timeline-section {
-				margin-top:250px;
-			}
-		}
-    	
-    </style>
-    
-    <!--Replace With Facebook Tags -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
     <?php if ($skip_link_text && $skip_link_anchor): ?>
@@ -246,21 +217,36 @@
 		
 				$('.collection-has-items').attr("data-url", url);
 				
-				$('.collection-has-items').on( "click", function() {
+				$('.collection-has-items').on('click', function() {
 					var url = $(this).data('url');
 					if(url){ window.location.href = url; }
 				});
 				
 			} else {
 				$('.collection-has-items').attr("data-url", "");
+				$('.collection-list').attr("data-url", "");
+
 			}
 			
 			for(var i = 0; i < arr.length; i++) {
 				$('.node-' + arr[i]).addClass('object-added');
 			}
 		}
+		
+		function MyCollectionClicked() {
+			var url =  $('.collection-list').data('url');
+			console.log(url);
+			var li = $('.collection-list');
+			
+			if(li[0]) {
+				url = li[0].dataset.url
+			}
+			
+			if(url){ window.location.href = url; }
+		}
 	</script>
 	
 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
 </body>
 </html>

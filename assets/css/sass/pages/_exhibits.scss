@@ -40,6 +40,10 @@
             font-size: 18px;
             color: white;
             text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+
+            @media screen and #{$screen-xs} {
+                margin-top: 240px;
+            }
         }
         h1 {
             color: white;
@@ -151,6 +155,14 @@
             font-size: 18px;   
             margin: 0px;
             line-height: 30px;
+
+            @media screen and #{$screen-xs}, #{$screen-sm} {
+                font-size: 16px;
+                line-height: 24px;
+            }
+            @media screen and #{$screen-xs} {
+                margin-bottom: 32px;
+            }
         }
     }
 }
@@ -226,6 +238,7 @@
         #leaflet { height: 400px; }
     }
 }
+.timeline { height: auto !important; }
 
 .next-section-area {
     background-color: $lightgray;
@@ -252,6 +265,10 @@
             font-size: 21px;
             line-height: 10px;
             margin: 0 4px;
+        }
+
+        @media screen and #{$screen-sm} {
+            font-size: 21px;
         }
     }
     h4 {
