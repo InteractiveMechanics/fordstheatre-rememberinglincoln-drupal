@@ -50,7 +50,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		$('.site-wrapper .navbar-inverse.navbar .navbar-nav li:eq(2)').addClass('active');
+		$('.site-wrapper .navbar-inverse.navbar .navbar-nav > li:eq(2)').addClass('active');
 		
 	});
 </script>

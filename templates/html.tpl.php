@@ -48,8 +48,73 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
     <link href="<?php print $base_path; ?>themes/lincoln/assets/css/featherlight.css" rel='stylesheet' />
-    <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/js/modernizr.js"></script>
     <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/assets/js/jquery.lazyload.min.js"></script>
+   
+    <style type="text/css">
+    	ul.pager {
+	    	margin-bottom: 60px;
+    	}
+    	.pager li>a, .pager li>span {
+	    	  background: white;
+			  border: 2px solid #b2b2b2;
+			  font-weight: 600;
+			  font-size: 18px;
+			  font-style: italic;
+			  border-radius: 99px;
+			  padding: 12px 30px 14px;
+			  color: #b2b2b2;
+			  transition: all 0.25s;
+			  line-height: 1.42857143;
+			    white-space: nowrap;text-align: center; vertical-align: middle; cursor: pointer; display: inline-block; margin-bottom: 0;
+    	}
+    	
+    	.pager li>a:hover {
+            border: 2px solid #b2b2b2;
+            background-color: #b2b2b2;
+            color: white;
+        }
+        
+        .pager li>span {
+	     	border: 2px solid #b2b2b2;
+            background-color: #b2b2b2;
+            color: white;   
+        }
+        
+        .pager-current {
+	        color: #626262 !important;
+        }
+    	.views-exposed-form {
+	    	display: none;	
+    	}
+    	
+    	.views-exposed-form {
+	    	display: none !important;
+    	}
+    	
+    	.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {color:white !important; background: none;}
+    	
+    	h4 a {
+	    	color: #BFB9B6;
+    	}
+    	
+    	h4 a:hover {
+	    	color:#86827F;
+    	}
+    	
+    	
+    	@media only screen and (max-width : 985px) {
+			.next-section-area h2 {
+	    		font-size: 16px;
+			}
+			
+			.timeline-section {
+				margin-top:250px;
+			}
+		}
+    	
+    </style>
+    
+    <!--Replace With Facebook Tags -->
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
     <?php if ($skip_link_text && $skip_link_anchor): ?>

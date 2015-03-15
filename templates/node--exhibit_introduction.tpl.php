@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-md-6 col-sm-8 col-sm-offset-2">
+			<div class="col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-2">
 				<p>
 					<?php print $node->body['und'][0]['value'];?>
 				</p>

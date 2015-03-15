@@ -52,39 +52,39 @@
 						    	<input autocomplete="off" type="text" class="form-control title_input" id="exampleInputEmail2" placeholder="Search responses">
 						  	</div>
 						  
-						  	<div class="form-group hidden-xs">
+						  	<div class="form-group">
 						  		<select class="form-control item_type_drop_down form-control-select">
-									<option value="" class="all">All Item Types</option>
-									<?php foreach($objects as $o): ?>
+									<option value="" class="all item-type-select" name="item_type[]">All Item Types</option>
+									<!--<?php foreach($objects as $o): ?>
 										<?php if($o): ?>
 											<?php $elements = explode("|", $o); ?>
 											<?php if($elements[0]): ?>
 												<option value="<?php print $elements[1] ?>"><?php print $elements[0] ?></option>
 											<?php endif; ?>
 										<?php endif; ?>
-									<?php endforeach; ?>
+									<?php endforeach; ?>-->
 								</select>
 						  	</div>
 	
 						  	<div class="form-group hidden-xs">
 						   		<select class="form-control region_drop_down form-control-select">
 						   			<option value="" class="all">All Regions</option>
-						   			<?php foreach($regions as $r): ?>
+						   			<!--<?php foreach($regions as $r): ?>
 						   				<option value="<?php print $r->tid; ?>"><?php print $r->name; ?></option>
-						   			<?php endforeach; ?>
+						   			<?php endforeach; ?>-->
 						   		</select>
 						  	</div>
 	
-						  	<div class="form-group hidden-xs hidden-sm">
+						  	<div class="form-group hidden-xs">
 						    	<select class="form-control subject_drop_down form-control-select">
 									<option value="" class="all">All Tags</option>
-									<?php foreach($tags as $t): ?>
+									<!--<?php foreach($tags as $t): ?>
 										<?php if($t && (($t == 'Topic') || ($t == 'Person'))): ?>
 											<option value="<?php print $t; ?>" class="header"><?php print $t; ?></option>
                                         <?php else: ?>
                                             <option value="<?php print $t; ?>">&nbsp;&nbsp;<?php print $t; ?></option>
 										<?php endif; ?>
-									<?php endforeach; ?>
+									<?php endforeach; ?>-->
 								</select>
 						  	</div>
 						  
@@ -121,7 +121,7 @@
 	</div>
 
 	<div class="text-center hidden">
-		<div class="load-more" style="position: relative; bottom: -106px;">
+		<div class="load-more" >
 			<a href="" class="btn btn-outline btn-gray"><em>Load more resources</em></a>
 		</div>
 	</div>
@@ -130,6 +130,42 @@
 
 <script type="text/javascript">
 	
+	
+	function containsQuestionMark(str) {
+		return str.indexOf("?") > 0;
+	}
+
+	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	function populateParams() {
+		var title = getParameterByName('title');
+		var object = getParameterByName('item_type[]');
+		var region = getParameterByName('region[]');
+		var tag = getParameterByName('tags');
+		
+		if(title) {
+			$('.title_input').val(title);
+		}
+		
+		if(object) {
+			$(".item_type_drop_down option[value='" + object +"']").attr('selected', 'selected');
+		}
+		
+		if(region) {
+			$(".region_drop_down option[value='" + region +"']").attr('selected', 'selected');
+		}
+		
+		if(tag) {
+			console.log($(".subject_drop_down option[value='" + tag +"']").attr('selected', 'selected'));
+		}
+	}
+		
 	$(document).ready(function(){
 		
 		$('.btn-go').click(function(e){
@@ -188,53 +224,57 @@
 			var path = window.location.origin + window.location.pathname;
 			window.location.href = path;
 		});	
-		
-		function containsQuestionMark(str) {
-			return str.indexOf("?") > 0;
-		}
-	
-		
-		function getParameterByName(name) {
-		    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		        results = regex.exec(location.search);
-		    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		}
-		
-		function populateParams() {
-			var title = getParameterByName('title');
-			var object = getParameterByName('item_type[]');
-			var region = getParameterByName('region[]');
-			var tag = getParameterByName('tags');
-			
-			if(title) {
-				$('.title_input').val(title);
-			}
-			
-			if(object) {
-				$(".item_type_drop_down option[value='" + object +"']").attr('selected', 'selected');
-			}
-			
-			if(region) {
-				$(".region_drop_down option[value='" + region +"']").attr('selected', 'selected');
-			}
-			
-			if(tag) {
-				console.log($(".subject_drop_down option[value='" + tag +"']").attr('selected', 'selected'));
-			}
-		}
-		
-		if( containsQuestionMark( window.location.href ) ) {
-			populateParams();
-		}
 	});
 	
 	$(document).ready(function(){
 		
-		$('.site-wrapper .navbar-inverse.navbar .navbar-nav li:eq(1)').addClass('active');
+		$('.site-wrapper .navbar-inverse.navbar .navbar-nav > li:eq(1)').addClass('active');
 		
 		$(".post img.lazy").lazyload({
 			threshold : 200
+		});
+		
+		$.getJSON( "http://staging.interactivemechanics.com/rememberinglincoln/json/browse-data", function( data ) {
+		  var region_items = [];
+		  var tags_items = [];
+		  var objs_items = [];
+		  
+		  
+		  var itemSelect = $('.item_type_drop_down');
+		  $.each( data.objects, function( key, val ) {
+		  	var item = data.objects[key].split("|");
+		  	itemSelect.append(
+		  		$('<option></option>').val(item[1]).html(item[0])
+		  	);
+		  });
+		  
+		  var regionSelect = $('.region_drop_down');
+		  $.each( data.regions, function( key, val ) {
+		  	regionSelect.append(
+		  		$('<option></option>').val(data.regions[key].tid).html(data.regions[key].name)
+		  	);
+		  });
+		  
+		  var tagsSelect = $('.subject_drop_down');
+		  $.each( data.tags, function( key, val ) {
+		  
+		  	if(val && (val == 'Topic' && val == 'Person')) {
+			  	tagsSelect.append(
+		  			$('<option></option>').val(val).html(val)
+		  		);
+		  	} else {
+			  	tagsSelect.append(
+		  			$('<option></option>').val(val).html('   ' + val)
+		  		);
+		  	}
+		  });
+		  
+		  if( containsQuestionMark( window.location.href ) ) {
+		  	console.log($('.region_drop_down'));
+			populateParams();
+		  }
+		 
+		 
 		});
 		
 	});

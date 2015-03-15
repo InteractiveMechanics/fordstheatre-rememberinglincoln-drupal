@@ -62,9 +62,9 @@
                                 <li><a href="<?php print $base_path; ?>about-remembering-lincoln">About Remembering Lincoln</a></li>
                                 <li><a href="<?php print $base_path; ?>about-fords-theatre">About Ford's Theatre</a></li>
 								<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
-								<li><a href="http://fords.org/home/terms-use">Terms of Use</a></li>
-								<li><a href="http://blog.fords.org/">Ford's Theatre Blog</a></li>
-								<li><a href="http://fords.org/contact">Contact us</a></li>
+								<li><a href="http://fords.org/home/terms-use" target="_blank">Terms of Use</a></li>
+								<li><a href="http://blog.fords.org/" target="_blank">Ford's Theatre Blog</a></li>
+								<li><a href="http://fords.org/contact" target="_blank">Contact us</a></li>
 							</ul>
 						</li>
 					</ul>
