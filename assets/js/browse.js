@@ -1,3 +1,5 @@
+var lincolnURL = '/rememberinglincoln';
+
 function containsQuestionMark(str) {
 	return str.indexOf("?") > 0;
 }
@@ -35,7 +37,7 @@ function populateParams() {
 
 function geturl() {
 
-	var url = window.location.origin + '/rememberinglincoln/browse';
+	var url = window.location.origin + lincolnURL + '/browse';
 	
 	if(endsWith(url, '/')) {
 		return url;
@@ -118,7 +120,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		e.stopImmediatePropagation();
 		
-		var path = window.location.origin + window.location.pathname;
+		var path = window.location.origin + lincolnURL +'/browse';
 		window.location.href = path;
 	});	
 });
@@ -126,7 +128,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	
 	
-	$.getJSON( window.location.origin + "/rememberinglincoln/json/browse-data", function( data ) {
+	$.getJSON( window.location.origin + lincolnURL + "/json/browse-data", function( data ) {
 	  var region_items = [];
 	  var tags_items = [];
 	  var objs_items = [];
