@@ -48,11 +48,11 @@
 								<li class="title">Responses</li>
 								<li><a href="<?php print $base_path; ?>browse">Browse all items</a></li>
 								<li><a href="<?php print $base_path; ?>curated-collection">View collections</a></li>
-								<li><a href="javascript:void(0);">Submit an item</a></li>
+								<li><a href="<?php print $base_path; ?>submit-an-item">Submit an item</a></li>
 								<br />
 								<li class="title">For teachers</li>
 								<li><a href="<?php print $base_path; ?>teaching-modules">Teaching modules</a></li>
-								<li><a href="javascript:void(0);">Submit a module</a></li>
+								<li><a href="<?php print $base_path; ?>submit-a-module">Submit a module</a></li>
 							</ul>
 						</li>
 
@@ -62,9 +62,9 @@
                                 <li><a href="<?php print $base_path; ?>about-remembering-lincoln">About Remembering Lincoln</a></li>
                                 <li><a href="<?php print $base_path; ?>about-fords-theatre">About Ford's Theatre</a></li>
 								<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
-								<li><a href="http://fords.org/home/terms-use" target="_blank">Terms of Use</a></li>
+								<li><a href="<?php print $base_path; ?>terms-of-use">Terms of Use</a></li>
 								<li><a href="http://blog.fords.org/" target="_blank">Ford's Theatre Blog</a></li>
-								<li><a href="http://fords.org/contact" target="_blank">Contact us</a></li>
+								<li><a href="<?php print $base_path; ?>contact">Contact us</a></li>
 							</ul>
 						</li>
 					</ul>

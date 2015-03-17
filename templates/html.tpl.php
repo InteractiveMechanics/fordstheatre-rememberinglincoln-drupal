@@ -48,7 +48,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
     <link href="<?php print $base_path; ?>themes/lincoln/assets/css/featherlight.css" rel='stylesheet' />
-    <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/assets/js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" src="<?php print $base_path; ?>themes/lincoln/assets/js/browse.js"></script>
    
     <style type="text/css">
     	ul.pager {
@@ -83,6 +83,7 @@
         .pager-current {
 	        color: #626262 !important;
         }
+    	
     	.views-exposed-form {
 	    	display: none;	
     	}
@@ -225,10 +226,11 @@
 		    	if(json) {
 		    		arr = JSON.parse(json);
 		    		
-		    		if($.inArray(node_id, arr) == -1 ) {
+		    		var index = arr.indexOf(node_id);
+					if(index == -1 ) {
 			    		arr.push(node_id);	
 		    		} else {
-		    			arr.pop(node_id);
+		    			arr.splice(index, 1);
 			    		console.log('removed');
 		    		}
 		    		

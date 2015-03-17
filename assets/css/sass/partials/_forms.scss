@@ -1,0 +1,48 @@
+.form-item {
+    margin: 0 0 20px;
+
+    label:not(.option) {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $warmgray;
+        display: block;
+    }
+    label.option {
+        margin-left: 6px;
+        top: 4px;
+        position: relative;
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        height: 44px;
+        background: $lightgray;
+        border: 1px solid darken($lightgray, 5%);
+        border-radius: 6px;
+        padding: 6px 14px 8px;
+        box-shadow: none;
+        width: 100%;
+        transition: $fast-trans;
+        font-size: 16px;
+        font-weight: 300;
+
+        &:focus, &:hover, &:active {
+            box-shadow: 0 0 8px rgba(#1A87C8, 0.45);
+            outline: none;
+        }
+    }
+    textarea { height: auto; }
+
+    .error {
+        
+    }
+}
+
+.webform-submit {
+    @extend .btn-outline;
+
+    margin: 0 auto;
+    display: block;
+}

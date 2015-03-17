@@ -763,7 +763,7 @@ blockquote {
     animation: poster 1s 3s both ease-out;
     z-index: 6; }
 
-.btn-outline {
+.btn-outline, .webform-submit {
   background: white;
   border: 2px solid #B00F3B;
   font-weight: 600;
@@ -773,19 +773,19 @@ blockquote {
   padding: 12px 30px 14px;
   color: #B00F3B;
   transition: all 0.25s; }
-  .btn-outline:hover {
+  .btn-outline:hover, .webform-submit:hover {
     background: #B00F3B;
     border: 2px solid #B00F3B;
     color: white; }
-  .btn-outline.btn-gray {
+  .btn-outline.btn-gray, .btn-gray.webform-submit {
     border: 2px solid #b2b2b2;
     color: #b2b2b2;
     background-color: white; }
-    .btn-outline.btn-gray:hover {
+    .btn-outline.btn-gray:hover, .btn-gray.webform-submit:hover {
       border: 2px solid #b2b2b2;
       background-color: #b2b2b2;
       color: white; }
-  .btn-outline span {
+  .btn-outline span, .webform-submit span {
     font-style: normal;
     font-family: Arial;
     font-size: 21px;
@@ -842,6 +842,47 @@ blockquote {
   .post .save-icon {
     top: 20px;
     right: 20px; }
+
+.form-item {
+  margin: 0 0 20px; }
+  .form-item label:not(.option) {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #BFB9B6;
+    display: block; }
+  .form-item label.option {
+    margin-left: 6px;
+    top: 4px;
+    position: relative;
+    font-size: 16px; }
+  .form-item input[type="text"],
+  .form-item input[type="email"],
+  .form-item textarea {
+    height: 44px;
+    background: #f1f2f2;
+    border: 1px solid #e4e6e6;
+    border-radius: 6px;
+    padding: 6px 14px 8px;
+    box-shadow: none;
+    width: 100%;
+    transition: all 0.25s;
+    font-size: 16px;
+    font-weight: 300; }
+    .form-item input[type="text"]:focus, .form-item input[type="text"]:hover, .form-item input[type="text"]:active,
+    .form-item input[type="email"]:focus,
+    .form-item input[type="email"]:hover,
+    .form-item input[type="email"]:active,
+    .form-item textarea:focus,
+    .form-item textarea:hover,
+    .form-item textarea:active {
+      box-shadow: 0 0 8px rgba(26, 135, 200, 0.45);
+      outline: none; }
+  .form-item textarea {
+    height: auto; }
+
+.webform-submit {
+  margin: 0 auto;
+  display: block; }
 
 .blocks .block {
   float: left;

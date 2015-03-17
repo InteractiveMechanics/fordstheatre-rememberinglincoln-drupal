@@ -103,9 +103,9 @@
                 <a href="<?php print $base_path; ?>about-remembering-lincoln">About This Project</a>
             </li>
     		<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
-    		<li><a href="http://fords.org/home/terms-use" target="_blank">Terms of Use</a></li>
+    		<li><a href="<?php print $base_path; ?>terms-of-use">Terms of Use</a></li>
     		<li><a href="http://blog.fords.org/" target="_blank">Ford's Theatre Blog</a></li>
-    		<li><a href="http://fords.org/contact" target="_blank">Contact Us</a></li>
+    		<li><a href="<?php print $base_path; ?>contact">Contact Us</a></li>
     	</ul>
     </div>
 </div>
