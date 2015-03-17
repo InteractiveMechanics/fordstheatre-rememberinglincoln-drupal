@@ -164,7 +164,7 @@
 				window.open(url,'_blank');
 			});
 
-            $('.photo-lightbox').featherlight({
+            $('.photo-lightbox:not(.disable)').featherlight({
                 afterOpen: function(event){
                     $(".img-zoomable").elevateZoom({ 
                         zoomType: "inner", 

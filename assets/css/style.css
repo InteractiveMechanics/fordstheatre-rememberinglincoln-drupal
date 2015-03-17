@@ -940,7 +940,7 @@ blockquote {
       line-height: 24px; }
     .blocks .block.block-number .overlay {
       background: #f2a43c;
-      opacity: 0.85; }
+      opacity: 0.65; }
   .blocks .block.block-callout {
     background: #800426; }
     .blocks .block.block-callout p {
@@ -1578,9 +1578,7 @@ ul.partner-list li {
 .zoomContainer {
   z-index: 1000; }
   .zoomContainer .zoomWindowContainer {
-    width: auto !important; }
-    .zoomContainer .zoomWindowContainer > div {
-      background-size: cover; }
+    width: 100% !important; }
 
 @media screen and (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
   .zoomContainer {

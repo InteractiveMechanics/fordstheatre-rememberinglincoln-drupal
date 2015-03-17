@@ -11,7 +11,11 @@
 	</a>
 	<p class="title">
 		<a href="<?php print url('node/' . $n->nid, array('absolute' => TRUE)); ?>">
-			<?php print $n->title; ?>
+            <?php if ($n->field_short_title['und'][0]['value']){
+			    print $n->field_short_title['und'][0]['value'];
+            } else {
+                print $n->title;
+            } ?>
 		</a>
 	</p>
 	<p class="date">

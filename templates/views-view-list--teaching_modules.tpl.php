@@ -17,7 +17,7 @@
 <div class="module-items">
 	<div class="container">
 		<div class="row">
-			
+			<?php $count = count($view->result); ?>
 			<?php foreach ($view->result as $delta => $item): ?>
 				<div class="col-md-6">
 					<div class="module-item">
@@ -42,7 +42,13 @@
 					</div>
 				</div>
 			<?php endforeach; ?>
-
+            <?php if ($count === 1): ?>
+                <div class="col-md-6">
+                    <div class="well text-center">
+                        <h4>More teaching modules coming soon!</h4>
+                    </div>
+                </div>
+            <?php endif; ?>
 		</div>
 	</div>
 </div>

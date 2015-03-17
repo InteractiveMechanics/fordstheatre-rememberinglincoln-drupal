@@ -54,9 +54,7 @@
 		overflow: visible;
 
 		/* dimensions: handling small or empty content */
-        min-width: 55%;
-        width: auto;
-        max-width: 75%;
+        width: 75%;
 
 		/* dimensions: handling large content */
 		margin-left: 5%;

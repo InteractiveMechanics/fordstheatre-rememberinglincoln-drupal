@@ -227,8 +227,9 @@
     z-index: 1000;
 
     .zoomWindowContainer {
-        width: auto !important;
-        & > div { background-size: cover; }
+        width: 100% !important;
+
+        //& > div { background-size: cover; }
     }
 }
 @media screen and #{$screen-xs}, #{$screen-sm} {

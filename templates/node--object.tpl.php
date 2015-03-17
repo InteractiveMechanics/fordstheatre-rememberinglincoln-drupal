@@ -137,10 +137,11 @@
             	<div class="browse-photo">
                     <?php 
                         $info = image_get_info($node->field_file['und'][0]['uri']);
-                        $ratio = $info['width']/$info['height']; 
+                        $ratio = $info['width']/$info['height'];
                     ?>
             		<div class="photo <?php if ($ratio < 1){ echo 'portrait'; } else { echo 'landscape'; } ?>">
-            			<a href="#" class="photo-lightbox" 
+            			<a href="#" 
+                           class="photo-lightbox <?php if($info['width'] < 800 || $info['height'] < 800){ echo 'disable'; } ?>" 
                            data-featherlight="<div class='img-zoomable' data-zoom-image='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>'><img src='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>' /></div>">
                             <img 
                 				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
