@@ -20,7 +20,11 @@
 	</p>
 	<p class="date">
 		<?php $term = taxonomy_term_load($n->field_item_type['und'][0]['tid']); print $term->name; ?> from
-		<?php print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y'); ?>
+		<?php if ($n->field_display_date['und'][0]['value']){
+			    print $n->field_display_date['und'][0]['value'];
+            } else {
+                print format_date(strtotime($n->field_date['und'][0]['value']), 'custom', 'M. j, Y');
+            } ?>
 	</p>
 	<div class="save-icon hidden-xs hidden-sm node-<?php print $n->nid ?>" data-nodeId="<?php print $n->nid ?>">
         <span class="glyphicon glyphicon-remove-circle" title="Save this Object"></span>

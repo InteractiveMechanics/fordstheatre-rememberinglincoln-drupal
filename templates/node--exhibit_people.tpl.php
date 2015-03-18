@@ -128,7 +128,7 @@
     							<ul>
     							    <?php foreach( $res['externals'] as $r): ?>
                                         <li>
-                                            <a href="//<?php print $r['url']; ?>" target="_blank"><?php print $r['title'] ?></a>
+                                            <a href="<?php print $r['url']; ?>" target="_blank"><?php print $r['title'] ?></a>
                                         </li>
                                     <?php endforeach; ?>
     							</ul>

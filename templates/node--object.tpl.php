@@ -141,7 +141,7 @@
                     ?>
             		<div class="photo <?php if ($ratio < 1){ echo 'portrait'; } else { echo 'landscape'; } ?>">
             			<a href="#" 
-                           class="photo-lightbox <?php if($info['width'] < 800 || $info['height'] < 800){ echo 'disable'; } ?>" 
+                           class="photo-lightbox <?php if($info['width'] < 300 || $info['height'] < 800){ echo 'disable'; } ?>" 
                            data-featherlight="<div class='img-zoomable' data-zoom-image='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>'><img src='<?php print file_create_url($node->field_file['und'][0]['uri']); ?>' /></div>">
                             <img 
                 				src="<?php print file_create_url($node->field_file['und'][0]['uri']); ?>" 
@@ -204,7 +204,7 @@
 	          							<?php foreach($node->field_tags['und'] as $tag): ?>
           									<li>
           										<h5>
-          											<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?tags=<?php print $tag['taxonomy_term']->name ?>"><?php print $tag['taxonomy_term']->name ?></a>
+          											<a href="<?php $base_path ?>/browse?tags=<?php print $tag['taxonomy_term']->name ?>"><?php print $tag['taxonomy_term']->name ?></a>
           										</h5>
           									</li>
           								<?php endforeach; ?>
@@ -220,7 +220,7 @@
                           				<ul>
                       						<?php foreach ($external_items as $item): ?>
             	          						<li>
-            	          							<a href="//<?php print $item['url'] ?>" target="_blank"><?php print $item['title'] ?></a>
+            	          							<a href="<?php print $item['url'] ?>" target="_blank"><?php print $item['title'] ?></a>
             			  						</li>
             			  					<?php endforeach; ?>
                           				</ul>
@@ -243,7 +243,7 @@
                             <?php if( $node->field_item_type['und'][0]['taxonomy_term'] ): ?>
                                 <li>
                                     <h4 class="title">Item Type</h4>
-                                    <p><a href="<?php print $base_path; ?>browse?item_type[]=<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>"><?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?></a></p>
+                                    <p><a href="<?php print $base_path; ?>browse/all/<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>/?type=<?php print $node->field_item_type['und'][0]['taxonomy_term']->tid; ?>"><?php print $node->field_item_type['und'][0]['taxonomy_term']->name; ?></a></p>
                                 </li>
                             <?php endif; ?>
           					<?php if( $node->field_subject['und'][0]['value'] ): ?>
@@ -293,7 +293,7 @@
 	          					<li>
 	          						<h4 class="title">Region</h4>
 	          						<p>
-	          							<a href="http://staging.interactivemechanics.com/rememberinglincoln/browse?region[]=<?php print $node->field_region['und'][0]['taxonomy_term']->tid;?>">
+	          							<a href="<?php $base_path ?>/browse/<?php print $node->field_region['und'][0]['taxonomy_term']->tid;?>/all/?region=<?php print $node->field_region['und'][0]['taxonomy_term']->tid;?>">
 		          							<?php print $node->field_region['und'][0]['taxonomy_term']->name;?>
 	          							</a>
 	          						</p>

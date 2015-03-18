@@ -855,6 +855,7 @@ blockquote {
     top: 4px;
     position: relative;
     font-size: 16px; }
+  .form-item input[type="password"],
   .form-item input[type="text"],
   .form-item input[type="email"],
   .form-item textarea {
@@ -868,7 +869,10 @@ blockquote {
     transition: all 0.25s;
     font-size: 16px;
     font-weight: 300; }
-    .form-item input[type="text"]:focus, .form-item input[type="text"]:hover, .form-item input[type="text"]:active,
+    .form-item input[type="password"]:focus, .form-item input[type="password"]:hover, .form-item input[type="password"]:active,
+    .form-item input[type="text"]:focus,
+    .form-item input[type="text"]:hover,
+    .form-item input[type="text"]:active,
     .form-item input[type="email"]:focus,
     .form-item input[type="email"]:hover,
     .form-item input[type="email"]:active,
@@ -1577,8 +1581,6 @@ ul.partner-list li {
 
 .zoomContainer {
   z-index: 1000; }
-  .zoomContainer .zoomWindowContainer {
-    width: 100% !important; }
 
 @media screen and (max-width: 767px), (min-width: 768px) and (max-width: 991px) {
   .zoomContainer {

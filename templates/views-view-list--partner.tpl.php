@@ -49,7 +49,7 @@
 									Website
 								</p>
 								<p class="detail">
-									<a href="//<?php print $user_info->field_website_url["und"][0]["value"]; ?>" target="_blank">
+									<a href="<?php print $user_info->field_website_url["und"][0]["value"]; ?>" target="_blank">
 										<?php print $user_info->field_website_url["und"][0]["value"]; ?>
 									</a>
 								</p>
