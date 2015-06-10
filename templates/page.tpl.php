@@ -7,6 +7,12 @@
  * @see https://drupal.org/node/1728148
  */
  global $base_path; 
+ 
+ 
+ $main_mobile_links = menu_load_links('menu-main-mobile-menu');
+ $sub_mobile_links = menu_load_links('menu-sub-mobile-menu-links');
+ $story_links = menu_load_links('menu-story-footer-links');
+ 
 ?>
 
 <div class="site-wrapper">
@@ -47,10 +53,12 @@
 		            			Explore the Story
 		            		</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?php print $base_path; ?>exhibit/introduction">Introduction</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/events">Timeline</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/places">Map of Responses</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/people">People</a></li>
+                            	<?php foreach($story_links as $menu): ?>
+									<li>
+					                	<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?>
+					                	</a>
+									</li>
+								<?php endforeach; ?>
                             </ul>
 		            	</li>
 
@@ -90,22 +98,25 @@
             <li class="title">
     			<a href="<?php print $front_page; ?>">Homepage</a>
     		</li>
-    		<li class="title">
-                <a href="<?php print $base_path; ?>exhibit/introduction">Explore the Story</a>
-            </li>
-    		<li class="title">
-    			<a href="<?php print $base_path; ?>browse">Browse All Responses</a>
-    		</li>
-    		<li class="title">
-    			<a href="<?php print $base_path; ?>curated-collection">Curated Collections</a>
-    		</li>
-    		<li class="title">
-                <a href="<?php print $base_path; ?>about-remembering-lincoln">About This Project</a>
-            </li>
-    		<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
-    		<li><a href="<?php print $base_path; ?>terms-of-use">Terms of Use</a></li>
-    		<li><a href="http://blog.fords.org/" target="_blank">Ford's Theatre Blog</a></li>
-    		<li><a href="<?php print $base_path; ?>contact">Contact Us</a></li>
+    		<?php foreach($main_mobile_links as $menu): ?>
+				<li class="title">
+                	<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?>
+                	</a>
+				</li>
+			<?php endforeach; ?>
+			
+			<?php foreach($sub_mobile_links as $menu): ?>
+				<?php $path = drupal_get_path_alias($menu['link_path']); ?>
+				
+				<?php if(strpos($path,'http') !== false): ?>
+		    		<li><a href="<?php print $menu['link_path']; ?>" target="_blank"><?php print $menu['link_title'] ?></a></li>
+		    		
+		    	<?php else: ?>
+		    		<li>
+		    			<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?></a>
+		    		</li>
+		    	<?php endif; ?>
+    		<?php endforeach; ?>
     	</ul>
     </div>
 </div>

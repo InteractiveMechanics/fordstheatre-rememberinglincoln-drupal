@@ -7,6 +7,13 @@
  * @see https://drupal.org/node/1728140
  */
  global $base_path;
+ 
+  
+ $story_links = menu_load_links('menu-story-footer-links');
+ $responses_links = menu_load_links('menu-responses-footer-links');
+ $about_links = menu_load_links('menu-about-footer-links');
+ $teachers_links = menu_load_links('menu-teachers-footer-links');
+ 
 ?>
 <?php if ($content): ?>
 	<div class="footer">
@@ -36,35 +43,55 @@
 						<li>
 							<ul>
 								<li class="title">Story</li>
-								<li><a href="<?php print $base_path; ?>exhibit/introduction">Introduction</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/events">Timeline</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/places">Map of Responses</a></li>
-								<li><a href="<?php print $base_path; ?>exhibit/people">People</a></li>
+								<?php foreach($story_links as $menu): ?>
+									<li>
+					                	<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?>
+					                	</a>
+									</li>
+								<?php endforeach; ?>
 							</ul>
 						</li>
 
 						<li>
 							<ul>
 								<li class="title">Responses</li>
-								<li><a href="<?php print $base_path; ?>browse">Browse all items</a></li>
-								<li><a href="<?php print $base_path; ?>curated-collection">View collections</a></li>
-								<li><a href="<?php print $base_path; ?>submit-an-item">Submit an item</a></li>
+								<?php foreach($responses_links as $menu): ?>
+									<li>
+					                	<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?>
+					                	</a>
+									</li>
+								<?php endforeach; ?>
 								<br />
 								<li class="title">For teachers</li>
-								<li><a href="<?php print $base_path; ?>teaching-modules">Teaching modules</a></li>
-								<li><a href="<?php print $base_path; ?>submit-a-module">Submit a module</a></li>
+								<?php foreach($teachers_links as $menu): ?>
+									<li>
+					                	<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?>
+					                	</a>
+									</li>
+								<?php endforeach; ?>
 							</ul>
 						</li>
 
 						<li>
 							<ul>
 								<li class="title">About the project</li>
-                                <li><a href="<?php print $base_path; ?>about-remembering-lincoln">About Remembering Lincoln</a></li>
-                                <li><a href="<?php print $base_path; ?>about-fords-theatre">About Ford's Theatre</a></li>
-								<li><a href="<?php print $base_path; ?>contributors">Contributors</a></li>
-								<li><a href="<?php print $base_path; ?>terms-of-use">Terms of Use</a></li>
-								<li><a href="http://blog.fords.org/" target="_blank">Ford's Theatre Blog</a></li>
-								<li><a href="<?php print $base_path; ?>contact">Contact us</a></li>
+								<?php foreach($about_links as $menu): ?>
+									
+									<?php $path = drupal_get_path_alias($menu['link_path']); ?>
+				
+									<?php if(strpos($path,'http') !== false): ?>
+							    		<li>
+							    			<a href="<?php print $menu['link_path']; ?>" target="_blank"><?php print $menu['link_title'] ?></a>
+							    		</li>
+							    		
+							    	<?php else: ?>
+							    		<li>
+							    			<a href="<?php print $base_path; ?><?php print drupal_get_path_alias($menu['link_path']) ?>"><?php print $menu['link_title'] ?></a>
+							    		</li>
+							    		
+							    	<?php endif; ?>
+									
+								<?php endforeach; ?>
 							</ul>
 						</li>
 					</ul>

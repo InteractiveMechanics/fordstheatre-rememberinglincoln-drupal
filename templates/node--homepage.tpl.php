@@ -15,6 +15,8 @@
 	shuffle($random_curated_node);
 	
 	global $base_path; 
+	
+	
 ?>
 
 <div class="hero-unit homepage">
@@ -114,6 +116,7 @@
     <?php endforeach; ?>
     
 </div> <!--./blocks -->
+
 
 
 <div class="homepage-blog-section">

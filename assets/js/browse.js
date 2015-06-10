@@ -13,7 +13,7 @@ function getParameterByName(name) {
 }
 
 function populateParams() {
-	var title = getParameterByName('title');
+	var title = getParameterByName('searchterm');
 	var object = getParameterByName('type');
 	var region = getParameterByName('region');
 	var tag = getParameterByName('tags');
@@ -95,9 +95,9 @@ $(document).ready(function(){
 		
 		if(title) {
 			if (containsQuestionMark(path)) {
-				path += "&title=" + title;
+				path += "&searchterm=" + title;
 			} else {
-				path += "?title=" + title;
+				path += "?searchterm=" + title;
 			}
 		}
 		
